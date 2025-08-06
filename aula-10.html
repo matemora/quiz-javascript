@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo: Dominando o DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #4a4e69;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Estilos das Questões */
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-of-type {
+            border-bottom: none;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option-label {
+            display: block;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Estilos do Feedback (pós-finalização) */
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .feedback.correct-feedback {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+        
+        .feedback.incorrect-feedback {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+        
+        .correct-answer {
+            background-color: #cce7d4 !important;
+            border-color: #58a66c !important;
+            font-weight: bold;
+        }
+
+        .user-incorrect {
+            background-color: #f8d7da !important;
+            border-color: #d37a81 !important;
+        }
+
+        /* Botão e Resultados */
+        .submit-btn {
+            background-color: #6247aa;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #533d8f;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #c7c8cc;
+            cursor: not-allowed;
+        }
+
+        #results-container {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #e2eafc;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Quiz Interativo: Dominando o DOM</h1>
+        <div id="quiz-form">
+            <!-- As perguntas serão inseridas aqui pelo JavaScript -->
+        </div>
+        <button class="submit-btn" id="submit-quiz-btn">Finalizar Quiz</button>
+        <div id="results-container" style="display: none;"></div>
+    </div>
+
+    <script>
+        // --- BANCO DE DADOS DO QUIZ ---
+        const quizData = [
+  {
+    "question": "Qual é a principal finalidade de uma `interface` em TypeScript, de acordo com o material apresentado?",
+    "options": [
+      "Criar apelidos para tipos primitivos, como `string` ou `number`.",
+      "Definir a 'forma' ou o 'contrato' que um objeto deve seguir.",
+      "Unir dois ou mais tipos diferentes em um só, como `string | number`.",
+      "Garantir que o valor de uma variável não possa ser alterado."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Para criar apelidos (aliases) para tipos, a ferramenta mais versátil é o `type`. Por exemplo: `type MeuTexto = string;`.",
+      "Correto! Interfaces são como plantas baixas para objetos. Elas são usadas principalmente para definir a estrutura e as propriedades que um objeto deve ter.",
+      "Incorreto. A união de tipos usando o operador `|` (pipe) é uma característica dos `type` aliases. Por exemplo: `type ID = string | number;`.",
+      "Incorreto. Para garantir que uma variável não possa ser reatribuída, usamos a palavra-chave `const` do JavaScript, não uma funcionalidade do sistema de tipos do TypeScript."
+    ]
+  },
+  {
+    "question": "Como uma interface `Cachorro` pode herdar as propriedades de uma interface `Animal`?",
+    "options": [
+      "Usando o operador de interseção: `type Cachorro = Animal & { ... }`",
+      "Usando a palavra-chave `extends`: `interface Cachorro extends Animal { ... }`",
+      "Usando a palavra-chave `implements`: `interface Cachorro implements Animal { ... }`",
+      "Declarando a interface `Cachorro` dentro da interface `Animal`."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O operador `&` é usado para compor `types`, não para estender `interfaces` no sentido de herança clássica. Ele cria um novo tipo que combina as propriedades de ambos.",
+      "Correto! A palavra-chave `extends` é usada para que uma interface herde todas as propriedades e métodos de outra, permitindo adicionar novas especializações.",
+      "Incorreto. A palavra-chave `implements` é usada por `classes` para garantir que elas sigam o contrato de uma `interface`, mas não é usada entre duas interfaces.",
+      "Incorreto. Aninhar interfaces não cria uma relação de herança entre elas. A forma correta e explícita é usando `extends`."
+    ]
+  },
+  {
+    "question": "Você precisa de um tipo que aceite 'disponível', 'esgotado' ou 'descontinuado'. Qual a forma correta de criar esse tipo?",
+    "options": [
+      "interface StatusProduto { 'disponível', 'esgotado', 'descontinuado' }",
+      "type StatusProduto = ['disponível', 'esgotado', 'descontinuado']",
+      "type StatusProduto = 'disponível' | 'esgotado' | 'descontinuado'",
+      "interface StatusProduto extends 'disponível', 'esgotado', 'descontinuado'"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A sintaxe de `interface` é usada para definir a forma de objetos (com chaves e valores), não para listar valores de string permitidos.",
+      "Incorreto. O uso de colchetes `[]` definiria um tipo `array` (tupla, neste caso), o que não é o objetivo. Queremos que uma variável tenha UM desses valores, não um array com todos eles.",
+      "Correto! Este é um exemplo clássico de `union type` (tipo de união), onde um tipo pode ser um valor dentre vários outros. O `type` é perfeito para isso.",
+      "Incorreto. A palavra-chave `extends` é usada para herdar de outra `interface`, não para listar valores permitidos."
+    ]
+  },
+  {
+    "question": "O que o operador `&` (interseção) faz quando combinamos dois tipos de objeto, como em `type A & B`?",
+    "options": [
+      "Cria um tipo que pode ter as propriedades de A OU as propriedades de B.",
+      "Cria um tipo que deve ter TODAS as propriedades de A E TODAS as propriedades de B.",
+      "Cria um tipo que terá apenas as propriedades que existem tanto em A quanto em B.",
+      "Gera um erro, pois o TypeScript não permite combinar `types` dessa forma."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Essa descrição corresponde ao operador de união `|` (pipe), que oferece flexibilidade.",
+      "Correto! A interseção (`&`) combina múltiplos tipos em um só, exigindo que o objeto final tenha todas as propriedades de todos os tipos que foram combinados.",
+      "Incorreto. Esse é um erro comum de interpretação. A interseção não busca o que é comum, mas sim soma todas as propriedades dos tipos envolvidos.",
+      "Incorreto. O TypeScript permite e incentiva a combinação de tipos com o operador `&` como uma forma de composição."
+    ]
+  },
+  {
+    "question": "Qual das seguintes características é uma diferença chave das `interfaces` que NÃO se aplica aos `types`?",
+    "options": [
+      "Podem ser usadas para definir a forma de um objeto.",
+      "Podem ser mescladas (Declaration Merging) se o mesmo nome for declarado mais de uma vez.",
+      "Podem ser usadas em conjunto com a palavra `extends`.",
+      "Podem ser utilizadas para tipar os parâmetros de uma função."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Tanto `interfaces` quanto `types` podem definir a forma de um objeto.",
+      "Correto! Apenas `interfaces` possuem a capacidade de 'Declaration Merging'. Se você declarar a mesma interface em dois lugares, o TypeScript as une. `type` não permite isso, o que o torna mais restrito e previsível.",
+      "Incorreto. Embora `extends` seja idiomático para `interfaces`, os `types` podem alcançar um resultado semelhante usando o operador de interseção `&`.",
+      "Incorreto. Ambos podem ser usados para tipar parâmetros de função, garantindo que os argumentos corretos sejam passados."
+    ]
+  },
+  {
+    "question": "Ao pegar um elemento do DOM com `document.querySelector('#meu-botao')`, por que é crucial verificar se o resultado é `null`?",
+    "options": [
+      "Porque o TypeScript exige essa verificação para compilar o código.",
+      "Para garantir que o elemento HTML não tenha erros de sintaxe.",
+      "Porque `querySelector` pode não encontrar o elemento, e tentar usar uma variável `null` causará um erro em tempo de execução.",
+      "Para converter o tipo do elemento para `HTMLButtonElement`."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O TypeScript não exige, mas ele te avisa do risco, tipando o retorno como `Element | null`. Ignorar esse aviso é uma má prática que pode levar a erros.",
+      "Incorreto. A verificação de `null` não tem relação com a sintaxe do HTML, mas sim com a existência do elemento na árvore do DOM no momento da busca.",
+      "Correto! Esta é a razão fundamental. Se o seletor estiver errado ou o elemento não existir na página, a função retornará `null`. Tentar adicionar um `addEventListener` a `null`, por exemplo, quebrará sua aplicação.",
+      "Incorreto. A verificação de `null` é uma checagem de existência. A conversão de tipo é feita com `as`, mas só deve ser feita depois de garantir que o elemento não é nulo."
+    ]
+  },
+  {
+    "question": "Dentro de um `addEventListener`, por que usamos `event.target as HTMLInputElement` para acessar a propriedade `.value`?",
+    "options": [
+      "Para forçar o TypeScript a recarregar o elemento do DOM.",
+      "É a única maneira de ler o valor de qualquer elemento HTML.",
+      "Porque o tipo padrão de `event.target` é genérico e não inclui a propriedade `.value`, então precisamos afirmar seu tipo específico.",
+      "Para criar uma cópia do `event.target` e evitar alterar o original."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O `as` é uma operação de asserção de tipo em tempo de compilação, ele não tem efeito sobre o DOM em tempo de execução.",
+      "Incorreto. Elementos como `div` ou `button` não possuem uma propriedade `.value`. Essa propriedade é específica de elementos de formulário, como `input`, `select`, etc.",
+      "Correto! Por padrão, `event.target` é do tipo `EventTarget`, que é muito genérico. Ao usar `as HTMLInputElement`, informamos ao TypeScript: 'Confie em mim, este alvo é um elemento de input', liberando o acesso a propriedades específicas como `.value`.",
+      "Incorreto. A asserção de tipo `as` não cria cópias de objetos, apenas informa ao compilador qual é o tipo esperado daquele valor."
+    ]
+  },
+  {
+    "question": "Qual é o tipo de retorno correto para uma função que realiza uma ação (ex: imprime no console) mas não retorna nenhum valor?",
+    "options": [
+      "void",
+      "null",
+      "undefined",
+      "any"
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! `void` é o tipo usado para explicitamente declarar que uma função não tem valor de retorno.",
+      "Incorreto. `null` é um valor que representa a ausência intencional de um objeto. Uma função pode retornar `null`, mas `void` significa que não há retorno algum.",
+      "Incorreto. `undefined` é o valor de uma variável que foi declarada mas não inicializada. Assim como `null`, é um valor, enquanto `void` é a ausência de um valor de retorno.",
+      "Incorreto. Embora `any` fizesse o código compilar, ele desabilita a verificação de tipos e não descreve a intenção da função, que é não retornar nada. `void` é muito mais preciso."
+    ]
+  },
+  {
+    "question": "Dado o array `const produtos: Product[]`, qual método de array tipado seria ideal para criar um novo array contendo apenas os nomes dos produtos?",
+    "options": [
+      "`.filter()`",
+      "`.forEach()`",
+      "`.reduce()`",
+      "`.map()`"
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O método `.filter()` é usado para criar um novo array com os elementos que passam em uma condição (ex: produtos com preço &gt 100). Ele não transforma os elementos.",
+      "Incorreto. O método `.forEach()` é usado para executar uma ação para cada elemento do array, mas ele não retorna um novo array.",
+      "Incorreto. Embora seja possível usar `.reduce()` para isso, ele é mais complexo e sua principal finalidade é 'reduzir' o array a um único valor (como uma soma total).",
+      "Correto! O método `.map()` é perfeito para isso. Ele cria um novo array com o mesmo número de elementos, onde cada elemento é o resultado da função de callback. Transformar um `Product` em uma `string` (seu nome) é o caso de uso ideal."
+    ]
+  },
+  {
+    "question": "Como se define uma propriedade opcional chamada `desconto` em uma interface `Produto`?",
+    "options": [
+      "`desconto: string | undefined;`",
+      "`optional desconto: string;`",
+      "`desconto?: number;`",
+      "`&ltdesconto&gt: number;`"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Embora na prática uma propriedade opcional possa ser `undefined`, a sintaxe correta e idiomática para declará-la na interface é usando o `?`.",
+      "Incorreto. A palavra-chave `optional` não existe com essa finalidade no TypeScript.",
+      "Correto! O ponto de interrogação `?` colocado antes dos dois pontos `:` indica que a propriedade é opcional. Objetos que seguem essa interface podem ou não ter essa propriedade.",
+      "Incorreto. O uso de `&lt &gt` (chevrons) é para Generics, não para definir propriedades opcionais."
+    ]
+  }
+];
+
+        // --- LÓGICA DO QUIZ ---
+        const quizForm = document.getElementById('quiz-form');
+        const submitButton = document.getElementById('submit-quiz-btn');
+        const resultsContainer = document.getElementById('results-container');
+
+        function renderQuiz() {
+            let quizHTML = '';
+            quizData.forEach((questionData, questionIndex) => {
+                let optionsHTML = '';
+                questionData.options.forEach((option, optionIndex) => {
+                    optionsHTML += `
+                        <label class="option-label" id="q${questionIndex}-option${optionIndex}">
+                            <input type="radio" name="question-${questionIndex}" value="${optionIndex}">
+                            <span>${option}</span>
+                        </label>
+                    `;
+                });
+
+                quizHTML += `
+                    <div class="question-block" id="question-block-${questionIndex}">
+                        <p class="question-text">${questionIndex + 1}. ${questionData.question}</p>
+                        <div class="options-container">${optionsHTML}</div>
+                    </div>
+                `;
+            });
+            quizForm.innerHTML = quizHTML;
+        }
+
+        function handleSubmit() {
+            let score = 0;
+            
+            // Desabilitar o botão para evitar múltiplos envios
+            submitButton.disabled = true;
+
+            quizData.forEach((questionData, questionIndex) => {
+                const questionBlock = document.getElementById(`question-block-${questionIndex}`);
+                const selectedOption = quizForm.querySelector(`input[name="question-${questionIndex}"]:checked`);
+                
+                // Desabilitar todos os inputs da questão
+                const allOptions = questionBlock.querySelectorAll('input[type="radio"]');
+                allOptions.forEach(input => input.disabled = true);
+
+                let feedbackHTML = '';
+                if (selectedOption) {
+                    const userAnswerIndex = parseInt(selectedOption.value);
+                    const userOptionLabel = document.getElementById(`q${questionIndex}-option${userAnswerIndex}`);
+                    
+                    if (userAnswerIndex === questionData.correct) {
+                        score++;
+                        userOptionLabel.classList.add('user-correct'); // Opcional, pois a correta já será verde
+                        feedbackHTML = `<div class="feedback correct-feedback"><strong>Sua resposta está correta!</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    } else {
+                        userOptionLabel.classList.add('user-incorrect');
+                        feedbackHTML = `<div class="feedback incorrect-feedback"><strong>Sua resposta está incorreta.</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    }
+                } else {
+                     feedbackHTML = `<div class="feedback incorrect-feedback">Você não respondeu a esta pergunta.</div>`;
+                }
+
+                // Sempre destacar a resposta correta
+                const correctOptionLabel = document.getElementById(`q${questionIndex}-option${questionData.correct}`);
+                correctOptionLabel.classList.add('correct-answer');
+                
+                // Adicionar o feedback ao bloco da questão
+                questionBlock.innerHTML += feedbackHTML;
+            });
+
+            // Mostrar o resultado final
+            resultsContainer.innerHTML = `Você acertou ${score} de ${quizData.length} perguntas!`;
+            resultsContainer.style.display = 'block';
+            submitButton.style.display = 'none'; // Esconder o botão de finalizar
+        }
+
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+            submitButton.addEventListener('click', handleSubmit);
+        });
+    </script>
+
+</body>
+</html>
