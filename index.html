@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de TypeScript I</title>
+    <!-- Incluindo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluindo Google Font - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para a fonte e para garantir que o Tailwind funcione bem */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5; /* Um cinza claro para o fundo */
+            color: #333;
+        }
+        /* Estilos globais para botões para um visual mais consistente e moderno */
+        button {
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        /* Estilo para as opções de rádio personalizadas */
+        .options label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background-color: #ffffff;
+        }
+        .options label:hover {
+            background-color: #f0f4f8;
+            border-color: #cbd5e1;
+        }
+        .options input[type="radio"] {
+            margin-right: 12px;
+            /* Oculta o rádio padrão e usa um estilo customizado */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #a0aec0;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0; /* Impede que o rádio encolha */
+        }
+        .options input[type="radio"]:checked {
+            background-color: #3b82f6; /* Cor azul do Tailwind */
+            border-color: #3b82f6;
+        }
+        .options input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+<div class="container mx-auto bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-4">Quiz de TypeScript I</h1>
+    <p class="text-center text-gray-600 mb-8">Teste seus conhecimentos sobre a aula de TypeScript. Responda a 10 perguntas e veja seu resultado no final!</p>
+
+    <form id="quizForm">
+
+        <!-- Pergunta 1 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">1. Qual a principal característica do TypeScript em relação ao JavaScript puro?</h3>
+            <div class="options space-y-2">
+                <label for="q1-a">
+                    <input type="radio" id="q1-a" name="q1" value="a">
+                    <span>a) Ele é uma linguagem totalmente diferente, com sintaxe própria.</span>
+                </label>
+                <label for="q1-b">
+                    <input type="radio" id="q1-b" name="q1" value="b">
+                    <span>b) Ele adiciona tipagem estática opcional ao JavaScript.</span>
+                </label>
+                <label for="q1-c">
+                    <input type="radio" id="q1-c" name="q1" value="c">
+                    <span>c) Ele remove funcionalidades do JavaScript para torná-lo mais leve.</span>
+                </label>
+                <label for="q1-d">
+                    <input type="radio" id="q1-d" name="q1" value="d">
+                    <span>d) Ele é interpretado diretamente pelos navegadores sem precisar de compilação.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q1"></div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">2. Qual é a regra de ouro ao usar o tipo `any`?</h3>
+            <div class="options space-y-2">
+                <label for="q2-a">
+                    <input type="radio" id="q2-a" name="q2" value="a">
+                    <span>a) Usá-lo sempre que não souber o tipo da variável.</span>
+                </label>
+                <label for="q2-b">
+                    <input type="radio" id="q2-b" name="q2" value="b">
+                    <span>b) Evitá-lo sempre que possível, pois ele desliga a checagem de tipo.</span>
+                </label>
+                <label for="q2-c">
+                    <input type="radio" id="q2-c" name="q2" value="c">
+                    <span>c) Usá-lo para otimizar o desempenho do código.</span>
+                </label>
+                <label for="q2-d">
+                    <input type="radio" id="q2-d" name="q2" value="d">
+                    <span>d) Usá-lo apenas para variáveis que armazenam números.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q2"></div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">3. O que acontece com o código TypeScript antes de ser executado em um navegador?</h3>
+            <div class="options space-y-2">
+                <label for="q3-a">
+                    <input type="radio" id="q3-a" name="q3" value="a">
+                    <span>a) O navegador executa o arquivo `.ts` diretamente.</span>
+                </label>
+                <label for="q3-b">
+                    <input type="radio" id="q3-b" name="q3" value="b">
+                    <span>b) Ele é traduzido (compilado) para código JavaScript.</span>
+                </label>
+                <label for="q3-c">
+                    <input type="radio" id="q3-c" name="q3" value="c">
+                    <span>c) Ele é enviado para um servidor para ser processado.</span>
+                </label>
+                <label for="q3-d">
+                    <input type="radio" id="q3-d" name="q3" value="d">
+                    <span>d) Ele é automaticamente otimizado pela Microsoft.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q3"></div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">4. Qual é o tipo de dado em TypeScript usado para representar valores lógicos?</h3>
+            <div class="options space-y-2">
+                <label for="q4-a">
+                    <input type="radio" id="q4-a" name="q4" value="a">
+                    <span>a) string</span>
+                </label>
+                <label for="q4-b">
+                    <input type="radio" id="q4-b" name="q4" value="b">
+                    <span>b) number</span>
+                </label>
+                <label for="q4-c">
+                    <input type="radio" id="q4-c" name="q4" value="c">
+                    <span>c) boolean</span>
+                </label>
+                <label for="q4-d">
+                    <input type="radio" id="q4-d" name="q4" value="d">
+                    <span>d) logical</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q4"></div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">5. Qual a diferença entre `null` e `undefined` em TypeScript?</h3>
+            <div class="options space-y-2">
+                <label for="q5-a">
+                    <input type="radio" id="q5-a" name="q5" value="a">
+                    <span>a) Eles são o mesmo tipo e podem ser usados de forma intercambiável.</span>
+                </label>
+                <label for="q5-b">
+                    <input type="radio" id="q5-b" name="q5" value="b">
+                    <span>b) `null` indica a ausência intencional de um valor, enquanto `undefined` indica que uma variável foi declarada, mas nunca teve um valor atribuído.</span>
+                </label>
+                <label for="q5-c">
+                    <input type="radio" id="q5-c" name="q5" value="c">
+                    <span>c) `undefined` indica a ausência intencional de um valor, enquanto `null` indica que a variável não foi declarada.</span>
+                </label>
+                <label for="q5-d">
+                    <input type="radio" id="q5-d" name="q5" value="d">
+                    <span>d) Eles não existem em TypeScript, apenas em JavaScript.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q5"></div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">6. Como você pode tornar um parâmetro de função opcional em TypeScript?</h3>
+            <div class="options space-y-2">
+                <label for="q6-a">
+                    <input type="radio" id="q6-a" name="q6" value="a">
+                    <span>a) Usando a palavra-chave `optional` antes do nome do parâmetro.</span>
+                </label>
+                <label for="q6-b">
+                    <input type="radio" id="q6-b" name="q6" value="b">
+                    <span>b) Colocando um `?` após o nome do parâmetro.</span>
+                </label>
+                <label for="q6-c">
+                    <input type="radio" id="q6-c" name="q6" value="c">
+                    <span>c) Atribuindo um valor padrão ao parâmetro.</span>
+                </label>
+                <label for="q6-d">
+                    <input type="radio" id="q6-d" name="q6" value="d">
+                    <span>d) Não é possível ter parâmetros opcionais em TypeScript.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q6"></div>
+        </div>
+
+        <!-- Pergunta 7 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">7. Qual das seguintes opções é um Tipo Composto em TypeScript?</h3>
+            <div class="options space-y-2">
+                <label for="q7-a">
+                    <input type="radio" id="q7-a" name="q7" value="a">
+                    <span>a) string</span>
+                </label>
+                <label for="q7-b">
+                    <input type="radio" id="q7-b" name="q7" value="b">
+                    <span>b) number</span>
+                </label>
+                <label for="q7-c">
+                    <input type="radio" id="q7-c" name="q7" value="c">
+                    <span>c) Tuplas</span>
+                </label>
+                <label for="q7-d">
+                    <input type="radio" id="q7-d" name="q7" value="d">
+                    <span>d) boolean</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q7"></div>
+        </div>
+
+        <!-- Pergunta 8 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">8. O que são Union Types em TypeScript?</h3>
+            <div class="options space-y-2">
+                <label for="q8-a">
+                    <input type="radio" id="q8-a" name="q8" value="a">
+                    <span>a) Uma forma de combinar diferentes objetos em um só.</span>
+                </label>
+                <label for="q8-b">
+                    <input type="radio" id="q8-b" name="q8" value="b">
+                    <span>b) Um tipo que só pode ter um valor fixo e específico.</span>
+                </label>
+                <label for="q8-c">
+                    <input type="radio" id="q8-c" name="q8" value="c">
+                    <span>c) Um tipo que permite a uma variável ser um de vários tipos possíveis.</span>
+                </label>
+                <label for="q8-d">
+                    <input type="radio" id="q8-d" name="q8" value="d">
+                    <span>d) Um tipo que remove a checagem de tipos.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q8"></div>
+        </div>
+
+        <!-- Pergunta 9 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">9. Qual a principal vantagem de usar `type aliases`?</h3>
+            <div class="options space-y-2">
+                <label for="q9-a">
+                    <input type="radio" id="q9-a" name="q9" value="a">
+                    <span>a) Eles tornam o código mais rápido.</span>
+                </label>
+                <label for="q9-b">
+                    <input type="radio" id="q9-b" name="q9" value="b">
+                    <span>b) Eles substituem completamente as classes.</span>
+                </label>
+                <label for="q9-c">
+                    <input type="radio" id="q9-c" name="q9" value="c">
+                    <span>c) Eles melhoram a legibilidade do código e permitem a reutilização de definições de tipo.</span>
+                </label>
+                <label for="q9-d">
+                    <input type="radio" id="q9-d" name="q9" value="d">
+                    <span>d) Eles permitem criar tipos sem a necessidade de definir propriedades.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q9"></div>
+        </div>
+
+        <!-- Pergunta 10 -->
+        <div class="question mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3">10. Em qual das situações a tipagem por inferência é mais recomendada em TypeScript?</h3>
+            <div class="options space-y-2">
+                <label for="q10-a">
+                    <input type="radio" id="q10-a" name="q10" value="a">
+                    <span>a) Sempre que possível, para manter o código limpo.</span>
+                </label>
+                <label for="q10-b">
+                    <input type="radio" id="q10-b" name="q10" value="b">
+                    <span>b) Nunca, a tipagem explícita é sempre melhor.</span>
+                </label>
+                <label for="q10-c">
+                    <input type="radio" id="q10-c" name="q10" value="c">
+                    <span>c) Apenas em funções anônimas.</span>
+                </label>
+                <label for="q10-d">
+                    <input type="radio" id="q10-d" name="q10" value="d">
+                    <span>d) Apenas em variáveis que recebem valores literais.</span>
+                </label>
+            </div>
+            <div class="feedback hidden mt-4 text-sm" id="feedback-q10"></div>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">Finalizar Quiz</button>
+    </form>
+
+    <div class="summary hidden mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
+        <h2 class="text-2xl font-bold text-blue-800 mb-3">Seu Resultado</h2>
+        <p id="scoreText" class="text-blue-700 text-lg"></p>
+    </div>
+
+</div>
+
+<script>
+    // Todo o código JavaScript foi movido para dentro do evento DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Objeto que armazena as respostas corretas para cada pergunta
+        const answers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'b',
+            q4: 'c',
+            q5: 'b',
+            q6: 'b',
+            q7: 'c',
+            q8: 'c',
+            q9: 'c',
+            q10: 'a'
+        };
+
+        // Objeto que armazena as explicações para as respostas corretas e incorretas
+        const explanations = {
+            q1: {
+                correct: "A resposta correta é a 'b'. O TypeScript é um superset do JavaScript que adiciona funcionalidades, sendo a tipagem estática opcional sua principal característica.",
+                incorrect: {
+                    a: "O TypeScript não é uma linguagem totalmente diferente; ele é um superset do JavaScript, o que significa que quase todo código JavaScript válido é também um código TypeScript válido.",
+                    c: "Pelo contrário, o TypeScript adiciona funcionalidades, não as remove.",
+                    d: "Navegadores e Node.js não entendem TypeScript diretamente. O código precisa ser traduzido (compilado) para JavaScript antes de ser executado."
+                }
+            },
+            q2: {
+                correct: "A resposta correta é a 'b'. O tipo `any` é considerado perigoso porque desliga a checagem de tipo do TypeScript, negando seus principais benefícios. A regra de ouro é evitá-lo sempre que possível.",
+                incorrect: {
+                    a: "O uso indiscriminado de `any` é desaconselhado, pois elimina a segurança e a clareza que o TypeScript oferece.",
+                    c: "O `any` não é usado para otimização de desempenho; ele é usado em situações onde a checagem de tipo é ignorada, o que pode levar a erros em tempo de execução.",
+                    d: "O tipo `any` pode ser usado para qualquer tipo de dado, não se restringindo a números. O problema é que, ao usá-lo, você perde a tipagem estática."
+                }
+            },
+            q3: {
+                correct: "A resposta correta é a 'b'. O código TypeScript (`.ts`) não pode ser executado diretamente por navegadores ou pelo Node.js. Ele precisa ser 'traduzido' para JavaScript (`.js`) por um processo chamado compilação.",
+                incorrect: {
+                    a: "Navegadores só entendem arquivos `.js`. É necessária a compilação.",
+                    c: "A compilação é um processo local, muitas vezes feito por ferramentas como `tsc`, Vite ou Next.js. Não é algo que depende de um servidor para ser processado.",
+                    d: "A Microsoft mantém o TypeScript, mas a tradução para JavaScript é um processo de compilação que pode ser feito localmente ou por ferramentas de build, não uma otimização automática pela empresa."
+                }
+            },
+            q4: {
+                correct: "A resposta correta é a 'c'. `boolean` é o tipo primitivo usado para valores lógicos como `true` e `false`.",
+                incorrect: {
+                    a: "O tipo `string` é usado para texto.",
+                    b: "O tipo `number` é usado para números.",
+                    d: "O tipo `logical` não é um tipo primitivo padrão do TypeScript."
+                }
+            },
+            q5: {
+                correct: "A resposta correta é a 'b'. Em TypeScript, `null` é usado para indicar a ausência intencional de um valor, enquanto `undefined` indica que uma variável foi declarada, mas ainda não recebeu um valor. Eles são tipos distintos.",
+                incorrect: {
+                    a: "Eles são tipos distintos e não devem ser usados de forma intercambiável.",
+                    c: "Essa é a definição invertida. `null` é a ausência intencional e `undefined` é a falta de atribuição.",
+                    d: "Ambos os tipos existem tanto em JavaScript quanto em TypeScript, e em TypeScript são tratados como tipos separados."
+                }
+            },
+            q6: {
+                correct: "A resposta correta é a 'b'. Para tornar um parâmetro de função opcional, você deve usar o símbolo `?` após o nome do parâmetro.",
+                incorrect: {
+                    a: "Não existe a palavra-chave `optional` para essa finalidade. O símbolo `?` é a sintaxe correta.",
+                    c: "Atribuir um valor padrão também torna o parâmetro opcional, mas a forma mais direta de simplesmente declará-lo como opcional é com o `?`.",
+                    d: "É totalmente possível e é uma das funcionalidades do TypeScript."
+                }
+            },
+            q7: {
+                correct: "A resposta correta é a 'c'. Tipos Compostos são estruturas que agrupam múltiplos valores. A aula lista Arrays, Tuplas e Objetos como exemplos.",
+                incorrect: {
+                    a: "string é um tipo primitivo, não composto.",
+                    b: "number é um tipo primitivo, não composto.",
+                    d: "boolean é um tipo primitivo, não composto."
+                }
+            },
+            q8: {
+                correct: "A resposta correta é a 'c'. Union Types permitem que uma variável possa ter um de vários tipos possíveis. Eles são definidos com o símbolo `|`.",
+                incorrect: {
+                    a: "Embora Union Types possam ser usados com objetos, sua principal função não é combinar objetos, mas sim permitir que uma variável aceite diferentes tipos de dados.",
+                    b: "A descrição se refere a Literal Types, que restringem o tipo a um valor específico.",
+                    d: "Union Types não removem a checagem de tipos; eles a tornam mais flexível, garantindo que o valor seja um dos tipos definidos na união."
+                }
+            },
+            q9: {
+                correct: "A resposta correta é a 'c'. `type aliases` criam um nome para uma definição de tipo, o que melhora a legibilidade e permite que essa definição seja reutilizada em várias partes do código.",
+                incorrect: {
+                    a: "A tipagem em TypeScript é verificada em tempo de compilação e não tem um impacto direto no desempenho de execução do código JavaScript gerado.",
+                    b: "Eles substituem completamente as classes.",
+                    d: "Type aliases são usados para dar nome a definições de tipo, que geralmente incluem propriedades e suas respectivas tipagens."
+                }
+            },
+            q10: {
+                correct: "A resposta correta é a 'a'. A recomendação da aula é usar inferência por padrão e recorrer à tipagem explícita quando houver dúvida ou para maior clareza.",
+                incorrect: {
+                    a: "A inferência de tipo é uma das vantagens do TypeScript, pois ele pode descobrir o tipo com base no valor inicial da variável, tornando o código mais limpo. A própria aula sugere usar inferência na dúvida.",
+                    b: "A tipagem explícita é útil para clareza e documentação, mas a inferência é uma ferramenta poderosa e recomendada.",
+                    c: "A inferência não se limita a funções anônimas, embora seja muito útil nelas. Ela funciona com variáveis e outros contextos também.",
+                    d: "A inferência funciona bem com valores literais, mas não se limita a eles. Ela pode inferir tipos de expressões e retornos de função, por exemplo."
+                }
+            }
+        };
+
+        // Adiciona um listener para o evento de submissão do formulário
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão de recarregar a página
+
+            let score = 0; // Inicializa a pontuação do usuário
+            let totalQuestions = Object.keys(answers).length; // Obtém o número total de perguntas
+
+            // Itera sobre cada pergunta no objeto 'answers'
+            for (const questionId in answers) {
+                try {
+                    // Encontra a opção de rádio selecionada para a pergunta atual
+                    const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                    // Encontra o div de feedback para a pergunta atual
+                    const feedbackDiv = document.getElementById(`feedback-${questionId}`);
+                    
+                    // Adiciona uma verificação para garantir que o feedbackDiv não seja null
+                    if (!feedbackDiv) {
+                        console.error(`Elemento de feedback não encontrado para a pergunta: ${questionId}`);
+                        continue; // Pula para a próxima iteração se o elemento não for encontrado
+                    }
+
+                    // Remove classes CSS de feedback anteriores para resetar o estado
+                    feedbackDiv.classList.remove('hidden', 'correct', 'incorrect');
+
+                    // Verifica se uma opção foi selecionada
+                    if (selectedOption) {
+                        // Se a opção selecionada for a correta
+                        if (selectedOption.value === answers[questionId]) {
+                            score++; // Incrementa a pontuação
+                            feedbackDiv.classList.add('correct'); // Adiciona classe de estilo para correto
+                            feedbackDiv.innerHTML = `<strong>Resposta Correta!</strong> ${explanations[questionId].correct}`; // Mostra feedback de correto
+                        } else {
+                            // Se a opção selecionada for incorreta
+                            feedbackDiv.classList.add('incorrect'); // Adiciona classe de estilo para incorreto
+                            // Mostra feedback de incorreto, incluindo a explicação do erro e da resposta correta
+                            feedbackDiv.innerHTML = `<strong>Resposta Incorreta.</strong> A resposta correta é '${answers[questionId]}'.<br><strong>Por que está incorreto:</strong> ${explanations[questionId].incorrect[selectedOption.value] || 'Nenhuma explicação disponível.'}<br><strong>Explicação da resposta correta:</strong> ${explanations[questionId].correct}`;
+                        }
+                    } else {
+                        // Se nenhuma opção foi selecionada
+                        feedbackDiv.classList.add('incorrect'); // Adiciona classe de estilo para incorreto
+                        // Informa que nenhuma resposta foi selecionada e mostra a resposta correta com explicação
+                        feedbackDiv.innerHTML = `<strong>Você não selecionou uma resposta.</strong> A resposta correta era '${answers[questionId]}'.<br><strong>Explicação da resposta correta:</strong> ${explanations[questionId].correct}`;
+                    }
+
+                    // Garante que o feedback esteja visível
+                    feedbackDiv.classList.remove('hidden');
+                } catch (error) {
+                    console.error(`Erro ao processar a pergunta ${questionId}:`, error);
+                    // Você pode adicionar um feedback visual para o usuário aqui se desejar,
+                    // por exemplo, um alerta genérico de erro para a pergunta.
+                }
+            }
+
+            // Exibe o resumo do quiz e a pontuação final
+            const quizSummary = document.getElementById('quizSummary');
+            const scoreText = document.getElementById('scoreText');
+
+            if (quizSummary && scoreText) {
+                quizSummary.classList.remove('hidden');
+                scoreText.innerText = `Você acertou ${score} de ${totalQuestions} perguntas.`;
+                // Rola a página para o final para mostrar o resumo
+                window.scrollTo(0, document.body.scrollHeight);
+            } else {
+                console.error("Elementos de resumo do quiz não encontrados.");
+            }
+        });
+    }); // Fim do DOMContentLoaded
+</script>
+
+</body>
+</html>
