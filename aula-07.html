@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo: Dominando o DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #4a4e69;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Estilos das Questões */
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-of-type {
+            border-bottom: none;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option-label {
+            display: block;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Estilos do Feedback (pós-finalização) */
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .feedback.correct-feedback {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+        
+        .feedback.incorrect-feedback {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+        
+        .correct-answer {
+            background-color: #cce7d4 !important;
+            border-color: #58a66c !important;
+            font-weight: bold;
+        }
+
+        .user-incorrect {
+            background-color: #f8d7da !important;
+            border-color: #d37a81 !important;
+        }
+
+        /* Botão e Resultados */
+        .submit-btn {
+            background-color: #6247aa;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #533d8f;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #c7c8cc;
+            cursor: not-allowed;
+        }
+
+        #results-container {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #e2eafc;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Quiz Interativo: Dominando o DOM</h1>
+        <div id="quiz-form">
+            <!-- As perguntas serão inseridas aqui pelo JavaScript -->
+        </div>
+        <button class="submit-btn" id="submit-quiz-btn">Finalizar Quiz</button>
+        <div id="results-container" style="display: none;"></div>
+    </div>
+
+    <script>
+        // --- BANCO DE DADOS DO QUIZ ---
+        const quizData = [
+            {
+                question: "O que é o DOM (Document Object Model)?",
+                options: [
+                    "Uma linguagem de programação que roda no navegador.",
+                    "Uma representação em árvore da estrutura de um documento HTML, que permite a manipulação da página.",
+                    "Um arquivo de estilo que define a aparência dos elementos HTML.",
+                    "O código JavaScript que está dentro da tag &lt;script&gt;."
+                ],
+                correct: 1,
+                feedback: [
+                    "Incorreto. A linguagem que roda no navegador é o JavaScript. O DOM é a estrutura que o JavaScript manipula.",
+                    "Correto! O DOM é como um mapa da página HTML que o JavaScript usa para encontrar, alterar, adicionar ou remover elementos.",
+                    "Incorreto. O arquivo de estilo que define a aparência é o CSS (Cascading Style Sheets).",
+                    "Incorreto. O DOM é a estrutura da página inteira, não apenas o código dentro de uma tag específica."
+                ]
+            },
+            {
+                question: "Qual método é mais recomendado para selecionar um único elemento que possui um ID único?",
+                options: [
+                    "document.querySelector('#meuId')",
+                    "document.getElementsByClassName('meuId')",
+                    "document.getElementById('meuId')",
+                    "document.getElementsByTagName('meuId')"
+                ],
+                correct: 2,
+                feedback: [
+                    "Embora funcione, `getElementById` é mais específico e otimizado para essa tarefa, sendo geralmente mais rápido.",
+                    "Incorreto. `getElementsByClassName` seleciona elementos pela sua classe, não pelo ID, e retorna uma coleção.",
+                    "Correto! Este é o método mais direto e eficiente para selecionar um elemento por seu ID único.",
+                    "Incorreto. `getElementsByTagName` seleciona elementos pelo nome da tag (como 'p' ou 'div'), não pelo ID."
+                ]
+            },
+            {
+                question: "Se você usar `document.querySelectorAll('.item')`, o que será retornado?",
+                options: [
+                    "O primeiro elemento HTML que tiver a classe 'item'.",
+                    "Uma NodeList (parecida com um array) contendo todos os elementos com a classe 'item'.",
+                    "Uma string com o conteúdo de todos os elementos com a classe 'item'.",
+                    "Um erro, pois seletores de classe não são permitidos neste método."
+                ],
+                correct: 1,
+                feedback: [
+                    "Incorreto. Para selecionar apenas o primeiro elemento, você usaria `document.querySelector('.item')` (sem o 'All').",
+                    "Correto! `querySelectorAll` retorna uma coleção (NodeList) de todos os elementos que correspondem ao seletor CSS.",
+                    "Incorreto. Ele retorna os próprios elementos, não o conteúdo deles. Para obter o conteúdo, você precisaria iterar sobre a lista retornada.",
+                    "Incorreto. `querySelectorAll` é muito poderoso e aceita qualquer seletor CSS válido, incluindo seletores de classe."
+                ]
+            },
+            {
+                question: "Qual a principal diferença entre `element.textContent` e `element.innerHTML`?",
+                options: [
+                    "Não há diferença, ambos fazem a mesma coisa.",
+                    "`textContent` altera apenas o texto, enquanto `innerHTML` interpreta e renderiza tags HTML.",
+                    "`innerHTML` é mais seguro para usar com dados vindos de usuários.",
+                    "`textContent` é usado para adicionar classes e `innerHTML` para adicionar estilos."
+                ],
+                correct: 1,
+                feedback: [
+                    "Incorreto. Existe uma diferença crucial em termos de segurança e funcionalidade.",
+                    "Correto! `textContent` trata tudo como texto puro, o que o torna mais seguro. `innerHTML` permite injetar HTML, o que é poderoso mas pode abrir brechas de segurança (XSS) se não for usado com cuidado.",
+                    "Incorreto. Pelo contrário, `textContent` é muito mais seguro, pois não interpreta scripts ou tags HTML inseridas por usuários.",
+                    "Incorreto. Para manipular classes usamos `element.classList` e para estilos, `element.style`."
+                ]
+            },
+            {
+                question: "Para criar um novo elemento `p` e adicioná-lo dentro de uma `div` com id 'container', qual seria a sequência correta de comandos?",
+                options: [
+                    "const div = document.getElementById('container'); div.createElement('p');",
+                    "const p = document.appendChild('p'); document.getElementById('container').add(p);",
+                    "const p = document.createElement('p'); const div = document.getElementById('container'); div.appendChild(p);",
+                    "document.innerHTML += '&lt;p&gt;Novo parágrafo&lt;/p&gt;';"
+                ],
+                correct: 2,
+                feedback: [
+                    "Incorreto. `createElement` é um método do `document`, não de um elemento específico como a div.",
+                    "Incorreto. `appendChild` é usado para adicionar um elemento já criado, não para criar um. E a sintaxe de `add` está incorreta.",
+                    "Correto! Primeiro você cria o elemento na memória (`createElement`), depois seleciona o elemento pai e, por fim, anexa o novo elemento ao pai (`appendChild`).",
+                    "Incorreto. Embora isso possa funcionar visualmente, é uma má prática pois reconstrói todo o HTML da div, o que é ineficiente e pode apagar outros elementos ou event listeners."
+                ]
+            },
+            {
+                question: "Como você adicionaria a classe CSS 'ativo' a um elemento sem remover as classes que ele já possui?",
+                options: [
+                    "elemento.className = 'ativo';",
+                    "elemento.style.class = 'ativo';",
+                    "elemento.setAttribute('class', 'ativo');",
+                    "elemento.classList.add('ativo');"
+                ],
+                correct: 3,
+                feedback: [
+                    "Incorreto. Usar `className =` substitui TODAS as classes existentes do elemento pela nova string.",
+                    "Incorreto. A propriedade `style` é usada para manipular estilos CSS diretamente, não classes.",
+                    "Incorreto. `setAttribute('class', ...)` tem o mesmo efeito de `className =`, substituindo todas as classes existentes.",
+                    "Correto! O objeto `classList` fornece métodos seguros como `.add()`, `.remove()` e `.toggle()` para manipular classes individualmente sem afetar as outras."
+                ]
+            },
+            {
+                question: "Qual evento é disparado continuamente enquanto um usuário digita em um campo `&ltinput&gt`?",
+                options: [
+                    "click",
+                    "change",
+                    "input",
+                    "submit"
+                ],
+                correct: 2,
+                feedback: [
+                    "Incorreto. O evento 'click' é disparado quando o usuário clica com o mouse.",
+                    "Incorreto. O evento 'change' só é disparado quando o usuário finaliza a alteração e o campo perde o foco (por exemplo, clicando fora dele).",
+                    "Correto! O evento 'input' é ideal para validações em tempo real, pois é disparado a cada tecla pressionada que altera o valor do campo.",
+                    "Incorreto. O evento 'submit' é disparado no elemento `&ltform&gt` quando ele é enviado, geralmente por um botão do tipo 'submit'."
+                ]
+            },
+            {
+                question: "Se um seletor como `document.getElementById('id-que-nao-existe')` não encontra nenhum elemento, o que ele retorna?",
+                options: [
+                    "undefined",
+                    "Um objeto vazio {}",
+                    "null",
+                    "Uma string vazia ''"
+                ],
+                correct: 2,
+                feedback: [
+                    "Incorreto. Embora `undefined` represente a ausência de valor, o DOM API especifica `null` para este caso.",
+                    "Incorreto. Nenhum objeto é retornado se o elemento não for encontrado.",
+                    "Correto! Quando um método de seleção não encontra o elemento especificado, ele retorna `null`. É importante sempre verificar se o resultado não é `null` antes de tentar manipulá-lo.",
+                    "Incorreto. O retorno não é uma string."
+                ]
+            },
+            {
+                question: "Para remover um elemento da página, qual é o método mais moderno e simples?",
+                options: [
+                    "elemento.parentNode.removeChild(elemento)",
+                    "elemento.delete()",
+                    "elemento.style.display = 'none'",
+                    "elemento.remove()"
+                ],
+                correct: 3,
+                feedback: [
+                    "Esta é a forma mais antiga e funciona, mas é mais verbosa, pois exige que você tenha uma referência ao pai do elemento.",
+                    "Incorreto. Não existe um método `.delete()` para remover elementos do DOM.",
+                    "Incorreto. Isso apenas esconde o elemento visualmente, mas ele continua existindo na árvore do DOM e ocupando espaço (dependendo do display).",
+                    "Correto! O método `.remove()` é a forma mais moderna, simples e direta de remover um elemento do DOM, bastando ter a referência do próprio elemento."
+                ]
+            },
+            {
+                question: "Por que geralmente colocamos a tag `&ltscript&gt` no final do `&ltbody&gt`?",
+                options: [
+                    "Porque o JavaScript é menos importante que o CSS.",
+                    "Para garantir que toda a estrutura HTML (DOM) seja carregada e analisada pelo navegador antes do script tentar acessá-la.",
+                    "É uma convenção antiga que não tem mais relevância hoje.",
+                    "Para que a página carregue mais rápido, pois o JavaScript não é executado."
+                ],
+                correct: 1,
+                feedback: [
+                    "Incorreto. A ordem não se baseia em importância, mas sim na dependência de carregamento.",
+                    "Correto! Se o script estiver no `&lthead&gt`, ele pode tentar selecionar um elemento que ainda não existe no DOM, resultando em erros. Colocá-lo no final garante que o 'mapa' da página esteja completo quando o JavaScript for executado.",
+                    "Incorreto. Esta ainda é uma prática muito relevante e recomendada para evitar erros de manipulação do DOM.",
+                    "Incorreto. O JavaScript é executado. Colocá-lo no final melhora a percepção de velocidade do usuário, pois o conteúdo visual (HTML/CSS) é renderizado primeiro."
+                ]
+            }
+        ];
+
+        // --- LÓGICA DO QUIZ ---
+        const quizForm = document.getElementById('quiz-form');
+        const submitButton = document.getElementById('submit-quiz-btn');
+        const resultsContainer = document.getElementById('results-container');
+
+        function renderQuiz() {
+            let quizHTML = '';
+            quizData.forEach((questionData, questionIndex) => {
+                let optionsHTML = '';
+                questionData.options.forEach((option, optionIndex) => {
+                    optionsHTML += `
+                        <label class="option-label" id="q${questionIndex}-option${optionIndex}">
+                            <input type="radio" name="question-${questionIndex}" value="${optionIndex}">
+                            <span>${option}</span>
+                        </label>
+                    `;
+                });
+
+                quizHTML += `
+                    <div class="question-block" id="question-block-${questionIndex}">
+                        <p class="question-text">${questionIndex + 1}. ${questionData.question}</p>
+                        <div class="options-container">${optionsHTML}</div>
+                    </div>
+                `;
+            });
+            console.log(quizHTML);
+            quizForm.innerHTML = quizHTML;
+        }
+
+        function handleSubmit() {
+            let score = 0;
+            
+            // Desabilitar o botão para evitar múltiplos envios
+            submitButton.disabled = true;
+
+            quizData.forEach((questionData, questionIndex) => {
+                const questionBlock = document.getElementById(`question-block-${questionIndex}`);
+                const selectedOption = quizForm.querySelector(`input[name="question-${questionIndex}"]:checked`);
+                
+                // Desabilitar todos os inputs da questão
+                const allOptions = questionBlock.querySelectorAll('input[type="radio"]');
+                allOptions.forEach(input => input.disabled = true);
+
+                let feedbackHTML = '';
+                if (selectedOption) {
+                    const userAnswerIndex = parseInt(selectedOption.value);
+                    const userOptionLabel = document.getElementById(`q${questionIndex}-option${userAnswerIndex}`);
+                    
+                    if (userAnswerIndex === questionData.correct) {
+                        score++;
+                        userOptionLabel.classList.add('user-correct'); // Opcional, pois a correta já será verde
+                        feedbackHTML = `<div class="feedback correct-feedback"><strong>Sua resposta está correta!</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    } else {
+                        userOptionLabel.classList.add('user-incorrect');
+                        feedbackHTML = `<div class="feedback incorrect-feedback"><strong>Sua resposta está incorreta.</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    }
+                } else {
+                     feedbackHTML = `<div class="feedback incorrect-feedback">Você não respondeu a esta pergunta.</div>`;
+                }
+
+                // Sempre destacar a resposta correta
+                const correctOptionLabel = document.getElementById(`q${questionIndex}-option${questionData.correct}`);
+                correctOptionLabel.classList.add('correct-answer');
+                
+                // Adicionar o feedback ao bloco da questão
+                questionBlock.innerHTML += feedbackHTML;
+            });
+
+            // Mostrar o resultado final
+            resultsContainer.innerHTML = `Você acertou ${score} de ${quizData.length} perguntas!`;
+            resultsContainer.style.display = 'block';
+            submitButton.style.display = 'none'; // Esconder o botão de finalizar
+        }
+
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+            submitButton.addEventListener('click', handleSubmit);
+        });
+    </script>
+
+</body>
+</html>
