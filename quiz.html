@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo: Dominando o DOM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #4a4e69;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Estilos das Questões */
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-of-type {
+            border-bottom: none;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option-label {
+            display: block;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Estilos do Feedback (pós-finalização) */
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .feedback.correct-feedback {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+        
+        .feedback.incorrect-feedback {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+        
+        .correct-answer {
+            background-color: #cce7d4 !important;
+            border-color: #58a66c !important;
+            font-weight: bold;
+        }
+
+        .user-incorrect {
+            background-color: #f8d7da !important;
+            border-color: #d37a81 !important;
+        }
+
+        /* Botão e Resultados */
+        .submit-btn {
+            background-color: #6247aa;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #533d8f;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #c7c8cc;
+            cursor: not-allowed;
+        }
+
+        #results-container {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #e2eafc;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1 id="quiz-title">Quiz Interativo</h1>
+        <div id="quiz-form">
+            <!-- As perguntas serão inseridas aqui pelo JavaScript -->
+        </div>
+        <button class="submit-btn" id="submit-quiz-btn">Finalizar Quiz</button>
+        <div id="results-container" style="display: none;"></div>
+    </div>
+
+    <script>
+        // --- LÓGICA DO QUIZ ---
+        const quizForm = document.getElementById('quiz-form');
+        const submitButton = document.getElementById('submit-quiz-btn');
+        const resultsContainer = document.getElementById('results-container');
+
+        function renderQuiz(data) {
+            let quizHTML = '';
+            data.forEach((questionData, questionIndex) => {
+                let optionsHTML = '';
+                questionData.options.forEach((option, optionIndex) => {
+                    optionsHTML += `
+                        <label class="option-label" id="q${questionIndex}-option${optionIndex}">
+                            <input type="radio" name="question-${questionIndex}" value="${optionIndex}">
+                            <span>${option}</span>
+                        </label>
+                    `;
+                });
+
+                quizHTML += `
+                    <div class="question-block" id="question-block-${questionIndex}">
+                        <p class="question-text">${questionIndex + 1}. ${questionData.question}</p>
+                        <div class="options-container">${optionsHTML}</div>
+                    </div>
+                `;
+            });
+            quizForm.innerHTML = quizHTML;
+        }
+
+        function handleSubmit(data) {
+            let score = 0;
+            
+            // Desabilitar o botão para evitar múltiplos envios
+            submitButton.disabled = true;
+
+            data.forEach((questionData, questionIndex) => {
+                const questionBlock = document.getElementById(`question-block-${questionIndex}`);
+                const selectedOption = quizForm.querySelector(`input[name="question-${questionIndex}"]:checked`);
+                
+                // Desabilitar todos os inputs da questão
+                const allOptions = questionBlock.querySelectorAll('input[type="radio"]');
+                allOptions.forEach(input => input.disabled = true);
+
+                let feedbackHTML = '';
+                if (selectedOption) {
+                    const userAnswerIndex = parseInt(selectedOption.value);
+                    const userOptionLabel = document.getElementById(`q${questionIndex}-option${userAnswerIndex}`);
+                    
+                    if (userAnswerIndex === questionData.correct) {
+                        score++;
+                        userOptionLabel.classList.add('user-correct'); // Opcional, pois a correta já será verde
+                        feedbackHTML = `<div class="feedback correct-feedback"><strong>Sua resposta está correta!</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    } else {
+                        userOptionLabel.classList.add('user-incorrect');
+                        feedbackHTML = `<div class="feedback incorrect-feedback"><strong>Sua resposta está incorreta.</strong> ${questionData.feedback[userAnswerIndex]}</div>`;
+                    }
+                } else {
+                     feedbackHTML = `<div class="feedback incorrect-feedback">Você não respondeu a esta pergunta.</div>`;
+                }
+
+                // Sempre destacar a resposta correta
+                const correctOptionLabel = document.getElementById(`q${questionIndex}-option${questionData.correct}`);
+                correctOptionLabel.classList.add('correct-answer');
+                
+                // Adicionar o feedback ao bloco da questão
+                questionBlock.innerHTML += feedbackHTML;
+            });
+
+            // Mostrar o resultado final
+            resultsContainer.innerHTML = `Você acertou ${score} de ${data.length} perguntas!`;
+            resultsContainer.style.display = 'block';
+            submitButton.style.display = 'none'; // Esconder o botão de finalizar
+        }
+
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const url = new URL(window.location.href);
+            const quizId = url.searchParams.get('quizId');
+            if (!quizId) {
+                console.error('Quiz ID não fornecido na URL.');
+                document.getElementById('quiz-title').textContent = 'Erro ao carregar o quiz :(';
+                return;
+            }
+            fetch(`https://matemora.github.io/quiz-javascript/${quizId}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    // If data is not an array, use quizData as fallback
+                    if (!Array.isArray(data)) {
+                        console.error('Dados do quiz inválidos, usando dados padrão.');
+                        throw new Error('Dados do quiz inválidos');
+                    }
+                    renderQuiz(data);
+                    submitButton.addEventListener('click', () => handleSubmit(data));
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar os dados do quiz:', error);
+                    // Fallback to default quiz data if fetch fails
+                    document.getElementById('quiz-title').textContent = 'Erro ao carregar o quiz :(';
+                });
+        });
+    </script>
+
+</body>
+</html>
