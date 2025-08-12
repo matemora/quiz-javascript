@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é o principal problema do JavaScript Puro que o React se propõe a resolver em aplicações complexas?",
+    "options": [
+      "A dificuldade em fazer requisições a APIs.",
+      "A manipulação manual e imperativa do DOM, que se torna complexa e propensa a erros.",
+      "A falta de suporte para funções assíncronas.",
+      "A impossibilidade de criar variáveis e funções."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Embora o React facilite o trabalho com dados de APIs, a principal dor que ele resolve é a manipulação da interface do usuário (UI), não as requisições em si.",
+      "Correto! O React introduz uma abordagem declarativa que abstrai a manipulação direta e manual do DOM, evitando o código extenso e complexo necessário em JS Puro para sincronizar o estado da aplicação com a UI.",
+      "Incorreto. JavaScript Puro tem excelente suporte a funções assíncronas com `async/await` e `Promises`. O problema que o React resolve está na camada de interface.",
+      "Incorreto. Criar variáveis e funções é a base do JavaScript. O React utiliza essa base para construir um sistema mais organizado para UIs."
+    ]
+  },
+  {
+    "question": "A abordagem do JavaScript Puro para manipular a tela é principalmente ______, enquanto a do React é ______. Qual par de palavras preenche a lacuna corretamente?",
+    "options": [
+      "Declarativa / Imperativa",
+      "Funcional / Orientada a Objetos",
+      "Imperativa / Declarativa",
+      "Manual / Automática"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. É o oposto. No JS Puro, damos ordens diretas (imperativo), e no React, descrevemos o que queremos (declarativo).",
+      "Incorreto. Embora as abordagens possam usar esses paradigmas, os termos que melhor descrevem a interação com a UI são 'imperativo' e 'declarativo'.",
+      "Correto! Com JS Puro, damos o passo a passo de 'COMO' fazer as mudanças (imperativo). Com React, nós 'declaramos' o resultado que esperamos para um determinado estado, e o React cuida do 'COMO'.",
+      "Incorreto. Embora 'Manual / Automática' tenha uma ideia parecida, os termos técnicos corretos e que definem o paradigma de programação nesse contexto são 'Imperativa' e 'Declarativa'."
+    ]
+  },
+  {
+    "question": "Qual é a melhor analogia para os 'Componentes' em React, de acordo com a aula?",
+    "options": [
+      "Uma receita de bolo, com um passo a passo detalhado.",
+      "Peças de LEGO, que são blocos de construção reutilizáveis.",
+      "Um cérebro que armazena todas as informações da página.",
+      "Uma folha de estilo CSS que define a aparência dos elementos."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A receita com passo a passo é uma analogia melhor para a programação imperativa do JS Puro. Os componentes são as 'peças' prontas.",
+      "Correto! Os componentes são como peças de LEGO: blocos de UI independentes e reutilizáveis (como um botão ou um card) que você combina para construir interfaces complexas.",
+      "Incorreto. O 'cérebro' ou a 'memória' de um componente é o seu 'estado' (state), não o componente em si.",
+      "Incorreto. A folha de estilo define a aparência, mas um componente em React encapsula tanto a estrutura (HTML/JSX), quanto o comportamento (JavaScript) e a aparência."
+    ]
+  },
+  {
+    "question": "O que é JSX?",
+    "options": [
+      "Uma nova versão do JavaScript criada pelo Facebook.",
+      "Uma linguagem de programação completamente diferente, que substitui o HTML.",
+      "Uma sintaxe que permite escrever estruturas parecidas com HTML dentro do código JavaScript.",
+      "Uma biblioteca para gerenciar o estado global de uma aplicação."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. JSX não é uma nova versão do JavaScript, mas uma extensão de sintaxe que é utilizada com o React. O código ainda é JavaScript.",
+      "Incorreto. JSX não substitui o HTML. Na verdade, ele produz elementos React que, no final, são convertidos em HTML no DOM.",
+      "Correto! JSX é uma extensão de sintaxe para JavaScript que permite descrever a aparência da UI de forma declarativa, usando uma sintaxe muito similar à do HTML.",
+      "Incorreto. Bibliotecas como Redux ou o Context API do próprio React servem para gerenciar estado global. JSX está relacionado à estrutura do componente."
+    ]
+  },
+  {
+    "question": "Qual é o principal benefício do Virtual DOM utilizado pelo React?",
+    "options": [
+      "Garantir que o código seja 100% livre de bugs.",
+      "Permitir que o React funcione em dispositivos móveis.",
+      "Otimizar a performance, minimizando as manipulações diretas e lentas no DOM real.",
+      "Traduzir o código React para JavaScript Puro automaticamente."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Nenhuma tecnologia pode garantir código 100% livre de bugs. O Virtual DOM é uma ferramenta de otimização.",
+      "Incorreto. O que permite o React funcionar em mobile é o React Native, que usa uma abordagem diferente para renderizar componentes nativos, embora compartilhe os mesmos princípios do React, incluindo o uso de uma árvore virtual.",
+      "Correto! O React cria uma cópia do DOM em memória (Virtual DOM), compara as mudanças e atualiza apenas o que é estritamente necessário no DOM real, o que é um processo muito mais rápido e eficiente.",
+      "Incorreto. Ferramentas como o Babel traduzem o JSX para JavaScript, mas o Virtual DOM é um conceito de tempo de execução para otimização, não uma ferramenta de tradução."
+    ]
+  },
+  {
+    "question": "Como o gerenciamento de 'estado' (state) em React difere do gerenciamento em JavaScript Puro?",
+    "options": [
+      "Em React, o estado não pode ser alterado após ser criado.",
+      "Em JS Puro, o estado é armazenado em arquivos JSON, enquanto em React fica em variáveis.",
+      "Em React, quando o estado de um componente muda, a UI é atualizada automaticamente. Em JS Puro, essa sincronização é manual.",
+      "Não há diferença, a manipulação é feita da mesma forma com `let` e `const`."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O estado em React foi feito para ser alterado, é isso que torna as aplicações dinâmicas. A mudança é feita através de funções específicas, como `setState`.",
+      "Incorreto. Em ambos os casos, o estado da aplicação em execução fica na memória (geralmente em variáveis ou objetos). A diferença está em como a UI reage a mudanças nesse estado.",
+      "Correto! Esta é a essência da reatividade. Em React, você muda o estado, e a UI 'reage'. Em JS Puro, você muda uma variável e depois precisa dar comandos manuais para que a UI reflita essa mudança.",
+      "Incorreto. A forma de alterar o estado é fundamentalmente diferente. Tentar mudar o estado diretamente em React como uma variável comum não fará a UI ser renderizada novamente."
+    ]
+  },
+  {
+    "question": "Se um cliente pede 5 contadores independentes na mesma página, qual a grande vantagem do React sobre o JS Puro para essa tarefa?",
+    "options": [
+      "O React já vem com um componente de contador pronto.",
+      "Com React, criamos um único componente 'Contador' e o reutilizamos 5 vezes. Com JS Puro, provavelmente teríamos que copiar e colar muito código HTML e JS.",
+      "O JS Puro não consegue ter 5 contadores na mesma página.",
+      "O código em React será menor, mas muito mais difícil de ler."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O React não possui um componente de contador pronto. Nós, desenvolvedores, criamos nossos próprios componentes.",
+      "Correto! Essa é a principal vantagem da componentização. Você cria a lógica e a estrutura uma vez e pode reutilizá-la quantas vezes quiser, de forma limpa e organizada.",
+      "Incorreto. É totalmente possível fazer com JS Puro, mas exigiria mais código, mais IDs diferentes para cada contador e uma lógica mais complexa para garantir que cada um funcione de forma independente.",
+      "Incorreto. Geralmente, o código em React para esse cenário não é só menor, mas também mais fácil de ler e dar manutenção, justamente por causa da componentização."
+    ]
+  },
+  {
+    "question": "O fluxo de dados em React é, por padrão:",
+    "options": [
+      "Bidirecional, onde um componente filho pode alterar diretamente seu componente pai.",
+      "Global, onde todos os componentes compartilham o mesmo escopo de dados.",
+      "Unidirecional, onde os dados fluem do componente pai para o componente filho via 'props'.",
+      "Aleatório, os dados podem fluir em qualquer direção dependendo da necessidade."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O fluxo de dados padrão é unidirecional (de cima para baixo). Embora existam maneiras de um filho se comunicar com o pai (via callbacks), ele não pode alterar o pai diretamente.",
+      "Incorreto. Cada componente tem seu próprio estado local. Para dados globais, são necessárias outras ferramentas como a Context API ou Redux.",
+      "Correto! O React implementa um fluxo de dados unidirecional, o que torna o comportamento da aplicação mais previsível e fácil de depurar. Os dados descem a árvore de componentes.",
+      "Incorreto. O fluxo de dados é bem definido e não aleatório, o que é uma de suas grandes vantagens para a organização do código."
+    ]
+  },
+  {
+    "question": "Como podemos classificar o React?",
+    "options": [
+      "Uma linguagem de programação.",
+      "Um framework completo com soluções para todas as camadas de uma aplicação.",
+      "Uma biblioteca JavaScript focada na construção de interfaces de usuário.",
+      "Um novo navegador de internet."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. React é escrito em JavaScript; não é uma linguagem própria.",
+      "Incorreto. React é considerado uma biblioteca, não um framework. Frameworks como Angular são mais 'opinativos' e oferecem uma solução completa. O ecossistema do React permite que você escolha outras bibliotecas para tarefas como roteamento ou chamadas de API.",
+      "Correto! O próprio React se define como uma biblioteca JavaScript para construir UIs. Seu foco principal é a camada de visualização (view) da aplicação.",
+      "Incorreto. React é uma ferramenta para desenvolvedores construírem o que aparece nos navegadores, como Chrome ou Firefox."
+    ]
+  },
+  {
+    "question": "Quando seria mais apropriado usar JavaScript Puro em vez de React?",
+    "options": [
+      "Em qualquer projeto, pois React é sempre mais complexo.",
+      "Para construir um sistema operacional do zero.",
+      "Em projetos muito pequenos com pouca interatividade, como uma landing page simples, onde o peso de uma biblioteca não se justifica.",
+      "Nunca. O React sempre será a melhor escolha."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Em projetos grandes e complexos, React geralmente simplifica o desenvolvimento, não o complica.",
+      "Incorreto. JavaScript (com Node.js) pode até ser usado em algumas camadas de sistemas operacionais, mas o JS Puro ou React não são as ferramentas principais para essa tarefa, que é de muito mais baixo nível.",
+      "Correto! Para projetos simples com interatividade mínima (como abrir/fechar um menu), adicionar o React pode ser um exagero. Nesses casos, a simplicidade do JS Puro é uma vantagem.",
+      "Incorreto. Embora o React seja muito poderoso, a ferramenta certa depende do trabalho a ser feito. Para tarefas muito simples, JS Puro é mais leve e direto.]"
+    ]
+  }
+]
