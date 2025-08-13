@@ -66,10 +66,10 @@
   {
     "question": "Qual é a convenção de nomenclatura OBRIGATÓRIA para um componente React?",
     "options": [
-      "Começar com letra maiúscula (PascalCase), como `<MeuComponente />`.",
-      "Usar letras minúsculas e hífens (kebab-case), como `<meu-componente />`.",
-      "Usar letras minúsculas e underline (snake_case), como `<meu_componente />`.",
-      "Começar com o prefixo `React_`, como `<React_MeuComponente />`."
+      "Começar com letra maiúscula (PascalCase), como `&lt;MeuComponente /&gt;`.",
+      "Usar letras minúsculas e hífens (kebab-case), como `&lt;meu-componente /&gt;`.",
+      "Usar letras minúsculas e underline (snake_case), como `&lt;meu_componente /&gt;`.",
+      "Começar com o prefixo `React_`, como `&lt;React_MeuComponente /&gt;`."
     ],
     "correct": 0,
     "feedback": [
@@ -80,17 +80,17 @@
     ]
   },
   {
-    "question": "Um componente precisa retornar um `<h1>` e um `<p>`. Qual é a forma correta de fazer isso em JSX?",
+    "question": "Um componente precisa retornar um `&lt;h1&gt;` e um `&lt;p&gt;`. Qual é a forma correta de fazer isso em JSX?",
     "options": [
       "Não é possível, um componente só pode retornar um único elemento.",
-      "Envolvendo ambos em um único elemento pai, como uma `<div>` ou um Fragment (`<>...</>`).",
-      "Retornando os elementos em um array: `return [<h1>Título</h1>, <p>Parágrafo</p>]`.",
+      "Envolvendo ambos em um único elemento pai, como uma `&lt;div&gt;` ou um Fragment (`&lt;&gt;...&lt;/&gt;`).",
+      "Retornando os elementos em um array: `return [&lt;h1&gt;Título&lt;/h1&gt;, &lt;p&gt;Parágrafo&lt;/p&gt;]`.",
       "Usando dois `return` seguidos, um para cada elemento."
     ],
     "correct": 1,
     "feedback": [
       "Incorreto. É perfeitamente possível, desde que a regra do elemento pai único seja seguida.",
-      "Correto! O JSX exige que o retorno de um componente tenha um único elemento 'raiz'. Envolvê-los em uma `div` ou em um Fragment (`<>`) resolve isso.",
+      "Correto! O JSX exige que o retorno de um componente tenha um único elemento 'raiz'. Envolvê-los em uma `div` ou em um Fragment (`&lt;&gt;`) resolve isso.",
       "Incorreto. Embora tecnicamente possível em alguns casos, não é a prática padrão e pode exigir o uso de `keys`, sendo menos legível que usar um Fragment.",
       "Incorreto. Uma função JavaScript só pode executar um `return`. O segundo seria inalcançável."
     ]
@@ -101,7 +101,7 @@
       "`{ if (isLoggedIn) { 'Sair' } else { 'Login' } }`",
       "Usando uma função separada que retorna o texto correto.",
       "`{ isLoggedIn ? 'Sair' : 'Login' }`",
-      "`<button text={isLoggedIn && 'Sair'} />`"
+      "`&lt;button text={isLoggedIn && 'Sair'} /&gt;`"
     ],
     "correct": 2,
     "feedback": [
@@ -114,10 +114,10 @@
   {
     "question": "Como podemos executar uma expressão JavaScript, como `2 + 2`, e exibir o resultado dentro de um elemento JSX?",
     "options": [
-      "`<p>\"2 + 2\"</p>`",
-      "`<p>[2 + 2]</p>`",
-      "`<p>$(2 + 2)</p>`",
-      "`<p>{2 + 2}</p>`"
+      "`&lt;p&gt;\"2 + 2\"&lt;/p&gt;`",
+      "`&lt;p&gt;[2 + 2]&lt;/p&gt;`",
+      "`&lt;p&gt;$(2 + 2)&lt;/p&gt;`",
+      "`&lt;p&gt;{2 + 2}&lt;/p&gt;`"
     ],
     "correct": 3,
     "feedback": [
@@ -144,18 +144,18 @@
     ]
   },
   {
-    "question": "Você quer mostrar um componente `<AlertaDeEstoqueBaixo />` somente se a variável `estoque` for menor que 5. Qual a forma mais idiomática de fazer isso?",
+    "question": "Você quer mostrar um componente `&lt;AlertaDeEstoqueBaixo /&gt;` somente se a variável `estoque` for menor que 5. Qual a forma mais idiomática de fazer isso?",
     "options": [
-      "`{ if (estoque < 5) <AlertaDeEstoqueBaixo /> }`",
-      "`{ estoque < 5 && <AlertaDeEstoqueBaixo /> }`",
-      "`{ estoque < 5 || <AlertaDeEstoqueBaixo /> }`",
-      "`{ estoque < 5 ? <AlertaDeEstoqueBaixo /> }`"
+      "`{ if (estoque &lt; 5) &lt;AlertaDeEstoqueBaixo /&gt; }`",
+      "`{ estoque &lt; 5 && &lt;AlertaDeEstoqueBaixo /&gt; }`",
+      "`{ estoque &lt; 5 || &lt;AlertaDeEstoqueBaixo /&gt; }`",
+      "`{ estoque &lt; 5 ? &lt;AlertaDeEstoqueBaixo /&gt; }`"
     ],
     "correct": 1,
     "feedback": [
       "Incorreto. Declarações `if` não são permitidas diretamente dentro do JSX.",
       "Correto! O operador lógico 'E' (`&&`) é perfeito para isso. A expressão da direita só é avaliada (e renderizada) se a condição da esquerda for verdadeira.",
-      "Incorreto. O operador 'OU' (`||`) renderizaria o componente se `estoque < 5` for falso, que é o oposto do desejado.",
+      "Incorreto. O operador 'OU' (`||`) renderizaria o componente se `estoque &lt; 5` for falso, que é o oposto do desejado.",
       "Incorreto. Isso é uma sintaxe inválida. O operador ternário exige a parte do 'else' (o que fazer se for falso), com a sintaxe `condição ? valor_verdadeiro : valor_falso`."
     ]
   }
