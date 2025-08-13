@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual das seguintes opções melhor descreve o que é o React?",
+    "options": [
+      "Uma linguagem de programação completa que substitui o JavaScript.",
+      "Uma biblioteca JavaScript focada na construção de interfaces de usuário (UI).",
+      "Um banco de dados para armazenar informações de aplicações web.",
+      "Um framework 'fullstack' que gerencia tanto o frontend quanto o backend."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. React é escrito *em* JavaScript e funciona dentro de seu ecossistema, não o substitui.",
+      "Correto! React é uma biblioteca JavaScript para construir interfaces de usuário de forma declarativa e baseada em componentes.",
+      "Incorreto. React cuida da parte visual da aplicação (frontend). Para armazenamento de dados, utilizamos outras tecnologias no backend.",
+      "Incorreto. React por si só é focado na 'View' (o frontend). Ferramentas como o Next.js podem estendê-lo para o lado do servidor, mas o React em sua essência é para o frontend."
+    ]
+  },
+  {
+    "question": "O que é JSX, a sintaxe comumente utilizada em projetos React?",
+    "options": [
+      "Uma forma de escrever código CSS diretamente dentro de arquivos JavaScript.",
+      "Uma versão mais moderna e otimizada do HTML, lida diretamente pelos navegadores.",
+      "Uma extensão de sintaxe para JavaScript que permite escrever uma estrutura parecida com HTML.",
+      "Um template engine obrigatório para se usar qualquer biblioteca JavaScript."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Para estilização, usamos arquivos .css ou outras abordagens como CSS-in-JS. O JSX define a estrutura, não o estilo visual.",
+      "Incorreto. O JSX não é HTML e não é lido diretamente pelos navegadores. Ele precisa ser 'traduzido' para JavaScript puro por uma ferramenta como o Vite.",
+      "Correto! JSX (JavaScript + XML) é uma extensão que nos permite descrever a UI com uma sintaxe familiar, tornando o código mais legível e declarativo.",
+      "Incorreto. O JSX é uma característica marcante do React, mas não é obrigatório em todo o universo JavaScript. Outras bibliotecas e frameworks podem ou não usá-lo."
+    ]
+  },
+  {
+    "question": "Em JSX, por que usamos `className` em vez do atributo `class` do HTML?",
+    "options": [
+      "Porque `className` permite estilização mais avançada que o `class`.",
+      "É apenas uma preferência da comunidade React, ambos funcionam igual.",
+      "Porque `class` é uma palavra-chave reservada na linguagem JavaScript.",
+      "Para diferenciar as classes do React das classes do CSS."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O poder da estilização vem do CSS, não do nome do atributo no JSX. `className` apenas conecta o elemento à classe CSS.",
+      "Incorreto. O uso de `className` é obrigatório. Usar `class` em JSX gerará um aviso no console e pode não funcionar como esperado.",
+      "Correto! Como o JavaScript utiliza a palavra `class` para definir classes (programação orientada a objetos), o JSX adota `className` para evitar conflitos de sintaxe.",
+      "Incorreto. A finalidade é a mesma: aplicar uma classe CSS a um elemento. A mudança no nome se deve a uma restrição técnica do JavaScript."
+    ]
+  },
+  {
+    "question": "Ao renderizar uma lista com `.map()`, por que a `prop` 'key' é tão importante?",
+    "options": [
+      "Ela serve para o CSS, permitindo estilizar cada item da lista individualmente.",
+      "Define a ordem em que os elementos serão exibidos na tela.",
+      "É uma `prop` opcional que melhora a acessibilidade para leitores de tela.",
+      "Ajuda o React a identificar itens que mudaram, otimizando a performance da renderização."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. A `key` é uma `prop` para controle interno do React e não é passada para o elemento no DOM, portanto o CSS não consegue 'vê-la'.",
+      "Incorreto. A ordem dos itens na tela é determinada pela ordem dos dados no array que está sendo mapeado.",
+      "Incorreto. Embora a acessibilidade seja crucial, a `prop` `key` não tem essa função. Seu propósito é a otimização de performance.",
+      "Correto! A `key` funciona como um 'RG' para cada elemento na lista, permitindo que o React saiba exatamente qual item foi adicionado, removido ou reordenado, evitando renderizações desnecessárias."
+    ]
+  },
+  {
+    "question": "Qual é a convenção de nomenclatura OBRIGATÓRIA para um componente React?",
+    "options": [
+      "Começar com letra maiúscula (PascalCase), como `<MeuComponente />`.",
+      "Usar letras minúsculas e hífens (kebab-case), como `<meu-componente />`.",
+      "Usar letras minúsculas e underline (snake_case), como `<meu_componente />`.",
+      "Começar com o prefixo `React_`, como `<React_MeuComponente />`."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! O React diferencia componentes customizados de tags HTML nativas pela primeira letra. Se for maiúscula, é um componente; se for minúscula, é uma tag HTML.",
+      "Incorreto. Esse padrão é comum em outros contextos (como no Angular), mas em React ele não é válido para nomes de componentes.",
+      "Incorreto. Este padrão é comum em outras linguagens, mas a convenção em React/JavaScript para componentes é PascalCase.",
+      "Incorreto. Não existe nenhuma regra que exija um prefixo `React_` nos nomes dos componentes."
+    ]
+  },
+  {
+    "question": "Um componente precisa retornar um `<h1>` e um `<p>`. Qual é a forma correta de fazer isso em JSX?",
+    "options": [
+      "Não é possível, um componente só pode retornar um único elemento.",
+      "Envolvendo ambos em um único elemento pai, como uma `<div>` ou um Fragment (`<>...</>`).",
+      "Retornando os elementos em um array: `return [<h1>Título</h1>, <p>Parágrafo</p>]`.",
+      "Usando dois `return` seguidos, um para cada elemento."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. É perfeitamente possível, desde que a regra do elemento pai único seja seguida.",
+      "Correto! O JSX exige que o retorno de um componente tenha um único elemento 'raiz'. Envolvê-los em uma `div` ou em um Fragment (`<>`) resolve isso.",
+      "Incorreto. Embora tecnicamente possível em alguns casos, não é a prática padrão e pode exigir o uso de `keys`, sendo menos legível que usar um Fragment.",
+      "Incorreto. Uma função JavaScript só pode executar um `return`. O segundo seria inalcançável."
+    ]
+  },
+  {
+    "question": "Qual a forma mais concisa de usar renderização condicional para exibir uma mensagem de 'Login' ou 'Sair' com base na variável `isLoggedIn`?",
+    "options": [
+      "`{ if (isLoggedIn) { 'Sair' } else { 'Login' } }`",
+      "Usando uma função separada que retorna o texto correto.",
+      "`{ isLoggedIn ? 'Sair' : 'Login' }`",
+      "`<button text={isLoggedIn && 'Sair'} />`"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A estrutura `if/else` é uma declaração e não pode ser usada diretamente dentro das chaves `{}` do JSX.",
+      "Incorreto. Embora funcione, não é a forma mais concisa. O JavaScript oferece operadores para fazer isso diretamente no JSX.",
+      "Correto! O operador ternário (`condição ? se_verdadeiro : se_falso`) é uma expressão, sendo perfeito para escolher entre duas opções de renderização de forma limpa e direta.",
+      "Incorreto. O operador `&&` é ideal para renderizar algo ou nada, não para escolher entre duas opções. Se `isLoggedIn` fosse falso, a expressão resultaria em `false` e nada seria renderizado."
+    ]
+  },
+  {
+    "question": "Como podemos executar uma expressão JavaScript, como `2 + 2`, e exibir o resultado dentro de um elemento JSX?",
+    "options": [
+      "`<p>\"2 + 2\"</p>`",
+      "`<p>[2 + 2]</p>`",
+      "`<p>$(2 + 2)</p>`",
+      "`<p>{2 + 2}</p>`"
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. As aspas fariam com que o texto '2 + 2' fosse exibido literalmente como uma string.",
+      "Incorreto. Colchetes não são usados para interpolar expressões JavaScript no JSX.",
+      "Incorreto. A sintaxe `${...}` é usada para interpolação em template literals do JavaScript, mas não diretamente no JSX. Para isso, usamos apenas as chaves.",
+      "Correto! As chaves `{}` abrem um 'portal' para o JavaScript dentro do JSX, permitindo que qualquer expressão válida seja executada e seu resultado seja renderizado."
+    ]
+  },
+  {
+    "question": "Qual o papel principal da ferramenta de build 'Vite' em um projeto React?",
+    "options": [
+      "É um editor de texto específico para criar componentes React.",
+      "É um banco de dados otimizado para aplicações SPA (Single Page Application).",
+      "É um servidor de desenvolvimento rápido e uma ferramenta para empacotar o código para produção.",
+      "É uma biblioteca de componentes de UI prontos para usar."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Para editar código, usamos editores como o VS Code. Vite é uma ferramenta de linha de comando que gerencia o projeto.",
+      "Incorreto. Vite não tem relação com armazenamento de dados. Ele lida com os arquivos do frontend.",
+      "Correto! Vite oferece um ambiente de desenvolvimento com 'Hot Reload' super rápido e, ao final, otimiza e empacota todo o código (JS, CSS, etc.) em arquivos estáticos para serem implantados em um servidor.",
+      "Incorreto. Bibliotecas como Material-UI ou Chakra UI fornecem componentes prontos. Vite fornece a 'infraestrutura' para o projeto funcionar."
+    ]
+  },
+  {
+    "question": "Você quer mostrar um componente `<AlertaDeEstoqueBaixo />` somente se a variável `estoque` for menor que 5. Qual a forma mais idiomática de fazer isso?",
+    "options": [
+      "`{ if (estoque < 5) <AlertaDeEstoqueBaixo /> }`",
+      "`{ estoque < 5 && <AlertaDeEstoqueBaixo /> }`",
+      "`{ estoque < 5 || <AlertaDeEstoqueBaixo /> }`",
+      "`{ estoque < 5 ? <AlertaDeEstoqueBaixo /> }`"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Declarações `if` não são permitidas diretamente dentro do JSX.",
+      "Correto! O operador lógico 'E' (`&&`) é perfeito para isso. A expressão da direita só é avaliada (e renderizada) se a condição da esquerda for verdadeira.",
+      "Incorreto. O operador 'OU' (`||`) renderizaria o componente se `estoque < 5` for falso, que é o oposto do desejado.",
+      "Incorreto. Isso é uma sintaxe inválida. O operador ternário exige a parte do 'else' (o que fazer se for falso), com a sintaxe `condição ? valor_verdadeiro : valor_falso`."
+    ]
+  }
+]
