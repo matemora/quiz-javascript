@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal ideia por trás da componentização em React, como vimos na analogia do LEGO?",
+    "options": [
+      "Escrever todo o código da aplicação em um único arquivo para facilitar a busca.",
+      "Dividir a interface do usuário em partes pequenas, isoladas e reutilizáveis.",
+      "Usar apenas componentes criados por outras pessoas para acelerar o desenvolvimento.",
+      "Criar componentes que alteram diretamente a aparência de outros componentes 'irmãos'."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Escrever todo o código em um único arquivo é o oposto da componentização e torna a manutenção muito mais difícil, criando um 'monolito'.",
+      "Correto! Assim como as peças de LEGO, os componentes são blocos de construção independentes que, quando combinados, formam uma aplicação completa e coesa.",
+      "Incorreto. Embora usar bibliotecas de componentes seja útil, o poder da componentização está em criar suas próprias peças reutilizáveis e adaptadas à sua aplicação.",
+      "Incorreto. O fluxo de dados em React é, geralmente, unidirecional (de pai para filho). Componentes são isolados e não devem modificar outros componentes diretamente."
+    ]
+  },
+  {
+    "question": "O que são 'Props' em React e qual sua principal função?",
+    "options": [
+      "São variáveis internas de um componente que podem ser modificadas a qualquer momento para guardar estado.",
+      "São funções que permitem a um componente filho modificar diretamente os dados do componente pai.",
+      "São um mecanismo para passar dados e configurações de um componente pai para um componente filho.",
+      "São eventos, como cliques ou digitação, que o componente pode ouvir."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Variáveis internas que guardam estado são geralmente gerenciadas por Hooks como o `useState`, não por props. Props são para receber dados externos.",
+      "Incorreto. Props são somente leitura e seguem um fluxo de dados de mão única (pai -> filho). Um filho não pode usar props para modificar o pai diretamente.",
+      "Correto! Props são como os 'argumentos' de um componente. É a forma como um componente pai 'conversa' e passa informações para seus filhos, tornando-os dinâmicos.",
+      "Incorreto. Embora uma prop possa ser uma função para lidar com um evento (como `onClick`), as props em si não são os eventos, mas sim o meio pelo qual os dados (incluindo funções) são transportados."
+    ]
+  },
+  {
+    "question": "Como você passaria uma prop chamada 'userName' com o valor 'Maria' para um componente &lt;Profile /&gt;?",
+    "options": [
+      "&lt;Profile&gt;userName=\"Maria\"&lt;/Profile&gt;",
+      "&lt;Profile userName=\"Maria\" /&gt;",
+      "&lt;Profile userName:\"Maria\" /&gt;",
+      "&lt;Profile&gt;Maria&lt;/Profile&gt;"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A sintaxe para passar props se assemelha a atributos de HTML e é colocada diretamente na tag de abertura do componente, não dentro dele.",
+      "Correto! A sintaxe para passar props é muito similar à de atributos HTML, usando `nomeDaProp=\"valor\"` dentro da tag do componente.",
+      "Incorreto. O sinal de dois-pontos (`:`) é usado para definir pares chave-valor em objetos JavaScript, mas para passar props em JSX, usamos o sinal de igual (`=`).",
+      "Incorreto. Colocar um valor diretamente entre as tags de abertura e fechamento de um componente faz com que ele seja passado via `props.children`, e não como uma prop nomeada `userName`."
+    ]
+  },
+  {
+    "question": "Um componente funcional em React precisa retornar um único elemento raiz. Qual das opções abaixo está sintaticamente CORRETA?",
+    "options": [
+      "return ( &lt;h1&gt;Título&lt;/h1&gt; &lt;p&gt;Parágrafo&lt;/p&gt; );",
+      "return ( &lt;div&gt; &lt;h1&gt;Título&lt;/h1&gt; &lt;p&gt;Parágrafo&lt;/p&gt; &lt;/div&gt; );",
+      "return &lt;h1&gt;Título&lt;/h1&gt;, &lt;p&gt;Parágrafo&lt;/p&gt;;",
+      "return [ &lt;h1&gt;Título&lt;/h1&gt;, &lt;p&gt;Parágrafo&lt;/p&gt; ];"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Este retorno tenta devolver dois elementos 'vizinhos' no mesmo nível, o que causa um erro de sintaxe em JSX. Você precisa de um 'container' para eles.",
+      "Correto! O &lt;div&gt; funciona como um elemento pai, ou 'container', garantindo que o componente retorne uma única árvore de elementos, o que satisfaz a regra do JSX.",
+      "Incorreto. A sintaxe de vírgula não é válida para retornar múltiplos elementos em JSX.",
+      "Incorreto. Embora retornar um array de elementos seja tecnicamente possível em versões mais antigas do React (com `key`), a prática moderna e recomendada é usar um elemento contêiner como &lt;div&gt; ou um Fragment (&lt;&gt;)."
+    ]
+  },
+  {
+    "question": "Para que serve a prop especial `children`?",
+    "options": [
+      "Para renderizar uma lista de componentes filhos baseada em um array de dados.",
+      "Para acessar todos os outros componentes que foram importados no mesmo arquivo.",
+      "Para renderizar qualquer conteúdo que é passado entre a tag de abertura e a de fechamento de um componente.",
+      "Para definir quais componentes podem ser filhos do componente atual."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Para renderizar uma lista, você normalmente passaria um array como uma prop nomeada (ex: `items={meuArray}`) e usaria a função `.map()` dentro do componente.",
+      "Incorreto. `props.children` se refere apenas ao conteúdo aninhado diretamente dentro do componente no momento de seu uso, e não tem relação com os imports do arquivo.",
+      "Correto! `props.children` é uma 'porta de entrada' que permite que um componente encapsule e renderize conteúdo arbitrário, tornando-o um contêiner flexível, como um Card ou Modal.",
+      "Incorreto. `props.children` não define regras de quais componentes são permitidos; ele simplesmente recebe o que for passado. Para definir tipos, você usaria ferramentas como TypeScript."
+    ]
+  },
+  {
+    "question": "Dentro de um componente `function User({ name, age })`, como você acessaria a idade da pessoa?",
+    "options": [
+      "props.age",
+      "age",
+      "User.age",
+      "this.props.age"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A sintaxe `props.age` seria usada se o parâmetro da função fosse `(props)`. Como usamos a desestruturação `{ name, age }`, a variável já está disponível diretamente.",
+      "Correto! A sintaxe `{ name, age }` nos parâmetros da função é chamada de desestruturação. Ela extrai as propriedades do objeto `props` e as cria como variáveis locais, tornando o acesso mais direto e o código mais limpo.",
+      "Incorreto. `User.age` tentaria acessar uma propriedade estática do próprio componente de função, o que não é como as props são acessadas.",
+      "Incorreto. A sintaxe `this.props` é utilizada em componentes de classe, que é uma forma mais antiga de escrever componentes React. Em componentes funcionais, as props são o primeiro argumento da função."
+    ]
+  },
+  {
+    "question": "Qual a principal diferença entre `export default Button` e `export { Button }`?",
+    "options": [
+      "`export default` só pode ser usado uma vez por arquivo e permite renomear na importação; `export` nomeado pode ter vários e exige o nome exato.",
+      "`export default` é para componentes e `export` nomeado é para funções normais.",
+      "Não há diferença funcional, são apenas estilos de código diferentes.",
+      "`export default` exporta o componente com seu CSS, enquanto `export` nomeado exporta apenas a lógica JS."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Um arquivo só pode ter um `export default`, e ao importá-lo (`import MeuBotao from './Button'`), você pode dar qualquer nome. Já os `export` nomeados exigem o uso de chaves e o nome exato na importação (`import { Button } from './Button'`).",
+      "Incorreto. Ambos podem ser usados para exportar componentes, funções, objetos, ou qualquer valor JavaScript. A diferença está em como eles são exportados e importados.",
+      "Incorreto. Há uma diferença funcional muito importante na forma como os módulos são resolvidos, impactando diretamente a sintaxe do `import`.",
+      "Incorreto. Ambos exportam apenas valores JavaScript (como a função do componente). A forma como o CSS é tratado depende da configuração do seu projeto (CSS Modules, Styled Components, etc.), e não do tipo de export."
+    ]
+  },
+  {
+    "question": "Um componente filho recebe uma prop `message`. O que acontece se ele tentar modificar essa prop diretamente com `props.message = 'Novo valor'`?",
+    "options": [
+      "A mensagem será atualizada no componente filho e no componente pai.",
+      "A mensagem será atualizada apenas no componente filho.",
+      "O código funcionará, mas um aviso de 'má prática' será exibido no console.",
+      "Ocorrerá um erro, pois as props são somente leitura."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O fluxo de dados é unidirecional. Um filho nunca deve modificar o pai diretamente. Além disso, a tentativa de reatribuição da prop causaria um erro.",
+      "Incorreto. A reatribuição direta de uma prop não é permitida em React e resultará em um erro em tempo de execução.",
+      "Incorreto. Isso não é apenas uma má prática, é uma violação das regras do React que causa um erro e impede o funcionamento do código. Props são imutáveis.",
+      "Correto! React impõe a regra de que os componentes devem ser 'puros' em relação às suas props, ou seja, nunca devem tentar modificá-las. Isso garante um fluxo de dados previsível e evita bugs complexos."
+    ]
+  },
+  {
+    "question": "O que significa 'composição de componentes'?",
+    "options": [
+      "Juntar todo o código de vários componentes em um único arquivo para otimização.",
+      "Criar um componente que herda estilos e lógica de um componente pai.",
+      "Usar componentes menores como blocos de construção para criar componentes maiores e mais complexos.",
+      "A estilização de um componente usando CSS."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Isso é o oposto da composição e da componentização. A ideia é manter os componentes em arquivos separados para melhor organização.",
+      "Incorreto. O modelo principal do React é a composição, e não a herança. Raramente se usa herança entre componentes em React.",
+      "Correto! Assim como uma página &lt;body&gt; é composta por um &lt;header&gt; e um &lt;main&gt;, um componente `ProfilePage` pode ser composto por um `Avatar` e um `UserInfo`, aninhando-os em seu retorno JSX.",
+      "Incorreto. A estilização é uma parte importante de um componente, mas o termo 'composição' refere-se especificamente à estrutura e ao aninhamento de componentes, e não à sua aparência visual."
+    ]
+  },
+  {
+    "question": "Qual é a convenção de nomenclatura para arquivos e nomes de componentes em React?",
+    "options": [
+      "Usar letras minúsculas e hífen, como `meu-componente.jsx` e `meu-componente`.",
+      "Usar PascalCase (também chamado de UpperCamelCase), como `MeuComponente.jsx` e `MeuComponente`.",
+      "Usar snake_case, como `meu_componente.jsx` e `meu_componente`.",
+      "Não existe uma convenção, qualquer nome é igualmente aceito."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Nomes com hífen são comuns em web components, mas em React, a convenção é usar PascalCase.",
+      "Correto! Usar PascalCase (ex: `UserProfile`) é uma convenção crucial. O React diferencia componentes customizados de tags HTML nativas (ex: `&lt;div&gt;`) pela letra maiúscula inicial.",
+      "Incorreto. snake_case não é a convenção padrão na comunidade React para nomes de componentes ou arquivos.",
+      "Incorreto. A convenção é muito importante, pois o JSX depende da capitalização para distinguir entre uma tag HTML (&lt;div/&gt;) e um componente React (&lt;MeuComponente/&gt;)."
+    ]
+  }
+]
