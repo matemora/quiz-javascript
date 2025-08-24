@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal função do 'Estado' (State) em um componente React?",
+    "options": [
+      "Armazenar estilos CSS para o componente.",
+      "Guardar dados que, ao serem alterados, devem causar uma nova renderização do componente.",
+      "Manter uma referência a elementos do DOM, similar ao `document.getElementById()`.",
+      "Definir as `props` que o componente receberá do seu componente pai."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Estilos são geralmente gerenciados com CSS, classes ou bibliotecas de CSS-in-JS, não pelo estado.",
+      [cite_start]"Correto! O estado é a 'memória' do componente[cite: 21]. [cite_start]Quando seu valor muda, o React automaticamente re-renderiza o componente para refletir a nova informação na tela[cite: 22].",
+      "Incorreto. Para referenciar elementos do DOM de forma controlada no React, o ideal é usar o hook `useRef`, não o `useState`.",
+      "Incorreto. `props` são informações passadas de um componente pai para um filho. O estado é a memória interna, gerenciada pelo próprio componente."
+    ]
+  },
+  {
+    "question": "Dado o código `const [count, setCount] = useState(0);`, qual é a forma CORRETA de incrementar o valor de `count`?",
+    "options": [
+      "`count = count + 1;`",
+      "`setCount(count + 1);`",
+      "`useState(count + 1);`",
+      "`count++;`"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. [cite_start]Nunca se deve alterar o estado diretamente[cite: 52]. Fazer isso não informa ao React que ele precisa re-renderizar o componente, então a mudança não aparecerá na tela.",
+      "Correto! [cite_start]A função `setCount` é a ferramenta fornecida pelo `useState` para atualizar o estado de forma segura e agendar uma nova renderização do componente[cite: 40, 52].",
+      "Incorreto. A função `useState` é usada apenas para declarar e inicializar uma variável de estado, não para atualizá-la durante o ciclo de vida do componente.",
+      "Incorreto. [cite_start]Assim como a primeira opção, isso é uma mutação direta do estado e não será detectada pelo React para disparar uma nova renderização[cite: 52]."
+    ]
+  },
+  {
+    "question": "Sobre os Hooks do React, qual afirmação está correta?",
+    "options": [
+      "São funções que devem começar com a palavra 'on', como `onClick`.",
+      "Permitem usar estado e outras funcionalidades do React em componentes de classe.",
+      "São funções especiais, como `useState` e `useEffect`, que 'engancham' funcionalidades do React em componentes de função.",
+      "Podem ser chamados dentro de laços de repetição (`for`) para criar múltiplos estados dinamicamente."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Funções que começam com 'on' geralmente são manipuladores de eventos (event handlers). [cite_start]Hooks, por convenção, sempre começam com a palavra 'use'[cite: 27].",
+      "Incorreto. [cite_start]Hooks foram criados especificamente para serem usados em componentes de função, como uma alternativa mais moderna e simples ao gerenciamento de estado em classes[cite: 28, 34].",
+      "Correto! Essa é a definição exata. [cite_start]Hooks permitem que componentes funcionais 'liguem' (hook into) funcionalidades do React como estado, ciclo de vida e contexto[cite: 26].",
+      "Incorreto. [cite_start]Uma das regras fundamentais dos Hooks é que eles não devem ser chamados dentro de laços, condicionais ou funções aninhadas, para garantir que sejam executados sempre na mesma ordem[cite: 30, 31]."
+    ]
+  },
+  {
+    "question": "No Hook `useEffect`, o que acontece se você passar um array de dependências vazio (`[]`) como segundo argumento?",
+    "options": [
+      "O efeito será executado a cada nova renderização do componente.",
+      "O efeito nunca será executado.",
+      "O efeito será executado apenas uma vez, após a primeira renderização do componente.",
+      "O código resultará em um erro e a aplicação não irá compilar."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Para que o efeito rode a cada renderização, você deve omitir completamente o array de dependências. [cite_start]Essa prática geralmente deve ser evitada, pois pode causar loops infinitos[cite: 62].",
+      "Incorreto. O efeito sempre será executado ao menos uma vez, após a montagem inicial do componente.",
+      "Correto! Um array de dependências vazio significa que o efeito não depende de nenhuma variável para ser re-executado. [cite_start]Portanto, ele roda apenas uma vez, após a montagem inicial do componente, sendo ideal para buscar dados em uma API, por exemplo[cite: 60].",
+      "Incorreto. Esta é uma sintaxe válida e uma das formas mais comuns de se usar o `useEffect`."
+    ]
+  },
+  {
+    "question": "Qual é o principal motivo para criar um Custom Hook (Hook Personalizado)?",
+    "options": [
+      "Para criar novos elementos HTML, como &lt;useMyComponent&gt;.",
+      "Para substituir a necessidade de usar `useState` e `useEffect`.",
+      "Para extrair e reutilizar uma lógica que envolve estado e/ou efeitos em vários componentes.",
+      "Para melhorar a performance de um componente específico, substituindo o JSX."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Para criar elementos de UI reutilizáveis, criamos componentes React, não Hooks. Hooks são para lógica, componentes são para UI.",
+      "Incorreto. Custom Hooks não substituem os hooks nativos; pelo contrário, eles os utilizam internamente para encapsular uma lógica.",
+      "Correto! [cite_start]Custom Hooks são a solução perfeita para compartilhar lógica com estado entre componentes[cite: 89, 90]. [cite_start]Se você se pegar copiando e colando a mesma combinação de `useState` e `useEffect` em vários lugares, é um forte indício de que você precisa de um Custom Hook[cite: 84, 85, 87].",
+      "Incorreto. Custom Hooks são sobre organização e reutilização de lógica, não sobre performance ou substituição da sintaxe de renderização JSX."
+    ]
+  },
+  {
+    "question": "Por que não devemos chamar Hooks dentro de condicionais (blocos `if`)?",
+    "options": [
+      "Porque os Hooks não funcionam com valores booleanos.",
+      "Porque isso torna o código mais difícil de ler.",
+      "Porque o React depende que os Hooks sejam chamados na mesma ordem a cada renderização para funcionar corretamente.",
+      "Porque condicionais dentro de componentes React são uma má prática de programação."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Hooks funcionam perfeitamente com qualquer tipo de dado em JavaScript, incluindo booleanos. O `useToggle` é um ótimo exemplo disso.",
+      "Embora possa afetar a legibilidade, a razão principal é técnica e fundamental para o funcionamento interno do React.",
+      "Correto! O React mantém o estado de cada Hook em uma lista interna. Chamar um Hook condicionalmente bagunçaria a ordem dessa lista entre as renderizações, causando bugs. [cite_start]Por isso, Hooks devem sempre ser chamados no nível superior do componente[cite: 31, 32].",
+      "Incorreto. Condicionais são ferramentas essenciais em React para renderização condicional e outras lógicas. A restrição é apenas sobre a chamada de Hooks dentro deles."
+    ]
+  },
+  {
+    "question": "Qual das seguintes tarefas é um 'efeito colateral' (side effect) ideal para ser gerenciado pelo Hook `useEffect`?",
+    "options": [
+      "Calcular a soma de dois números passados por props.",
+      "Renderizar um título &lt;h1&gt; com o nome do usuário.",
+      "Fazer uma requisição a uma API externa para buscar dados.",
+      "Decidir qual cor um botão deve ter com base em seu estado."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Este é um cálculo puro que não interage com o 'mundo exterior'. Ele pode ser feito diretamente durante a renderização.",
+      "Incorreto. A renderização de elementos JSX é a função principal do corpo do componente, não um efeito colateral.",
+      "Correto! [cite_start]Ações que interagem com sistemas externos ao React, como chamadas de API, manipulação direta do DOM, ou a configuração de timers (`setTimeout`), são considerados efeitos colaterais e devem ser feitos dentro de um `useEffect`[cite: 57].",
+      "Incorreto. A lógica para decidir a cor de um botão com base no estado deve estar no corpo do componente, e o resultado será usado na renderização do JSX, não é um efeito colateral."
+    ]
+  },
+  {
+    "question": "O que a função `useState` retorna?",
+    "options": [
+      "Um objeto contendo a variável de estado e uma função para atualizá-la.",
+      "Apenas a variável de estado.",
+      "Apenas a função para atualizar o estado.",
+      "Um array com duas posições: a variável de estado atual e a função para atualizá-la."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Embora alguns hooks retornem objetos, o `useState` especificamente retorna um array, o que permite nomearmos suas variáveis livremente via desestruturação.",
+      "Incorreto. Ele precisa retornar também a função de atualização para que possamos alterar o estado.",
+      "Incorreto. Ele precisa retornar a variável de estado para que possamos ler seu valor atual.",
+      "Correto! [cite_start]A sintaxe `const [valor, setValor] = useState(valorInicial)` usa a desestruturação de array para pegar exatamente esses dois elementos retornados pelo `useState`[cite: 43]."
+    ]
+  },
+  {
+    "question": "Para que serve a função de limpeza (cleanup function) retornada dentro de um `useEffect`?",
+    "options": [
+      "Para limpar o console de mensagens de log quando o componente é desmontado.",
+      "Para remover o componente da árvore do DOM.",
+      "Para executar uma ação sempre que o estado do componente muda.",
+      "Para 'limpar' recursos, como cancelar timers ou remover event listeners, quando o componente é desmontado ou antes do efeito rodar novamente."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. A função de limpeza não tem relação com o `console.log`.",
+      "Incorreto. A remoção de um componente da tela é determinada pela lógica de renderização do componente pai, não pela função de limpeza de um efeito.",
+      "Incorreto. A função principal do `useEffect` é que executa quando o estado (ou props) muda, não a função de limpeza.",
+      "Correto! A função de limpeza é crucial para evitar vazamentos de memória e comportamentos inesperados. [cite_start]Ela 'desfaz' o que o efeito fez, como cancelar uma inscrição a um evento ou um timer, garantindo que não continue rodando desnecessariamente[cite: 71, 72, 73]."
+    ]
+  },
+  {
+    "question": "Qual é a convenção de nomenclatura obrigatória para a criação de um Custom Hook?",
+    "options": [
+      "O nome deve terminar com a palavra 'Hook', por exemplo: `toggleHook`.",
+      "O nome deve ser escrito em PascalCase (iniciando com maiúscula), como um componente.",
+      "O nome deve começar com a palavra 'use', por exemplo: `useToggle`.",
+      "Não existe uma convenção obrigatória, é apenas uma boa prática."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Não há exigência de que o nome termine com 'Hook'. A regra está no início do nome.",
+      "Incorreto. Componentes React são escritos em PascalCase (ex: `MeuComponente`), mas hooks são funções e seguem o padrão camelCase (ex: `useMeuHook`).",
+      "Correto! Essa convenção é uma regra fundamental. [cite_start]Ela permite que o linter do React identifique a função como um Hook e garanta que as Regras dos Hooks (como não ser chamado em condicionais) sejam aplicadas a ela[cite: 91].",
+      "Incorreto. É mais do que uma boa prática; é uma regra imposta pelas ferramentas do React para garantir o funcionamento correto e a detecção de erros."
+    ]
+  }
+]
