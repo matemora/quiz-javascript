@@ -1,0 +1,162 @@
+[
+  {
+    "question": "No React, qual é a sintaxe correta para adicionar um evento de clique a um elemento &ltbutton&gt?",
+    "options": [
+      "&ltbutton onclick='handleClick()'&gt",
+      "&ltbutton onClick={handleClick}&gt",
+      "&ltbutton OnClick='handleClick'&gt",
+      "&ltbutton clickEvent={handleClick}&gt"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Esta é a sintaxe usada em HTML puro. No JSX, os nomes dos eventos são escritos em camelCase e o valor passado é uma referência de função, não uma string.",
+      "Correto! Em JSX, os eventos são nomeados em camelCase (como 'onClick') e recebem uma função como valor, passada entre chaves {}.",
+      "Incorreto. Embora o 'OnClick' use a capitalização, o padrão camelCase exige que a primeira letra seja minúscula ('onClick').",
+      "Incorreto. Embora seja possível criar props com nomes customizados, os eventos nativos do DOM no React seguem um padrão de nomenclatura específico, como 'onClick'."
+    ]
+  },
+  {
+    "question": "O que é um 'event handler' (ou função de callback de evento) no contexto do React?",
+    "options": [
+      "É um objeto que contém informações sobre a interação do usuário.",
+      "É um atributo especial do JSX que cria interatividade automaticamente.",
+      "É uma variável de estado que armazena qual evento ocorreu.",
+      "É uma função que é executada em resposta a um evento específico, como um clique."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O objeto com informações sobre a interação é o 'objeto event', que é passado como argumento para o 'event handler'.",
+      "Incorreto. O atributo (como 'onClick') apenas 'escuta' o evento. A lógica do que acontece fica dentro do 'event handler'.",
+      "Incorreto. O estado é usado para armazenar dados que mudam, mas não para definir a lógica de um evento em si.",
+      "Correto! Um 'event handler' é a função que nós definimos para dizer ao React exatamente o que fazer quando um evento, como um clique ou uma digitação, acontece."
+    ]
+  },
+  {
+    "question": "Ao trabalhar com um campo &ltinput&gt em um formulário, como você acessaria o valor que o usuário acabou de digitar dentro de uma função 'handleChange(event)'?",
+    "options": [
+      "event.value",
+      "event.data.value",
+      "event.target.value",
+      "event.input.value"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O objeto 'event' em si não possui uma propriedade 'value' diretamente. É preciso acessar o alvo ('target') do evento primeiro.",
+      "Incorreto. Não existe uma propriedade 'data' com o valor do input nesse formato no objeto de evento do React.",
+      "Correto! O 'event.target' se refere ao elemento do DOM que disparou o evento (no caso, o &ltinput&gt), e a propriedade '.value' desse elemento contém o texto digitado.",
+      "Incorreto. O objeto 'event' não possui uma propriedade 'input'. A propriedade que referencia o elemento é a 'target'."
+    ]
+  },
+  {
+    "question": "Qual é a principal função do 'event.preventDefault()' ao ser usado no 'handler' de um evento 'onSubmit' de um formulário?",
+    "options": [
+      "Para validar os campos do formulário antes do envio.",
+      "Para limpar os campos do formulário após o envio.",
+      "Para impedir que o navegador recarregue a página, que é o seu comportamento padrão.",
+      "Para enviar os dados do formulário para um servidor."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A validação dos campos é uma lógica que você implementa dentro do handler, mas não é a função do 'event.preventDefault()'.",
+      "Incorreto. Limpar os campos também é uma lógica que você implementa, geralmente atualizando o estado para uma string vazia, mas não é o que 'preventDefault()' faz.",
+      "Correto! Por padrão, o envio de um formulário HTML faz com que a página seja recarregada. Usar 'event.preventDefault()' impede essa ação, permitindo que você controle o fluxo com JavaScript.",
+      "Incorreto. O envio dos dados é uma ação que você codificaria (por exemplo, com uma chamada de API) dentro do handler, após ter prevenido o comportamento padrão."
+    ]
+  },
+  {
+    "question": "O que caracteriza um 'Formulário Controlado' (Controlled Component) em React?",
+    "options": [
+      "O valor do campo de formulário é lido diretamente do DOM usando uma 'ref'.",
+      "O React controla o valor do input, que é armazenado em uma variável de estado (useState).",
+      "O formulário usa as funcionalidades nativas do navegador para gerenciar os dados.",
+      "O formulário só pode ser enviado uma única vez."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Ler o valor diretamente do DOM é a característica de um 'Formulário Não Controlado' (Uncontrolled Component).",
+      "Correto! Em um formulário controlado, o estado do componente React é a 'fonte única da verdade' para o valor do input. O ciclo é: o estado define o valor do input, e o 'onChange' atualiza o estado.",
+      "Incorreto. Usar as funcionalidades nativas do navegador é a abordagem de formulários não controlados.",
+      "Incorreto. A capacidade de envio não tem relação com o fato de um formulário ser controlado ou não."
+    ]
+  },
+  {
+    "question": "Em um Formulário Controlado, por que é essencial usar a função 'onChange' em um elemento &ltinput&gt que tem a prop 'value' definida?",
+    "options": [
+      "Para que o campo do formulário se torne 'somente leitura' (read-only).",
+      "Para permitir que o usuário digite no campo, atualizando o estado que controla o seu valor.",
+      "Para formatar o valor do input automaticamente, como transformar em maiúsculas.",
+      "Para disparar a validação do formulário a cada tecla pressionada."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Na verdade, a falta do 'onChange' é que torna o campo 'somente leitura', pois o valor está 'travado' no estado sem nenhuma forma de atualizá-lo.",
+      "Correto! A prop 'value' amarra o que é exibido ao estado. Sem o 'onChange' para atualizar esse estado a cada digitação, o valor nunca mudaria e o usuário não conseguiria digitar nada.",
+      "Incorreto. A formatação do valor é uma das coisas que você PODE fazer dentro do 'onChange', mas a razão fundamental para sua existência é atualizar o estado.",
+      "Incorreto. A validação também pode ser feita dentro do 'onChange', mas sua principal responsabilidade é sincronizar o input com o estado do React."
+    ]
+  },
+  {
+    "question": "O padrão 'Lifting State Up' (Levantar o Estado) é mais adequado para qual situação?",
+    "options": [
+      "Quando um componente precisa gerenciar um estado que não afeta nenhum outro componente.",
+      "Quando você quer evitar o uso de props para passar dados entre componentes.",
+      "Quando múltiplos componentes filhos precisam acessar ou modificar o mesmo estado.",
+      "Quando você precisa armazenar dados no armazenamento local (localStorage) do navegador."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Se o estado é usado apenas por um componente, ele deve permanecer local a esse componente. Não há necessidade de 'levantá-lo'.",
+      "Incorreto. Pelo contrário, 'Lifting State Up' depende fundamentalmente de props para passar o estado e as funções de atualização do pai para os filhos.",
+      "Correto! Quando vários componentes precisam de uma 'fonte única da verdade', o estado é movido para o ancestral comum mais próximo e distribuído via props.",
+      "Incorreto. O armazenamento de dados no localStorage é uma técnica de persistência de dados e não está diretamente relacionada à comunicação entre componentes em tempo real."
+    ]
+  },
+  {
+    "question": "No padrão 'Lifting State Up', como um componente filho informa ao componente pai que um dado precisa ser alterado?",
+    "options": [
+      "O filho modifica a prop recebida diretamente.",
+      "O filho emite um evento global que o pai escuta.",
+      "O filho chama uma função, recebida do pai via props, passando o novo valor.",
+      "O filho acessa e altera o estado do pai diretamente."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Props em React são somente leitura ('read-only'). Um componente filho nunca deve tentar modificar as props que recebe.",
+      "Incorreto. Embora existam maneiras de fazer isso com bibliotecas de gerenciamento de estado, o padrão 'Lifting State Up' puro não usa eventos globais.",
+      "Correto! O pai define o estado e a função que o atualiza. Ele passa essa função para o filho via props. O filho, quando precisa, chama essa função para 'pedir' a alteração.",
+      "Incorreto. Um componente filho não tem acesso direto ao estado de seu pai. A comunicação é feita exclusivamente via props."
+    ]
+  },
+  {
+    "question": "Qual a diferença entre usar 'onClick={minhaFuncao}' e 'onClick={minhaFuncao()}'?",
+    "options": [
+      "Não há diferença, ambas as formas funcionam da mesma maneira.",
+      "'{minhaFuncao}' executa a função imediatamente na renderização, enquanto '{minhaFuncao()}' espera pelo clique.",
+      "'{minhaFuncao}' passa a referência da função para ser chamada no clique, enquanto '{minhaFuncao()}' executa a função imediatamente e passa seu resultado.",
+      "'{minhaFuncao()}' é a forma correta, e '{minhaFuncao}' causará um erro."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Há uma diferença crucial que afeta o comportamento do componente.",
+      "Incorreto. É exatamente o oposto. A versão com parênteses '()' executa imediatamente.",
+      "Correto! Passar '{minhaFuncao}' entrega ao 'onClick' a instrução do que fazer quando o clique acontecer. Usar '{minhaFuncao()}' executa a função no momento da renderização, e o que é passado para o 'onClick' é o valor de retorno da função (que muitas vezes é 'undefined'), o que não é o comportamento desejado.",
+      "Incorreto. '{minhaFuncao}' é a forma correta para a maioria dos casos. '{minhaFuncao()}' não necessariamente causa um erro, mas leva a um comportamento inesperado, como a função sendo chamada em um loop infinito de renderizações."
+    ]
+  },
+  {
+    "question": "Formulários Não Controlados ('Uncontrolled') são diferentes dos Controlados porque:",
+    "options": [
+      "Eles não usam o estado do React e o DOM mantém a 'fonte da verdade'.",
+      "Eles são mais interativos e recomendados para validação em tempo real.",
+      "Eles não permitem o uso do evento 'onSubmit'.",
+      "Eles são a única abordagem possível em aplicações React modernas."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Em formulários não controlados, o DOM gerencia os dados do formulário. Geralmente, você usa uma 'ref' para buscar o valor do DOM apenas quando necessário (por exemplo, no envio).",
+      "Incorreto. Pelo contrário, a interatividade e validação em tempo real são mais difíceis com formulários não controlados, pois não há um estado no React para reagir às mudanças.",
+      "Incorreto. O evento 'onSubmit' é usado em ambas as abordagens para lidar com o envio do formulário.",
+      "Incorreto. Formulários controlados ainda são a abordagem padrão em muitas situações no React, embora frameworks como Next.js tenham popularizado o uso de formulários não controlados em certos contextos."
+    ]
+  }
+]
