@@ -1,0 +1,162 @@
+[
+    {
+        "question": "Qual é a filosofia principal por trás do Tailwind CSS, conhecida como 'Utility-First'?",
+        "options": [
+            "Fornecer componentes de UI completos e prontos para usar, como botões e navbars.",
+            "Criar nomes de classes semânticos e personalizados em um arquivo CSS separado.",
+            "Oferecer uma coleção de classes pequenas e de propósito único para serem aplicadas diretamente no HTML.",
+            "Focar exclusivamente na criação de layouts com Grid, sem suporte para Flexbox."
+        ],
+        "correct": 2,
+        "feedback": [
+            "Incorreto. Frameworks como Bootstrap são 'component-first'. O Tailwind foca em fornecer 'peças de LEGO' (utilitários), não componentes prontos.",
+            "Incorreto. Essa é a abordagem do CSS tradicional ou de metodologias como BEM. O Tailwind evita a necessidade de criar e nomear suas próprias classes.",
+            "Correto! A abordagem 'Utility-First' consiste em usar classes de baixo nível, onde cada classe faz uma única coisa (ex: p-4, flex), construindo o design diretamente no HTML.",
+            "Incorreto. O Tailwind tem um suporte excelente e robusto tanto para Flexbox quanto para Grid."
+        ]
+    },
+    {
+        "question": "Em Tailwind CSS, como a classe `pt-4` seria traduzida para uma propriedade CSS tradicional?",
+        "options": [
+            "padding-top: 4px",
+            "padding: 1rem",
+            "padding-top: 1rem (equivalente a 16px)",
+            "padding-left: 4rem"
+        ],
+        "correct": 2,
+        "feedback": [
+            "Incorreto. A unidade numérica do Tailwind (`4`) não corresponde diretamente a pixels. É uma escala pré-definida, onde `4` geralmente equivale a `1rem`.",
+            "Incorreto. A classe `p-4` aplicaria `padding` a todos os lados, mas a diretiva `t` em `pt-4` especifica que o `padding` é apenas no `top`.",
+            "Correto! A letra `p` significa `padding`, `t` significa `top`, e o número `4` na escala padrão do Tailwind corresponde a `1rem` ou `16px`.",
+            "Incorreto. `pt-4` se refere a `padding-top`. Para `padding-left`, a classe seria `pl-4`."
+        ]
+    },
+    {
+        "question": "Você quer que um texto seja pequeno em telas de celular e grande em telas de desktop. Qual conjunto de classes alcançaria esse efeito, seguindo a abordagem 'Mobile-First'?",
+        "options": [
+            "class=&quot;text-lg md:text-sm&quot;",
+            "class=&quot;text-sm lg:text-lg&quot;",
+            "class=&quot;mobile:text-sm desktop:text-lg&quot;",
+            "class=&quot;text-base&quot;"
+        ],
+        "correct": 1,
+        "feedback": [
+            "Incorreto. Esta classe faria o oposto: o texto seria grande (`text-lg`) por padrão (mobile) e ficaria pequeno (`text-sm`) em telas médias e maiores.",
+            "Correto! Por padrão (Mobile-First), o texto será `text-sm`. A partir do breakpoint `lg:` (telas largas), a classe `text-lg` será aplicada, sobrescrevendo a anterior.",
+            "Incorreto. Os prefixos de breakpoint no Tailwind são abreviações como `sm:`, `md:`, `lg:`, etc., e não `mobile:` ou `desktop:`.",
+            "Incorreto. Esta classe aplicaria o tamanho `text-base` em todas as telas, sem nenhuma alteração responsiva."
+        ]
+    },
+    {
+        "question": "Para alinhar itens de um container Flexbox ao centro do eixo principal e no final do eixo cruzado, quais classes do Tailwind você usaria?",
+        "options": [
+            "class=&quot;flex justify-start items-start&quot;",
+            "class=&quot;flex justify-center items-end&quot;",
+            "class=&quot;flex justify-end items-center&quot;",
+            "class=&quot;flex justify-around items-stretch&quot;"
+        ],
+        "correct": 1,
+        "feedback": [
+            "Incorreto. `justify-start` alinha os itens no início do eixo principal e `items-start` no início do eixo cruzado.",
+            "Correto! `justify-center` centraliza os itens ao longo do eixo principal (horizontal por padrão), e `items-end` os alinha no final do eixo cruzado (vertical por padrão).",
+            "Incorreto. `justify-end` alinharia no final do eixo principal e `items-center` no centro do eixo cruzado.",
+            "Incorreto. `justify-around` distribui os itens com espaço ao redor deles, e `items-stretch` faz com que ocupem toda a altura/largura do container."
+        ]
+    },
+    {
+        "question": "Como você faria um botão mudar sua cor de fundo para vermelho apenas quando o mouse estiver sobre ele?",
+        "options": [
+            "class=&quot;bg-blue-500 on-mouse:bg-red-500&quot;",
+            "class=&quot;bg-blue-500 active:bg-red-500&quot;",
+            "class=&quot;bg-blue-500 focus:bg-red-500&quot;",
+            "class=&quot;bg-blue-500 hover:bg-red-500&quot;"
+        ],
+        "correct": 3,
+        "feedback": [
+            "Incorreto. O prefixo para o estado de 'mouse sobre' no Tailwind (e no CSS em geral) é `hover:`, não `on-mouse:`.",
+            "Incorreto. O prefixo `active:` aplica o estilo apenas durante o clique, no momento em que o botão do mouse está pressionado.",
+            "Incorreto. O prefixo `focus:` aplica o estilo quando o elemento é focado, geralmente através da navegação por teclado (tecla Tab) ou após um clique.",
+            "Correto! O prefixo `hover:` é usado para aplicar classes utilitárias condicionalmente quando o cursor do mouse está sobre o elemento."
+        ]
+    },
+    {
+        "question": "Em um layout de Grid com 3 colunas (`grid-cols-3`), como você faria para que um item específico ocupasse o espaço de duas colunas?",
+        "options": [
+            "class=&quot;col-2&quot;",
+            "class=&quot;colspan-2&quot;",
+            "class=&quot;col-span-2&quot;",
+            "class=&quot;grid-col-2&quot;"
+        ],
+        "correct": 2,
+        "feedback": [
+            "Incorreto. Esta não é uma classe válida no Tailwind para expandir colunas.",
+            "Incorreto. A sintaxe está quase correta, mas a palavra-chave é `span`, não `colspan`.",
+            "Correto! A classe `col-span-&lt;number&gt;` é usada para fazer um elemento se estender por um número específico de colunas dentro de um container grid.",
+            "Incorreto. `grid-cols-2` é usado no container pai para definir que o grid terá duas colunas, não em um item filho para definir sua expansão."
+        ]
+    },
+    {
+        "question": "Qual das seguintes opções é uma das principais vantagens de usar Tailwind CSS, mencionada no material?",
+        "options": [
+            "Ter um conjunto de componentes de UI (como Modals e Cards) prontos, com design já definido.",
+            "Gerar arquivos CSS finais otimizados, removendo todas as classes não utilizadas no projeto.",
+            "Forçar o uso da metodologia BEM (Block, Element, Modifier) para uma melhor organização.",
+            "Eliminar a necessidade de entender como CSS Flexbox e Grid funcionam."
+        ],
+        "correct": 1,
+        "feedback": [
+            "Incorreto. Esta é uma característica de frameworks como Bootstrap. Tailwind não oferece componentes prontos, mas sim as ferramentas para construí-los.",
+            "Correto! O Tailwind escaneia seus arquivos HTML/JS e remove todo o CSS que não foi utilizado, resultando em um arquivo final de produção extremamente pequeno e otimizado.",
+            "Incorreto. O Tailwind usa uma abordagem diferente do BEM, focando em classes utilitárias pré-definidas em vez de classes semânticas criadas pelo desenvolvedor.",
+            "Incorreto. Pelo contrário, para usar o Tailwind de forma eficaz, é muito útil ter um bom entendimento dos conceitos do CSS, como Flexbox e Grid."
+        ]
+    },
+    {
+        "question": "Se um elemento HTML tem a classe `class=&quot;p-8 m-4&quot;`, o que isso significa?",
+        "options": [
+            "O elemento tem uma margem de 8 unidades e um padding de 4 unidades.",
+            "O elemento tem um padding de 8 unidades em todos os lados e uma margem de 4 unidades em todos os lados.",
+            "O elemento tem um padding de 8 unidades apenas no eixo Y e uma margem de 4 unidades apenas no eixo X.",
+            "O elemento tem uma margem interna (padding) de 4 unidades e uma margem externa (margin) de 8 unidades."
+        ],
+        "correct": 1,
+        "feedback": [
+            "Incorreto. A letra `p` refere-se a `padding` (espaçamento interno) e `m` a `margin` (espaçamento externo), não o contrário.",
+            "Correto! A classe `p-8` aplica `padding` de 8 unidades em todos os lados, e `m-4` aplica `margin` de 4 unidades em todos os lados.",
+            "Incorreto. Para aplicar espaçamento apenas em eixos específicos, seriam usadas classes como `py-8` (padding no eixo Y) e `mx-4` (margin no eixo X).",
+            "Incorreto. `padding` (`p-`) é o espaçamento interno, e `margin` (`m-`) é o externo. A associação com os números está invertida nesta opção."
+        ]
+    },
+    {
+        "question": "Comparado ao CSS tradicional, qual problema o Tailwind CSS ajuda a resolver diretamente no fluxo de trabalho do desenvolvedor?",
+        "options": [
+            "A dificuldade de aprender as propriedades CSS como `background-color` ou `font-size`.",
+            "A necessidade de ficar alternando entre arquivos HTML e CSS e a dificuldade de inventar nomes para as classes.",
+            "A incompatibilidade do CSS com frameworks JavaScript como o React.",
+            "A limitação do CSS em não permitir a criação de layouts responsivos."
+        ],
+        "correct": 1,
+        "feedback": [
+            "Incorreto. Embora a sintaxe do Tailwind seja um atalho, o desenvolvedor ainda precisa entender quais propriedades CSS estão sendo aplicadas.",
+            "Correto! Com o Tailwind, você estiliza diretamente no seu HTML/JSX, o que acelera o desenvolvimento por não precisar trocar de contexto (arquivos) constantemente.",
+            "Incorreto. O CSS tradicional funciona perfeitamente com React, mas o Tailwind se integra muito bem ao paradigma de componentização.",
+            "Incorreto. O CSS tradicional possui Media Queries para responsividade, mas o Tailwind simplifica esse processo com seus prefixos de breakpoint."
+        ]
+    },
+    {
+        "question": "De acordo com o material da aula, qual é a maneira de estender o tema padrão, como adicionar uma cor personalizada?",
+        "options": [
+            "Modificando diretamente o arquivo CSS do Tailwind na pasta `node_modules`.",
+            "Usando a diretiva `@utility` para definir novas cores no arquivo CSS principal.",
+            "Usando a diretiva `@theme` dentro do arquivo CSS de entrada para definir variáveis CSS personalizadas.",
+            "É impossível adicionar cores, você só pode usar a paleta padrão."
+        ],
+        "correct": 2,
+        "feedback": [
+            "Incorreto. Nunca se deve modificar arquivos dentro de `node_modules`, pois as alterações seriam perdidas.",
+            "Incorreto. A diretiva `@utility` é usada para criar novas classes utilitárias, não para estender o tema de cores existente.",
+            "Correto! O material mostra que é possível estender o tema (cores, espaçamentos, etc.) diretamente no arquivo CSS principal usando a diretiva `@theme`.",
+            "Incorreto. O Tailwind é altamente extensível e customizável, permitindo que você adapte o design system ao seu projeto."
+        ]
+    }
+]
