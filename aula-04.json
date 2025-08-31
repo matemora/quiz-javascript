@@ -1,0 +1,162 @@
+[
+    {
+      "question": "Qual é a principal vantagem de usar estruturas de dados como arrays e objetos, em vez de variáveis separadas, para armazenar uma grande quantidade de informações?",
+      "options": [
+        "Elas permitem que o código seja executado de forma mais rápida.",
+        "Elas permitem o acesso e a manipulação de dados de forma organizada e eficiente, especialmente quando se lida com grandes volumes de informação.",
+        "Elas impedem que o código tenha erros de sintaxe.",
+        "Elas armazenam apenas informações numéricas, economizando memória."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A velocidade de execução está mais relacionada a algoritmos e ao ambiente de runtime. A principal vantagem das estruturas de dados é a organização e a manipulação.",
+        "Correto. O roteiro de aula sugere que, para uma grande quantidade de dados (como seguidores de uma celebridade), usar uma variável para cada um seria inviável. Arrays e objetos oferecem uma forma de agrupar esses dados, facilitando sua organização, acesso e manipulação.",
+        "Incorreto. Estruturas de dados não previnem erros de sintaxe. Eles são ferramentas de organização de dados, não de validação de código.",
+        "Incorreto. Arrays e objetos podem armazenar qualquer tipo de dado, não apenas numéricos. Eles podem conter strings, booleanos, outros arrays e objetos, etc."
+      ]
+    },
+    {
+      "question": "Qual a principal diferença entre um método de array **destrutivo** (`push`, `pop`) e um **não destrutivo** (`slice`, `concat`)?",
+      "options": [
+        "Os métodos destrutivos são mais rápidos, enquanto os não destrutivos são mais lentos.",
+        "Os métodos destrutivos modificam o array original diretamente, enquanto os não destrutivos criam e retornam uma nova cópia do array modificado.",
+        "Os métodos destrutivos são usados para adicionar itens, e os não destrutivos para remover.",
+        "Os métodos destrutivos só funcionam em arrays de números, e os não destrutivos funcionam em arrays de qualquer tipo."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A principal diferença não é a velocidade, mas sim a forma como eles interagem com o array original. A performance pode variar dependendo da implementação, mas não é a principal distinção conceitual.",
+        "Correto. Os métodos destrutivos (como `push`, `pop`, `shift`, `unshift`) alteram o array em que são chamados, o que é conhecido como 'mutação'. Os métodos não destrutivos (como `slice`, `concat`) deixam o array original intacto e retornam uma nova cópia com as modificações.",
+        "Incorreto. Ambos os grupos de métodos têm funções de adição e remoção. Por exemplo, `pop` remove itens, mas `push` adiciona. `slice` extrai itens, mas `concat` os une. A distinção não é sobre a ação, mas sobre a modificação do array original.",
+        "Incorreto. Os métodos de array do JavaScript são agnósticos ao tipo de dado que contêm. Eles funcionam da mesma forma para arrays de números, strings, objetos ou qualquer outro tipo de dado."
+      ]
+    },
+    {
+      "question": "No contexto dos métodos de array, qual é a analogia usada para explicar o comportamento de `shift` e `unshift`?",
+      "options": [
+        "Uma pilha de pratos na cozinha.",
+        "Uma fábrica que transforma toras de madeira em cadeiras.",
+        "Uma fila de cinema, onde o `shift` remove o primeiro da fila e o `unshift` adiciona alguém na frente.",
+        "Um armário cheio de peças de LEGO."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A analogia da 'pilha de pratos' foi usada para explicar `pop` (pegar o do topo) e `push` (colocar no topo).",
+        "Incorreto. A analogia da 'fábrica' foi usada para explicar o método `map`, que transforma cada item de um array em um novo item.",
+        "Correto. A analogia da 'fila de cinema' é usada para explicar que o `shift` remove o primeiro elemento de um array (a pessoa na frente da fila), e o `unshift` adiciona um novo elemento no início (alguém furando a fila).",
+        "Incorreto. A analogia das 'peças de LEGO' foi usada para explicar a união de arrays (`concat`) ou a união de elementos de um array em uma string (`join`)."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença conceitual entre um loop `for` e um loop `while`?",
+      "options": [
+        "O `for` só funciona com arrays, enquanto o `while` funciona com objetos.",
+        "O `for` é mais perigoso, pois pode criar loops infinitos mais facilmente.",
+        "O `for` é ideal para repetir um número determinado de vezes, com controle de índice embutido, enquanto o `while` é mais flexível, dependendo de uma condição de parada que deve ser controlada manualmente no bloco do loop.",
+        "O `for` é usado para percorrer o array e o `while` é usado para percorrer os objetos."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. Ambos podem ser usados para percorrer arrays e objetos, embora o `for...of` seja mais comum para arrays e o `for...in` para objetos.",
+        "Incorreto. O roteiro de aula afirma o oposto: o `while` é considerado mais 'perigoso' porque o controle da variável que fará a condição de parada ser falsa deve ser feito manualmente dentro do seu bloco.",
+        "Correto. O `for` é ideal para situações em que você sabe exatamente quantas vezes o loop deve ser executado e precisa de um contador. O `while` é mais adequado para situações em que você não sabe o número exato de repetições, mas sim uma condição que, quando verdadeira, mantém o loop em execução.",
+        "Incorreto. Embora o `for` seja usado para arrays (especialmente com o `for...of`), e o `while` para objetos (com o `for...in`), a principal diferença conceitual é sobre o controle de repetição e as condições de parada, não sobre os tipos de dados que eles podem percorrer."
+      ]
+    },
+    {
+      "question": "Qual a principal diferença entre os métodos de iteração **`map`** e **`forEach`**?",
+      "options": [
+        "O `map` retorna um novo array com os itens transformados, enquanto o `forEach` não retorna nenhum valor e é usado para executar uma ação para cada item.",
+        "O `map` modifica o array original, e o `forEach` cria um novo array.",
+        "O `map` é usado para filtrar itens de um array, e o `forEach` é usado para encontrá-los.",
+        "O `map` é mais rápido que o `forEach` em todas as situações."
+      ],
+      "correct": 0,
+      "feedback": [
+        "Correto. O `map` é um método não destrutivo que cria um novo array, no qual cada elemento é o resultado da função de transformação. O `forEach` é usado para iterar sobre os elementos, mas não retorna um novo array, sendo útil para ações secundárias como imprimir no console.",
+        "Incorreto. O `map` não modifica o array original, pois é um método não destrutivo. O `forEach` não cria um novo array, e seu principal objetivo é a iteração.",
+        "Incorreto. A filtragem de itens é feita com o método `filter`, e a busca por um item específico é feita com o método `find`.",
+        "Incorreto. A diferença de desempenho entre eles é geralmente mínima. A escolha entre `map` e `forEach` deve ser baseada na intenção do código: se você precisa de um novo array com os itens transformados, use `map`; se você só precisa fazer algo com cada item, use `forEach`."
+      ]
+    },
+    {
+      "question": "O que o método **`find`** faz em um array?",
+      "options": [
+        "Ele retorna um novo array contendo todos os itens que satisfazem uma condição.",
+        "Ele retorna o primeiro item que satisfaz uma condição, ou `undefined` se nenhum item for encontrado.",
+        "Ele retorna o índice do primeiro item que satisfaz uma condição, ou `-1` se não for encontrado.",
+        "Ele verifica se um item existe no array e retorna `true` ou `false`."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. O método que retorna um novo array com todos os itens que satisfazem uma condição é o `filter`.",
+        "Correto. O método **`find`** percorre o array e retorna o valor do primeiro elemento que satisfaz a condição da função de teste. Se nenhum elemento satisfizer a condição, ele retorna `undefined`.",
+        "Incorreto. O método que retorna o índice de um item é o `indexOf`. O `find` retorna o próprio item, não o seu índice.",
+        "Incorreto. O método que verifica a existência de um item e retorna um valor booleano é o `includes`."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença entre iterar sobre um objeto com **`for...in`** e usar **`Object.keys()`** com **`for...of`**?",
+      "options": [
+        "O `for...in` itera sobre as chaves, enquanto o `Object.keys()` itera sobre os valores.",
+        "O `for...in` pode trazer chaves herdadas do protótipo, enquanto `Object.keys()` retorna apenas as chaves diretas do objeto.",
+        "O `for...in` é mais rápido e performático para iterar sobre objetos.",
+        "O `for...in` não é uma forma válida de iterar sobre objetos no JavaScript moderno."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. Ambos os métodos iteram sobre as chaves do objeto. Para iterar sobre os valores, você usaria o `Object.values()`.",
+        "Correto. O `for...in` itera sobre todas as chaves enumeráveis do objeto, incluindo as que podem ser herdadas do protótipo, o que pode levar a resultados inesperados. `Object.keys()` é considerado uma forma mais segura e moderna, pois retorna apenas as chaves diretas do objeto em um array, que pode ser iterado com segurança usando `for...of`.",
+        "Incorreto. `Object.keys()` com `for...of` é geralmente preferido por ser mais seguro e previsível, mesmo que a performance possa variar dependendo do contexto. A segurança e a previsibilidade são mais importantes do que pequenas diferenças de performance.",
+        "Incorreto. O `for...in` ainda é uma forma válida de iteração. O roteiro de aula o menciona, mas aponta que ele tem um comportamento específico que pode ser 'perigoso' em algumas situações. A melhor prática é usar `Object.keys()` ou `Object.values()` com `for...of` para evitar chaves herdadas."
+      ]
+    },
+    {
+      "question": "O que o conceito de **destructuring** faz por você no JavaScript?",
+      "options": [
+        "Ele remove propriedades de um objeto de forma permanente.",
+        "Ele reordena os elementos de um array de forma aleatória.",
+        "Ele permite extrair valores de arrays ou propriedades de objetos e atribuí-los a variáveis de forma rápida e concisa.",
+        "Ele converte um array em um objeto e vice-versa."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A remoção de propriedades de um objeto é feita com a palavra-chave `delete`.",
+        "Incorreto. O destructuring não reordena elementos. Ele apenas atribui valores a variáveis com base na ordem do array ou no nome das chaves do objeto.",
+        "Correto. **Destructuring** é uma sintaxe que simplifica a extração de dados de arrays e objetos. Em vez de escrever várias linhas de código para atribuir valores a variáveis (`const nome = usuario.nome`), você pode fazer isso em uma única linha (`const { nome } = usuario;`).",
+        "Incorreto. Embora o `Object.entries()` possa ser usado em conjunto com o destructuring para iterar sobre objetos de forma semelhante a arrays, a função principal do destructuring não é a conversão de tipos de dados."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença na desestruturação de arrays em comparação com a desestruturação de objetos?",
+      "options": [
+        "A desestruturação de arrays é baseada no nome das chaves, e a de objetos é baseada na ordem.",
+        "A desestruturação de arrays só funciona para strings, e a de objetos só para números.",
+        "A desestruturação de arrays depende da ordem dos elementos, enquanto a de objetos depende do nome das chaves.",
+        "A desestruturação de arrays não permite definir valores padrão, mas a de objetos sim."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A relação está invertida. A desestruturação de arrays é baseada na ordem dos elementos, e a de objetos é baseada no nome das chaves.",
+        "Incorreto. A desestruturação funciona para qualquer tipo de dado. Você pode desestruturar arrays de strings, números, objetos, etc.",
+        "Correto. Na desestruturação de arrays, o nome da variável é irrelevante, pois o que importa é a posição do elemento. Já na desestruturação de objetos, a ordem é irrelevante, e você precisa usar o nome da chave para extrair o valor correspondente.",
+        "Incorreto. A desestruturação de arrays também permite a definição de valores padrão, por exemplo: `const [a = 1, b = 2] = [3];`."
+      ]
+    },
+    {
+      "question": "De acordo com o roteiro, qual é a principal vantagem de usar a desestruturação em parâmetros de funções?",
+      "options": [
+        "Ela permite que a função retorne múltiplos valores em um único array.",
+        "Ela previne que a função acesse propriedades inexistentes em um objeto.",
+        "Ela torna o código mais conciso e legível, permitindo que a função acesse as propriedades de um objeto diretamente, sem precisar usar o nome do objeto repetidamente.",
+        "Ela garante que a função só será executada se o objeto de entrada tiver todas as propriedades necessárias."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A desestruturação não tem relação com o valor de retorno de uma função. Para retornar múltiplos valores, você pode retornar um array ou um objeto.",
+        "Incorreto. O destructuring não previne erros. Se você tentar desestruturar uma propriedade que não existe, o valor da variável será `undefined` (a menos que você defina um valor padrão).",
+        "Correto. A desestruturação em parâmetros de função é uma forma elegante de extrair as propriedades necessárias. Em vez de escrever `boasVindas(usuario.nome)`, você pode usar `boasVindas({ nome })`, o que torna o código mais limpo e claro, eliminando a repetição do nome do objeto.",
+        "Incorreto. O destructuring não valida a existência de propriedades. Se uma propriedade não estiver presente, a variável correspondente será `undefined`."
+      ]
+    }
+  ]
