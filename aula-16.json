@@ -96,7 +96,7 @@
         ]
     },
     {
-        "question": "Qual das seguintes opções é uma das principais vantagens de usar Tailwind CSS, mencionada no material?",
+        "question": "Qual das seguintes opções é uma das principais vantagens de usar Tailwind CSS?",
         "options": [
             "Ter um conjunto de componentes de UI (como Modals e Cards) prontos, com design já definido.",
             "Gerar arquivos CSS finais otimizados, removendo todas as classes não utilizadas no projeto.",
