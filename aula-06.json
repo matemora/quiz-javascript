@@ -95,6 +95,70 @@
         "Incorreto. A capacidade de 'esperar' por uma operação assíncrona já existia com os encadeamentos de `.then()`s. O `async/await` apenas oferece uma sintaxe mais clara para essa mesma funcionalidade.",
         "Incorreto. `async/await` é uma ferramenta para o controle do fluxo de execução. Problemas de segurança de rede são tratados em outras camadas, como HTTPS e CORS, não pela sintaxe de Promises."
       ]
+    },
+    {
+      "question": "O que acontece se uma Promise for rejeitada (`rejected`) e não houver um `.catch()` para tratar o erro?",
+      "options": [
+        "A Promise é automaticamente retentada até que a operação tenha sucesso.",
+        "A aplicação continuará a funcionar normalmente, mas o resultado não será o esperado.",
+        "O erro será silenciado, sem nenhuma notificação para o desenvolvedor.",
+        "O erro pode se propagar e causar uma falha na sua aplicação, pois não há um tratamento para a exceção."
+      ],
+      "correct": 3,
+      "feedback": [
+        "Incorreto. As Promises não possuem um mecanismo de retentativa automática. Você precisaria implementar a lógica para tentar novamente, geralmente usando um loop.",
+        "Incorreto. Sem um `catch`, a Promise rejeitada não é tratada. O erro pode ser 'solto' no console e, dependendo do ambiente, causar uma falha fatal na aplicação.",
+        "Incorreto. O erro não é silenciado. Ele é exibido no console como um 'Uncaught (in promise) Error', mas não é tratado, o que pode interromper a execução do seu programa.",
+        "Correto. Uma Promise rejeitada sem um `.catch()` pode causar um erro não tratado (`unhandled rejection`). Isso é considerado uma má prática, pois pode levar a comportamentos inesperados e até mesmo travar o processo, tornando o código instável."
+      ]
+    },
+    {
+      "question": "No fluxo de uma requisição com `fetch()`, por que é importante verificar **`response.ok`**?",
+      "options": [
+        "Porque o `fetch` só retorna uma Promise para requisições bem-sucedidas.",
+        "Porque o `fetch` pode resolver a Promise mesmo quando o status HTTP indica um erro (ex: 404 Not Found ou 500 Internal Server Error).",
+        "Porque o `.json()` só funciona quando a requisição retorna um status HTTP 200.",
+        "Porque o `response.ok` verifica se a conexão de internet está funcionando corretamente."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. O `fetch` retorna uma Promise para qualquer status de resposta, seja 200 (OK), 404 (Not Found) ou 500 (Internal Server Error). A Promise só será rejeitada em caso de falha de rede ou CORS, por exemplo.",
+        "Correto. O `fetch` resolve a Promise para qualquer resposta de servidor, mesmo que o status HTTP seja de erro. A propriedade `response.ok` é um booleano conveniente para verificar se a resposta está dentro do intervalo 200-299, indicando uma requisição bem-sucedida, e se o código deve continuar a processar os dados.",
+        "Incorreto. O `.json()` pode ser executado em uma resposta com status de erro, desde que o corpo da resposta seja um JSON válido. Ele tentará converter o corpo da resposta, mesmo que seja um JSON de erro.",
+        "Incorreto. A propriedade `response.ok` verifica o status da resposta HTTP. A falha de conexão de internet causaria a rejeição da Promise do `fetch` antes mesmo da resposta ser recebida."
+      ]
+    },
+    {
+      "question": "Qual é o principal problema que a sintaxe **`async/await`** resolve em relação ao uso de Promises?",
+      "options": [
+        "A falta de uma maneira de encadear múltiplas operações assíncronas.",
+        "A incapacidade de tratar erros em operações assíncronas.",
+        "A dificuldade de leitura e manutenção de código com encadeamento de `.then()`s.",
+        "A baixa performance de execução das Promises, tornando o código mais lento."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A encadeamento de Promises com `.then()` já permitia a execução de múltiplas operações assíncronas em sequência. O `async/await` não resolveu a falta dessa funcionalidade, mas sim a complexidade da sintaxe.",
+        "Incorreto. O tratamento de erros já era possível com o método `.catch()` nas Promises. O `async/await` apenas oferece uma sintaxe mais familiar (`try...catch`) para isso.",
+        "Correto. A principal vantagem do **`async/await`** é a melhoria na legibilidade do código. Ele permite que as operações assíncronas sejam escritas de forma sequencial, como se fossem síncronas, evitando a 'pirâmide' de callbacks ou o aninhamento de `then()`s que pode dificultar a leitura do fluxo de controle.",
+        "Incorreto. `async/await` não melhora a performance em si. Ele é apenas um 'açúcar sintático' que simplifica a forma de escrever e ler Promises, sem alterar a velocidade ou a eficiência do código subjacente."
+      ]
+    },
+    {
+      "question": "O que acontece quando você usa **`Promise.all()`** com um array de Promises, e uma dessas Promises é rejeitada?",
+      "options": [
+        "O `Promise.all()` ignora a Promise rejeitada e retorna os resultados das Promises que tiveram sucesso.",
+        "O `Promise.all()` rejeita imediatamente, retornando o erro da primeira Promise a falhar.",
+        "O `Promise.all()` espera que todas as outras Promises sejam resolvidas e retorna um array contendo o erro e os resultados de sucesso.",
+        "O `Promise.all()` para a execução do programa e exibe o erro no console."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. Esse comportamento é o de uma outra Promise, o `Promise.allSettled()`, que foi projetado para retornar o status de todas as Promises, independentemente de terem sido resolvidas ou rejeitadas.",
+        "Correto. A principal característica do **`Promise.all()`** é o seu comportamento 'fail-fast' (falha rápida). Se qualquer uma das Promises no array for rejeitada, ele rejeita imediatamente com o erro daquela Promise, sem esperar que as outras terminem.",
+        "Incorreto. O `Promise.all()` não retorna um array misto de resultados e erros. Ele rejeita imediatamente, fornecendo apenas o erro da primeira Promise a falhar.",
+        "Incorreto. O `Promise.all()` não para a execução do programa. Ele apenas rejeita, e a rejeição precisa ser tratada por um `.catch()` ou um bloco `try...catch`."
+      ]
     }
   ]
 }
