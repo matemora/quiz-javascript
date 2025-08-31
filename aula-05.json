@@ -1,5 +1,4 @@
-{
-  "questions": [
+[
     {
       "question": "De acordo com o roteiro, qual é a principal função do arquivo **`package.json`** em um projeto Node.js?",
       "options": [
@@ -161,4 +160,3 @@
       ]
     }
   ]
-}
