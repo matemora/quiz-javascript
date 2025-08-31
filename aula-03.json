@@ -1,6 +1,6 @@
 [
     {
-      "question": "De acordo com o roteiro, qual é a principal razão para se usar funções?",
+      "question": "Qual é a principal razão para se usar funções?",
       "options": [
         "Elas tornam o código mais rápido.",
         "Elas previnem erros de sintaxe.",
@@ -11,7 +11,7 @@
       "feedback": [
         "Incorreto. A principal razão para usar funções não é a velocidade de execução, mas sim a organização e a estrutura do código.",
         "Incorreto. Funções não previnem erros de sintaxe. Elas ajudam a organizar o código para que ele seja mais fácil de gerenciar.",
-        "Correto. O roteiro afirma que as funções são essenciais para a reutilização, organização, legibilidade e manutenção do código, pois permitem que um bloco de código seja escrito uma vez e executado em vários lugares.",
+        "Correto. As funções são essenciais para a reutilização, organização, legibilidade e manutenção do código, pois permitem que um bloco de código seja escrito uma vez e executado em vários lugares.",
         "Incorreto. Funções contêm comandos e instruções, não apenas dados. O armazenamento de dados é feito em variáveis ou estruturas de dados."
       ]
     },
@@ -27,7 +27,7 @@
       "feedback": [
         "Incorreto. A relação está invertida. Os parâmetros estão na declaração e os argumentos são usados na chamada.",
         "Incorreto. A relação está invertida. Os argumentos são os valores reais e os parâmetros são as variáveis de substituição.",
-        "Correto. O roteiro define **parâmetros** como as variáveis listadas na definição da função, que agem como 'placeholders'. **Argumentos** são os valores reais que você passa quando a função é chamada.",
+        "Correto. **Parâmetros** são as variáveis listadas na definição da função, que agem como 'placeholders'. **Argumentos** são os valores reais que você passa quando a função é chamada.",
         "Incorreto. A obrigatoriedade de parâmetros e argumentos depende da implementação da função, e não é uma característica definidora."
       ]
     },
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "question": "Qual é a sintaxe moderna e popular para declarar uma função, de acordo com o roteiro?",
+      "question": "Qual é a sintaxe moderna e popular para declarar uma função?",
       "options": [
         "A sintaxe `function` padrão.",
         "A sintaxe `Arrow Functions` (`=>`).",
@@ -154,8 +154,8 @@
       "correct": 1,
       "feedback": [
         "Incorreto. A sintaxe `function` padrão é a mais antiga e tradicional.",
-        "Correto. O roteiro de aula menciona que a sintaxe de **`Arrow Functions`** (`=>`) é uma forma mais curta, popular e moderna de declarar funções.",
-        "Incorreto. A `Function Expression` é uma forma de atribuir uma função a uma variável, mas o roteiro destaca a sintaxe de `Arrow Functions` como a mais moderna.",
+        "Correto. A sintaxe de **`Arrow Functions`** (`=>`) é uma forma mais curta, popular e moderna de declarar funções.",
+        "Incorreto. A `Function Expression` é uma forma de atribuir uma função a uma variável, mas a sintaxe de `Arrow Functions` é a mais moderna.",
         "Incorreto. O `return` é um comando dentro de uma função para devolver um valor. Não é uma sintaxe para declarar a função em si."
       ]
     }
