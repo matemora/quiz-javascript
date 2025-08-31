@@ -1,0 +1,164 @@
+{
+  "questions": [
+    {
+      "question": "De acordo com o roteiro, qual é a principal função do arquivo **`package.json`** em um projeto Node.js?",
+      "options": [
+        "É a pasta onde todos os pacotes instalados são armazenados.",
+        "É o arquivo de identidade do projeto, que lista suas informações e dependências.",
+        "É o arquivo que 'trava' as versões exatas de cada pacote instalado.",
+        "É o arquivo principal que inicia a execução do projeto."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A pasta onde os pacotes são armazenados é a `node_modules`. O `package.json` é um arquivo de configuração.",
+        "Correto. O `package.json` é o manifesto do projeto. Ele atua como um 'RG' ou 'receita de bolo', documentando metadados importantes, como o nome, a versão, os scripts e as dependências do projeto.",
+        "Incorreto. O arquivo que 'trava' as versões das dependências para garantir a consistência entre diferentes ambientes de desenvolvimento é o `package-lock.json`.",
+        "Incorreto. O arquivo principal de entrada do projeto é definido no campo `main` dentro do `package.json`, mas ele não é o próprio arquivo principal."
+      ]
+    },
+    {
+      "question": "O roteiro de aula utiliza a analogia de uma 'loja de materiais de construção' para explicar qual conceito?",
+      "options": [
+        "A importância do **`package.json`** como uma lista de compras.",
+        "O papel do **npm** como um gerenciador de pacotes, que oferece 'peças prontas' para o seu projeto.",
+        "A necessidade de versionar o arquivo **`.gitignore`**.",
+        "A diferença entre `dependencies` e `devDependencies`."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A analogia da 'lista de compras' foi usada para explicar o **`package.json`**, que lista o que precisa ser comprado. A analogia da 'loja' em si se refere ao lugar onde se compra.",
+        "Correto. O roteiro compara o **npm** a uma loja de materiais de construção, onde você pode obter 'peças de LEGO' (pacotes) prontas, em vez de criá-las do zero. Isso explica o propósito de um gerenciador de pacotes no ecossistema Node.js.",
+        "Incorreto. O roteiro não usa a analogia para explicar o `.gitignore`. A analogia é usada para desmistificar a função de um gerenciador de pacotes.",
+        "Incorreto. A analogia da 'receita de bolo' foi usada para explicar a diferença entre `dependencies` (ingredientes) e `devDependencies` (utensílios de cozinha)."
+      ]
+    },
+    {
+      "question": "Por que o arquivo **`package-lock.json`** é crucial para o trabalho em equipe em um projeto?",
+      "options": [
+        "Ele armazena senhas e chaves de API, garantindo a segurança do projeto.",
+        "Ele permite que o time trabalhe com versões diferentes dos mesmos pacotes, evitando conflitos.",
+        "Ele 'trava' as versões exatas de todas as dependências, garantindo que o projeto funcione da mesma forma para todos os desenvolvedores.",
+        "Ele armazena o código-fonte de todas as dependências e não precisa ser versionado."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O `package-lock.json` não lida com dados sensíveis. O foco dele é o versionamento e a consistência das dependências.",
+        "Incorreto. O objetivo do `package-lock.json` é o oposto: ele força o time a trabalhar com as mesmas versões de dependências, garantindo a consistência do ambiente.",
+        "Correto. Conforme a analogia do 'contrato' ou da 'nota fiscal', o **`package-lock.json`** registra as versões exatas e as sub-dependências instaladas, assegurando que o comando `npm install` gere uma `node_modules` idêntica em qualquer máquina.",
+        "Incorreto. O código-fonte das dependências fica na pasta `node_modules`. O `package-lock.json` é um arquivo de texto de configuração que deve, sim, ser versionado no Git."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença entre as dependências listadas em **`dependencies`** e **`devDependencies`** no **`package.json`**?",
+      "options": [
+        "`dependencies` são pacotes de código aberto, enquanto `devDependencies` são proprietários.",
+        "`dependencies` são necessárias apenas em testes, e `devDependencies` são necessárias na produção.",
+        "`dependencies` são essenciais para o funcionamento do projeto em produção, enquanto `devDependencies` são ferramentas usadas apenas durante o desenvolvimento.",
+        "`dependencies` são instaladas localmente, e `devDependencies` são instaladas globalmente."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. Ambas as seções podem conter pacotes de código aberto. A distinção se baseia na finalidade do pacote, não em sua licença.",
+        "Incorreto. A relação está invertida. Pacotes de teste (como Jest) são geralmente `devDependencies`, enquanto pacotes de produção (como Express) são `dependencies`.",
+        "Correto. **`dependencies`** são pacotes que o projeto precisa para funcionar em seu ambiente final, como em um servidor de produção. **`devDependencies`** são ferramentas de apoio que facilitam o trabalho de desenvolvimento, mas que não são necessárias para o código final ser executado, como ferramentas de testes ou de formatação de código.",
+        "Incorreto. Ambos os tipos de dependências são, por padrão, instalados localmente no projeto. A instalação global (`-g`) é um tipo de instalação diferente, usado para ferramentas de linha de comando."
+      ]
+    },
+    {
+      "question": "Por que o roteiro da aula enfatiza que a pasta **`node_modules`** nunca deve ser enviada para o Git?",
+      "options": [
+        "Porque ela contém arquivos sensíveis do sistema operacional que não podem ser compartilhados.",
+        "Porque ela é um backup de todo o projeto e, por isso, não precisa ser versionada.",
+        "Porque ela é extremamente grande e pode ser facilmente recriada a partir do **`package.json`** e do **`package-lock.json`**.",
+        "Porque ela contém o código do projeto e enviá-la para o Git duplicaria o repositório."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A pasta `node_modules` armazena o código dos pacotes, não arquivos do sistema operacional. O foco do alerta é o tamanho da pasta.",
+        "Incorreto. O `package.json` e o `package-lock.json` são os arquivos que permitem a reconstrução do projeto, não a pasta `node_modules`. O envio dela para o Git só desperdiçaria espaço no repositório.",
+        "Correto. O principal motivo é o tamanho excessivo da pasta, que pode ter centenas de megabytes. Como o npm pode reconstruir a pasta inteira em segundos, não faz sentido gastar tráfego e espaço com ela no controle de versão.",
+        "Incorreto. O código do projeto fica em outros arquivos, como o `index.js`. A `node_modules` contém o código das dependências instaladas. O envio dela para o Git seria uma duplicação desnecessária e pesada."
+      ]
+    },
+    {
+      "question": "O que a analogia das 'peças de LEGO' ilustra no contexto dos módulos (`import` e `export`)?",
+      "options": [
+        "A importância de usar bibliotecas de terceiros ao invés de código próprio.",
+        "A prática de dividir o código em arquivos menores e reutilizáveis, cada um com uma responsabilidade única.",
+        "A necessidade de instalar todos os pacotes em um único arquivo de código.",
+        "A diferença entre a sintaxe `require` e a sintaxe `import`."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A analogia não é sobre usar código de terceiros, mas sobre a organização do seu próprio código. O uso de pacotes de terceiros foi explicado com a analogia da 'loja de materiais'.",
+        "Correto. A analogia das 'peças de LEGO' é usada para explicar que o código deve ser dividido em módulos menores, ou 'peças', que têm funções específicas e podem ser 'encaixadas' (`importadas`) para construir uma aplicação maior e mais organizada.",
+        "Incorreto. A modularização é o oposto. Ela prega que o código deve ser dividido em vários arquivos, em vez de ser concentrado em um só.",
+        "Incorreto. A analogia das 'peças de LEGO' serve para explicar o conceito de modularização em si, não as diferenças de sintaxe. As diferenças de sintaxe são explicadas separadamente no roteiro."
+      ]
+    },
+    {
+      "question": "Qual a diferença de uso entre os comandos **`npm install`** e **`npx`**?",
+      "options": [
+        "**`npm install`** instala um pacote globalmente, enquanto **`npx`** instala localmente.",
+        "**`npm install`** é usado apenas para dependências de produção, enquanto **`npx`** é para dependências de desenvolvimento.",
+        "**`npm install`** baixa e armazena um pacote no projeto para uso contínuo, enquanto **`npx`** executa um comando de um pacote temporariamente, sem instalá-lo permanentemente.",
+        "**`npm install`** executa scripts definidos no **`package.json`**, enquanto **`npx`** instala os pacotes."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O `npm install` instala pacotes localmente por padrão, a menos que a flag `-g` seja usada. O `npx` não tem a ver com o tipo de instalação.",
+        "Incorreto. O `npm install` é usado para instalar os dois tipos de dependências. O `npx` não tem essa distinção.",
+        "Correto. **`npm install`** é para instalar dependências que farão parte do projeto. O **`npx`** é uma ferramenta para executar comandos de pacotes sem a necessidade de uma instalação permanente, o que é ideal para ferramentas de uso único ou esporádico.",
+        "Incorreto. A execução de scripts no `package.json` é feita com o comando `npm run`. O `npm install` e o `npx` têm propósitos diferentes, mas nenhum deles é para executar scripts."
+      ]
+    },
+    {
+      "question": "No contexto da modularização, qual é a principal vantagem de usar a sintaxe **`import/export`** (ES Modules) em novos projetos, em vez da sintaxe **`require/module.exports`** (CommonJS)?",
+      "options": [
+        "A sintaxe `import/export` é mais antiga e, por isso, mais compatível com todas as versões do Node.js.",
+        "A sintaxe `import/export` é mais fácil de usar e não requer nenhum arquivo de configuração extra.",
+        "A sintaxe `import/export` é o padrão moderno do JavaScript, usado também em navegadores, o que permite um ecossistema unificado.",
+        "A sintaxe `import/export` resolve o problema do `Callback Hell`."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O CommonJS (`require/module.exports`) é o sistema de módulos mais antigo do Node.js e, por isso, é mais compatível com versões antigas. O ES Modules é o padrão mais recente e requer a configuração 'type': 'module' no `package.json`.",
+        "Incorreto. Para usar a sintaxe `import/export` em projetos Node.js, é necessário adicionar a linha `\"type\": \"module\"` no **`package.json`**.",
+        "Correto. A sintaxe **`import/export`** é o padrão moderno do JavaScript, usado nativamente nos navegadores. Adotar essa sintaxe em novos projetos Node.js promove a unificação do ecossistema JavaScript, tornando o código mais consistente e portável entre o front-end e o back-end.",
+        "Incorreto. O `Callback Hell` é um problema de sintaxe relacionado a funções de retorno, e a solução para isso são as Promises e o `async/await`, não os sistemas de módulos."
+      ]
+    },
+    {
+      "question": "De acordo com o roteiro, qual é a principal razão pela qual `npm init` deve ser o primeiro comando a ser executado ao criar um novo projeto Node.js?",
+      "options": [
+        "Ele instala automaticamente todas as dependências necessárias para o projeto.",
+        "Ele cria o arquivo `package.json`, que serve como o arquivo de identidade do projeto.",
+        "Ele faz o upload do projeto para um repositório Git, garantindo que o código seja versionado.",
+        "Ele cria a pasta `node_modules` para que os pacotes possam ser instalados nela."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. O `npm init` apenas cria o arquivo `package.json`. O comando para instalar as dependências é `npm install`.",
+        "Correto. O roteiro se refere ao **`package.json`** como a 'certidão de nascimento' do projeto. O `npm init` cria esse arquivo, que é fundamental para o projeto ter uma identidade, gerenciar dependências e executar scripts de forma profissional.",
+        "Incorreto. O `npm init` não tem relação com o Git. O versionamento do código é feito com comandos Git, como `git init` e `git add`.",
+        "Incorreto. A pasta `node_modules` é criada apenas quando o comando `npm install` é executado, não com o `npm init`."
+      ]
+    },
+    {
+      "question": "Qual o propósito do campo **`scripts`** no **`package.json`**?",
+      "options": [
+        "Listar todos os desenvolvedores que trabalharam no projeto.",
+        "Definir a versão do Node.js que deve ser usada para executar o projeto.",
+        "Fornecer atalhos de linha de comando para automatizar e padronizar tarefas do projeto, como `start` ou `test`.",
+        "Armazenar a documentação do projeto, facilitando a leitura por outros desenvolvedores."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A listagem de desenvolvedores é feita em outros campos do `package.json` (`author`, `contributors`), não no campo `scripts`.",
+        "Incorreto. O campo `scripts` não define a versão do Node.js. O campo `engines` ou a configuração de um gerenciador de versões (como nvm) é usado para essa finalidade.",
+        "Correto. O campo **`scripts`** permite a criação de atalhos personalizados para comandos longos e complexos, como `node src/index.js`. Isso padroniza o fluxo de trabalho e facilita a execução de tarefas para toda a equipe, que pode usar comandos simples como `npm start` ou `npm test`.",
+        "Incorreto. A documentação do projeto é geralmente armazenada em um arquivo README.md ou em uma pasta `docs`. O `scripts` é usado para executar tarefas, não para documentação."
+      ]
+    }
+  ]
+}
