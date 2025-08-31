@@ -1,6 +1,6 @@
 [
     {
-      "question": "Qual é a principal função do Node.js, de acordo com o contexto apresentado?",
+      "question": "Qual é a principal função do Node.js?",
       "options": [
         "É um framework para a criação de interfaces de usuário (frontend).",
         "É um ambiente de execução que permite que o JavaScript seja executado fora de um navegador.",
@@ -80,23 +80,23 @@
       ]
     },
     {
-      "question": "Qual é a ênfase principal do módulo de aprendizado de JavaScript, de acordo com o plano apresentado?",
+      "question": "Quais são as principais capacidades do JavaScript no backend?",
       "options": [
-        "A criação de servidores backend com APIs complexas.",
-        "O desenvolvimento de interfaces visuais e websites (frontend).",
-        "O aprendizado de frameworks populares como React e Angular.",
-        "A lógica de programação pura, incluindo variáveis, funções, loops, arrays e objetos."
+        "A criação de servidores com APIs complexas.",
+        "O desenvolvimento de interfaces visuais e websites com a utilização de frameworks populares como React e Angular.",
+        "A lógica de programação, incluindo variáveis, funções, loops, arrays e objetos",
+        "Todas as alternativas anteriores."
       ],
       "correct": 3,
       "feedback": [
-        "Incorreto. A criação de servidores backend não é o foco inicial do módulo, embora o Node.js seja a base para isso.",
-        "Incorreto. O foco não é a parte visual (frontend) nem frameworks. O módulo se concentra nos fundamentos da linguagem.",
-        "Incorreto. O plano não menciona o aprendizado de frameworks como React ou Angular. O foco está no 'Javascript Puro'.",
-        "Correto. O plano de aprendizado enfatiza que o foco inicial será no 'JavaScript Puro', abordando conceitos de lógica de programação, variáveis, funções, arrays e objetos, e usando o Node.js como ambiente de prática."
+        "Incorreto. A criação de servidores backend é sim possível com Node.js, mas não é a única possibilidade do Javascript no backend.",
+        "Incorreto. A criação de interfaces visuais e websites é sim possível com Node.js, mas não é a única possibilidade do Javascript no backend.",
+        "Incorreto. A lógica de programação no backend é sim possível com Node.js, mas não é a única possibilidade do Javascript no backend.",
+        "Correto. Todas as alternativas apresentam uma possibilidade de utilização do Javascript no servidor."
       ]
     },
     {
-      "question": "Por que o Node.js foi escolhido como o ambiente principal de prática para o módulo de JavaScript?",
+      "question": "Por que o Node.js é um dos principais ambientes JavaScript?",
       "options": [
         "Porque ele é o único ambiente onde o JavaScript pode ser executado.",
         "Porque ele é a forma mais popular de criar websites interativos.",
@@ -108,7 +108,7 @@
         "Incorreto. O JavaScript pode ser executado em diversos ambientes, como navegadores e outros runtimes.",
         "Incorreto. O Node.js não é a única forma de criar websites interativos. Ele é usado para o backend, enquanto o frontend lida com a interatividade no navegador.",
         "Correto. O Node.js foi escolhido como o ambiente de prática porque ele oferece uma forma simplificada de executar o JavaScript, permitindo que os alunos se concentrem na lógica de programação sem as complexidades iniciais de um navegador ou de frameworks.",
-        "Incorreto. Embora o Node.js seja eficiente, ele não é o ambiente mais rápido em todas as situações. A velocidade não é o principal motivo para a sua escolha como ambiente de prática."
+        "Incorreto. Embora o Node.js seja eficiente, ele não é o ambiente mais rápido em todas as situações. A velocidade não é o principal motivo para a sua escolha como ambiente de prática. Atualmente existem aplicações que rodam mais rápido em outros runtime com o Bun."
       ]
     },
     {
