@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual a principal característica do TypeScript em relação ao JavaScript puro?",
+    "options": [
+      "Ele é uma linguagem totalmente diferente, com sintaxe própria.",
+      "Ele adiciona tipagem estática opcional ao JavaScript.",
+      "Ele remove funcionalidades do JavaScript para torná-lo mais leve.",
+      "Ele é interpretado diretamente pelos navegadores sem precisar de compilação."
+    ],
+    "correct": 1,
+    "feedback": [
+      "O TypeScript não é uma linguagem totalmente diferente; ele é um superset do JavaScript, o que significa que quase todo código JavaScript válido é também um código TypeScript válido.",
+      "A resposta correta é a 'b'. O TypeScript é um superset do JavaScript que adiciona funcionalidades, sendo a tipagem estática opcional sua principal característica.",
+      "Pelo contrário, o TypeScript adiciona funcionalidades, não as remove.",
+      "Navegadores e Node.js não entendem TypeScript diretamente. O código precisa ser traduzido (compilado) para JavaScript antes de ser executado."
+    ]
+  },
+  {
+    "question": "Qual é a regra de ouro ao usar o tipo `any`?",
+    "options": [
+      "Usá-lo sempre que não souber o tipo da variável.",
+      "Evitá-lo sempre que possível, pois ele desliga a checagem de tipo.",
+      "Usá-lo para otimizar o desempenho do código.",
+      "Usá-lo apenas para variáveis que armazenam números."
+    ],
+    "correct": 1,
+    "feedback": [
+      "O uso indiscriminado de `any` é desaconselhado, pois elimina a segurança e a clareza que o TypeScript oferece.",
+      "A resposta correta é a 'b'. O tipo `any` é considerado perigoso porque desliga a checagem de tipo do TypeScript, negando seus principais benefícios. A regra de ouro é evitá-lo sempre que possível.",
+      "O `any` não é usado para otimização de desempenho; ele é usado em situações onde a checagem de tipo é ignorada, o que pode levar a erros em tempo de execução.",
+      "O tipo `any` pode ser usado para qualquer tipo de dado, não se restringindo a números. O problema é que, ao usá-lo, você perde a tipagem estática."
+    ]
+  },
+  {
+    "question": "O que acontece com o código TypeScript antes de ser executado em um navegador?",
+    "options": [
+      "O navegador executa o arquivo `.ts` diretamente.",
+      "Ele é traduzido (compilado) para código JavaScript.",
+      "Ele é enviado para um servidor para ser processado.",
+      "Ele é automaticamente otimizado pela Microsoft."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Navegadores só entendem arquivos `.js`. É necessária a compilação.",
+      "A resposta correta é a 'b'. O código TypeScript (`.ts`) não pode ser executado diretamente por navegadores ou pelo Node.js. Ele precisa ser 'traduzido' para JavaScript (`.js`) por um processo chamado compilação.",
+      "A compilação é um processo local, muitas vezes feito por ferramentas como `tsc`, Vite ou Next.js. Não é algo que depende de um servidor para ser processado.",
+      "A Microsoft mantém o TypeScript, mas a tradução para JavaScript é um processo de compilação que pode ser feito localmente ou por ferramentas de build, não uma otimização automática pela empresa."
+    ]
+  },
+  {
+    "question": "Qual é o tipo de dado em TypeScript usado para representar valores lógicos?",
+    "options": [
+      "string",
+      "number",
+      "boolean",
+      "logical"
+    ],
+    "correct": 2,
+    "feedback": [
+      "O tipo `string` é usado para texto.",
+      "O tipo `number` é usado para números.",
+      "A resposta correta é a 'c'. `boolean` é o tipo primitivo usado para valores lógicos como `true` e `false`.",
+      "O tipo `logical` não é um tipo primitivo padrão do TypeScript."
+    ]
+  },
+  {
+    "question": "Qual a diferença entre `null` e `undefined` em TypeScript?",
+    "options": [
+      "Eles são o mesmo tipo e podem ser usados de forma intercambiável.",
+      "`null` indica a ausência intencional de um valor, enquanto `undefined` indica que uma variável foi declarada, mas nunca teve um valor atribuído.",
+      "`undefined` indica a ausência intencional de um valor, enquanto `null` indica que a variável não foi declarada.",
+      "Eles não existem em TypeScript, apenas em JavaScript."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Eles são tipos distintos e não devem ser usados de forma intercambiável.",
+      "A resposta correta é a 'b'. Em TypeScript, `null` é usado para indicar a ausência intencional de um valor, enquanto `undefined` indica que uma variável foi declarada, mas ainda não recebeu um valor. Eles são tipos distintos.",
+      "Essa é a definição invertida. `null` é a ausência intencional e `undefined` é a falta de atribuição.",
+      "Ambos os tipos existem tanto em JavaScript quanto em TypeScript, e em TypeScript são tratados como tipos separados."
+    ]
+  },
+  {
+    "question": "Como você pode tornar um parâmetro de função opcional em TypeScript?",
+    "options": [
+      "Usando a palavra-chave `optional` antes do nome do parâmetro.",
+      "Colocando um `?` após o nome do parâmetro.",
+      "Atribuindo um valor padrão ao parâmetro.",
+      "Não é possível ter parâmetros opcionais em TypeScript."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Não existe a palavra-chave `optional` para essa finalidade. O símbolo `?` é a sintaxe correta.",
+      "A resposta correta é a 'b'. Para tornar um parâmetro de função opcional, você deve usar o símbolo `?` após o nome do parâmetro.",
+      "Atribuir um valor padrão também torna o parâmetro opcional, mas a forma mais direta de simplesmente declará-lo como opcional é com o `?`.",
+      "É totalmente possível e é uma das funcionalidades do TypeScript."
+    ]
+  },
+  {
+    "question": "Qual das seguintes opções é um Tipo Composto em TypeScript?",
+    "options": [
+      "string",
+      "number",
+      "Tuplas",
+      "boolean"
+    ],
+    "correct": 2,
+    "feedback": [
+      "string é um tipo primitivo, não composto.",
+      "number é um tipo primitivo, não composto.",
+      "A resposta correta é a 'c'. Tipos Compostos são estruturas que agrupam múltiplos valores. A aula lista Arrays, Tuplas e Objetos como exemplos.",
+      "boolean é um tipo primitivo, não composto."
+    ]
+  },
+  {
+    "question": "O que são Union Types em TypeScript?",
+    "options": [
+      "Uma forma de combinar diferentes objetos em um só.",
+      "Um tipo que só pode ter um valor fixo e específico.",
+      "Um tipo que permite a uma variável ser um de vários tipos possíveis.",
+      "Um tipo que remove a checagem de tipos."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Embora Union Types possam ser usados com objetos, sua principal função não é combinar objetos, mas sim permitir que uma variável aceite diferentes tipos de dados.",
+      "A descrição se refere a Literal Types, que restringem o tipo a um valor específico.",
+      "A resposta correta é a 'c'. Union Types permitem que uma variável possa ter um de vários tipos possíveis. Eles são definidos com o símbolo `|`.",
+      "Union Types não removem a checagem de tipos; eles a tornam mais flexível, garantindo que o valor seja um dos tipos definidos na união."
+    ]
+  },
+  {
+    "question": "Qual a principal vantagem de usar `type aliases`?",
+    "options": [
+      "Eles tornam o código mais rápido.",
+      "Eles substituem completamente as classes.",
+      "Eles melhoram a legibilidade do código e permitem a reutilização de definições de tipo.",
+      "Eles permitem criar tipos sem a necessidade de definir propriedades."
+    ],
+    "correct": 2,
+    "feedback": [
+      "A tipagem em TypeScript é verificada em tempo de compilação e não tem um impacto direto no desempenho de execução do código JavaScript gerado.",
+      "Eles substituem completamente as classes.",
+      "A resposta correta é a 'c'. `type aliases` criam um nome para uma definição de tipo, o que melhora a legibilidade e permite que essa definição seja reutilizada em várias partes do código.",
+      "Type aliases são usados para dar nome a definições de tipo, que geralmente incluem propriedades e suas respectivas tipagens."
+    ]
+  },
+  {
+    "question": "Em qual das situações a tipagem por inferência é mais recomendada em TypeScript?",
+    "options": [
+      "Sempre que possível, para manter o código limpo.",
+      "Nunca, a tipagem explícita é sempre melhor.",
+      "Apenas em funções anônimas.",
+      "Apenas em variáveis que recebem valores literais."
+    ],
+    "correct": 0,
+    "feedback": [
+      "A resposta correta é a 'a'. A recomendação da aula é usar inferência por padrão e recorrer à tipagem explícita quando houver dúvida ou para maior clareza.",
+      "A tipagem explícita é útil para clareza e documentação, mas a inferência é uma ferramenta poderosa e recomendada.",
+      "A inferência não se limita a funções anônimas, embora seja muito útil nelas. Ela funciona com variáveis e outros contextos também.",
+      "A inferência funciona bem com valores literais, mas não se limita a eles. Ela pode inferir tipos de expressões e retornos de função, por exemplo."
+    ]
+  }
+]
