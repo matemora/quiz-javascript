@@ -141,12 +141,23 @@
             background-color: #e2eafc;
             color: #2c5282;
         }
+
+        a.back-link {
+          color: inherit;          /* usa a cor do texto normal */
+          text-decoration: none;   /* remove o sublinhado */
+          font-weight: 600;        /* opcional: deixar mais "botão" */
+          cursor: pointer;
+        }
+        
+        a.back-link:hover {
+          text-decoration: underline; /* só aparece no hover */
+        }
     </style>
 </head>
 <body>
 
     <div class="quiz-container">
-        <a href="javascript:history.back()">⬅️ Voltar</a>
+        <a href="javascript:history.back()" class="back-link">⬅️ Voltar</a>
         <h1 id="quiz-title">Quiz Interativo</h1>
         <div id="quiz-form">
             <!-- As perguntas serão inseridas aqui pelo JavaScript -->
