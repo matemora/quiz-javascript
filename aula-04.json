@@ -10,7 +10,7 @@
       "correct": 1,
       "feedback": [
         "Incorreto. A velocidade de execução está mais relacionada a algoritmos e ao ambiente de runtime. A principal vantagem das estruturas de dados é a organização e a manipulação.",
-        "Correto. O roteiro de aula sugere que, para uma grande quantidade de dados (como seguidores de uma celebridade), usar uma variável para cada um seria inviável. Arrays e objetos oferecem uma forma de agrupar esses dados, facilitando sua organização, acesso e manipulação.",
+        "Correto. Para uma grande quantidade de dados, usar uma variável para cada um seria inviável. Arrays e objetos oferecem uma forma de agrupar esses dados, facilitando sua organização, acesso e manipulação.",
         "Incorreto. Estruturas de dados não previnem erros de sintaxe. Eles são ferramentas de organização de dados, não de validação de código.",
         "Incorreto. Arrays e objetos podem armazenar qualquer tipo de dado, não apenas numéricos. Eles podem conter strings, booleanos, outros arrays e objetos, etc."
       ]
@@ -26,8 +26,8 @@
       "correct": 1,
       "feedback": [
         "Incorreto. A principal diferença não é a velocidade, mas sim a forma como eles interagem com o array original. A performance pode variar dependendo da implementação, mas não é a principal distinção conceitual.",
-        "Correto. Os métodos destrutivos (como `push`, `pop`, `shift`, `unshift`) alteram o array em que são chamados, o que é conhecido como 'mutação'. Os métodos não destrutivos (como `slice`, `concat`) deixam o array original intacto e retornam uma nova cópia com as modificações.",
-        "Incorreto. Ambos os grupos de métodos têm funções de adição e remoção. Por exemplo, `pop` remove itens, mas `push` adiciona. `slice` extrai itens, mas `concat` os une. A distinção não é sobre a ação, mas sobre a modificação do array original.",
+        "Correto. Os métodos destrutivos (como `push`, `pop`, `shift`, `unshift`) alteram o array em que são chamados. Os métodos não destrutivos (como `slice`, `concat`) deixam o array original intacto e retornam uma nova cópia com as modificações.",
+        "Incorreto. Ambos os grupos de métodos têm funções de adição e remoção. A distinção não é sobre a ação, mas sobre a modificação do array original.",
         "Incorreto. Os métodos de array do JavaScript são agnósticos ao tipo de dado que contêm. Eles funcionam da mesma forma para arrays de números, strings, objetos ou qualquer outro tipo de dado."
       ]
     },
@@ -41,14 +41,14 @@
       ],
       "correct": 2,
       "feedback": [
-        "Incorreto. A analogia da 'pilha de pratos' foi usada para explicar `pop` (pegar o do topo) e `push` (colocar no topo).",
-        "Incorreto. A analogia da 'fábrica' foi usada para explicar o método `map`, que transforma cada item de um array em um novo item.",
+        "Incorreto. A analogia da 'pilha de pratos' é usada para explicar `pop` e `push`.",
+        "Incorreto. A analogia da 'fábrica' é usada para explicar o método `map`.",
         "Correto. A analogia da 'fila de cinema' é usada para explicar que o `shift` remove o primeiro elemento de um array (a pessoa na frente da fila), e o `unshift` adiciona um novo elemento no início (alguém furando a fila).",
-        "Incorreto. A analogia das 'peças de LEGO' foi usada para explicar a união de arrays (`concat`) ou a união de elementos de um array em uma string (`join`)."
+        "Incorreto. A analogia das 'peças de LEGO' é usada para explicar a união de arrays (`concat`) ou a união de elementos de um array em uma string (`join`)."
       ]
     },
     {
-      "question": "Qual é a principal diferença conceitual entre um loop `for` e um loop `while`?",
+      "question": "Qual a principal diferença conceitual entre um loop `for` e um loop `while`?",
       "options": [
         "O `for` só funciona com arrays, enquanto o `while` funciona com objetos.",
         "O `for` é mais perigoso, pois pode criar loops infinitos mais facilmente.",
@@ -57,10 +57,10 @@
       ],
       "correct": 2,
       "feedback": [
-        "Incorreto. Ambos podem ser usados para percorrer arrays e objetos, embora o `for...of` seja mais comum para arrays e o `for...in` para objetos.",
-        "Incorreto. O roteiro de aula afirma o oposto: o `while` é considerado mais 'perigoso' porque o controle da variável que fará a condição de parada ser falsa deve ser feito manualmente dentro do seu bloco.",
+        "Incorreto. Ambos podem ser usados para percorrer arrays e objetos.",
+        "Incorreto. O `while` é considerado mais 'perigoso' porque o controle da variável que fará a condição de parada ser falsa deve ser feito manualmente dentro do seu bloco.",
         "Correto. O `for` é ideal para situações em que você sabe exatamente quantas vezes o loop deve ser executado e precisa de um contador. O `while` é mais adequado para situações em que você não sabe o número exato de repetições, mas sim uma condição que, quando verdadeira, mantém o loop em execução.",
-        "Incorreto. Embora o `for` seja usado para arrays (especialmente com o `for...of`), e o `while` para objetos (com o `for...in`), a principal diferença conceitual é sobre o controle de repetição e as condições de parada, não sobre os tipos de dados que eles podem percorrer."
+        "Incorreto. Embora o `for` seja usado para arrays (especialmente com o `for...of`), e o `while` para objetos (com o `for...in`), a principal diferença conceitual é sobre o controle de repetição e as condições de parada."
       ]
     },
     {
@@ -73,10 +73,10 @@
       ],
       "correct": 0,
       "feedback": [
-        "Correto. O `map` é um método não destrutivo que cria um novo array, no qual cada elemento é o resultado da função de transformação. O `forEach` é usado para iterar sobre os elementos, mas não retorna um novo array, sendo útil para ações secundárias como imprimir no console.",
-        "Incorreto. O `map` não modifica o array original, pois é um método não destrutivo. O `forEach` não cria um novo array, e seu principal objetivo é a iteração.",
+        "Correto. O `map` é um método que cria um novo array, no qual cada elemento é o resultado da função de transformação. O `forEach` é usado para iterar sobre os elementos, mas não retorna um novo array, sendo útil para ações secundárias como imprimir no console.",
+        "Incorreto. O `map` não modifica o array original. O `forEach` não cria um novo array, e seu principal objetivo é a iteração.",
         "Incorreto. A filtragem de itens é feita com o método `filter`, e a busca por um item específico é feita com o método `find`.",
-        "Incorreto. A diferença de desempenho entre eles é geralmente mínima. A escolha entre `map` e `forEach` deve ser baseada na intenção do código: se você precisa de um novo array com os itens transformados, use `map`; se você só precisa fazer algo com cada item, use `forEach`."
+        "Incorreto. A diferença de desempenho entre eles é geralmente mínima. A escolha entre `map` e `forEach` deve ser baseada na intenção do código."
       ]
     },
     {
@@ -107,8 +107,8 @@
       "feedback": [
         "Incorreto. Ambos os métodos iteram sobre as chaves do objeto. Para iterar sobre os valores, você usaria o `Object.values()`.",
         "Correto. O `for...in` itera sobre todas as chaves enumeráveis do objeto, incluindo as que podem ser herdadas do protótipo, o que pode levar a resultados inesperados. `Object.keys()` é considerado uma forma mais segura e moderna, pois retorna apenas as chaves diretas do objeto em um array, que pode ser iterado com segurança usando `for...of`.",
-        "Incorreto. `Object.keys()` com `for...of` é geralmente preferido por ser mais seguro e previsível, mesmo que a performance possa variar dependendo do contexto. A segurança e a previsibilidade são mais importantes do que pequenas diferenças de performance.",
-        "Incorreto. O `for...in` ainda é uma forma válida de iteração. O roteiro de aula o menciona, mas aponta que ele tem um comportamento específico que pode ser 'perigoso' em algumas situações. A melhor prática é usar `Object.keys()` ou `Object.values()` com `for...of` para evitar chaves herdadas."
+        "Incorreto. `Object.keys()` com `for...of` é geralmente preferido por ser mais seguro e previsível, mesmo que a performance possa variar dependendo do contexto.",
+        "Incorreto. O `for...in` ainda é uma forma válida de iteração. A melhor prática é usar `Object.keys()` ou `Object.values()` com `for...of` para evitar chaves herdadas."
       ]
     },
     {
@@ -144,11 +144,11 @@
       ]
     },
     {
-      "question": "De acordo com o roteiro, qual é a principal vantagem de usar a desestruturação em parâmetros de funções?",
+      "question": "Qual é a principal vantagem de usar a desestruturação em parâmetros de funções?",
       "options": [
         "Ela permite que a função retorne múltiplos valores em um único array.",
         "Ela previne que a função acesse propriedades inexistentes em um objeto.",
-        "Ela torna o código mais conciso e legível, permitindo que a função acesse as propriedades de um objeto diretamente, sem precisar usar o nome do objeto repetidamente.",
+        "Ela torna o código mais conciso e legível, permitindo que a função acesse as propriedades de um objeto diretamente.",
         "Ela garante que a função só será executada se o objeto de entrada tiver todas as propriedades necessárias."
       ],
       "correct": 2,
