@@ -1,0 +1,162 @@
+[
+    {
+      "question": "De acordo com o roteiro, qual é a principal razão para se usar funções?",
+      "options": [
+        "Elas tornam o código mais rápido.",
+        "Elas previnem erros de sintaxe.",
+        "Elas permitem a reutilização, organização, legibilidade e fácil manutenção do código.",
+        "Elas servem para armazenar dados em memória."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A principal razão para usar funções não é a velocidade de execução, mas sim a organização e a estrutura do código.",
+        "Incorreto. Funções não previnem erros de sintaxe. Elas ajudam a organizar o código para que ele seja mais fácil de gerenciar.",
+        "Correto. O roteiro afirma que as funções são essenciais para a reutilização, organização, legibilidade e manutenção do código, pois permitem que um bloco de código seja escrito uma vez e executado em vários lugares.",
+        "Incorreto. Funções contêm comandos e instruções, não apenas dados. O armazenamento de dados é feito em variáveis ou estruturas de dados."
+      ]
+    },
+    {
+      "question": "Qual é a diferença entre **parâmetros** e **argumentos** em uma função?",
+      "options": [
+        "Parâmetros são usados na chamada da função, e argumentos na declaração.",
+        "Parâmetros são os valores reais passados para a função, e argumentos são variáveis de substituição na definição da função.",
+        "Parâmetros são variáveis listadas na definição da função, e argumentos são os valores reais que você passa ao chamá-la.",
+        "Parâmetros são opcionais, e argumentos são obrigatórios."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A relação está invertida. Os parâmetros estão na declaração e os argumentos são usados na chamada.",
+        "Incorreto. A relação está invertida. Os argumentos são os valores reais e os parâmetros são as variáveis de substituição.",
+        "Correto. O roteiro define **parâmetros** como as variáveis listadas na definição da função, que agem como 'placeholders'. **Argumentos** são os valores reais que você passa quando a função é chamada.",
+        "Incorreto. A obrigatoriedade de parâmetros e argumentos depende da implementação da função, e não é uma característica definidora."
+      ]
+    },
+    {
+      "question": "Qual é a função do comando **`return`** em uma função?",
+      "options": [
+        "Ele faz a função parar de executar e retornar um valor para o código que a chamou.",
+        "Ele exibe uma mensagem no console e continua a execução da função.",
+        "Ele impede que a função retorne um valor `undefined`.",
+        "Ele define os parâmetros padrão de uma função."
+      ],
+      "correct": 0,
+      "feedback": [
+        "Correto. O comando `return` especifica o valor que uma função deve devolver para o código que a chamou. Quando o JavaScript encontra um `return`, a função para de executar imediatamente.",
+        "Incorreto. A função de exibir mensagens no console é do `console.log()`. O `return` tem como objetivo devolver um valor.",
+        "Incorreto. Se uma função não possui um `return` explícito, ou se o `return` é vazio, ela retorna `undefined` por padrão.",
+        "Incorreto. A definição de parâmetros padrão é feita com a atribuição de um valor na declaração do parâmetro. O `return` não tem essa função."
+      ]
+    },
+    {
+      "question": "O que o **escopo** de uma variável define no código?",
+      "options": [
+        "O tipo de dado que a variável pode armazenar (por exemplo, `string`, `number`).",
+        "A acessibilidade da variável, ou seja, onde ela pode ser usada.",
+        "A quantidade de memória que a variável ocupa.",
+        "Se a variável pode ser modificada ou não."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. O tipo de dado é definido pelo valor atribuído à variável, e não pelo seu escopo.",
+        "Correto. O **escopo** de uma variável refere-se à acessibilidade de variáveis e funções em uma determinada parte do código. Ele define onde você pode usar o nome de uma variável que você declarou.",
+        "Incorreto. O escopo não define a quantidade de memória. Ele é uma regra de acessibilidade que ajuda a evitar conflitos de nomes.",
+        "Incorreto. A possibilidade de uma variável ser modificada é definida pela palavra-chave de declaração (`let` permite reatribuição, `const` não), não pelo escopo."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença entre o **Escopo Global** e o **Escopo de Função**?",
+      "options": [
+        "O Escopo Global é para variáveis do tipo `const`, e o Escopo de Função é para `let`.",
+        "Variáveis em Escopo Global só podem ser acessadas de dentro de funções, enquanto as de Escopo de Função podem ser acessadas de qualquer lugar.",
+        "Variáveis em Escopo Global podem ser acessadas de qualquer lugar, enquanto as de Escopo de Função só podem ser acessadas de dentro da função onde foram declaradas.",
+        "Variáveis em Escopo Global podem ser modificadas, e as de Escopo de Função não."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. Ambas as palavras-chave (`let` e `const`) podem ser usadas em ambos os escopos.",
+        "Incorreto. A relação está invertida. Variáveis globais são acessíveis de qualquer lugar, e as de função são restritas.",
+        "Correto. Variáveis com **Escopo Global** são declaradas fora de qualquer função ou bloco e podem ser acessadas de qualquer lugar no código. Variáveis com **Escopo de Função** são declaradas dentro de uma função e só podem ser acessadas de dentro dessa mesma função.",
+        "Incorreto. A possibilidade de modificação (`let` vs `const`) é a mesma em ambos os escopos."
+      ]
+    },
+    {
+      "question": "O que são **Parâmetros Padrão** (Default Parameters)?",
+      "options": [
+        "Uma sintaxe que permite definir valores padrão para os parâmetros de uma função.",
+        "Parâmetros que a função aceita, mas que não são obrigatórios para sua execução.",
+        "Um tipo de parâmetro que só aceita valores nulos (`null`).",
+        "Uma forma de definir uma função sem parâmetros."
+      ],
+      "correct": 0,
+      "feedback": [
+        "Correto. Os **parâmetros padrão** permitem que você defina valores padrão para os parâmetros de uma função. Esses valores são usados caso nenhum argumento ou o valor `undefined` seja passado na chamada da função.",
+        "Incorreto. A função pode receber argumentos opcionais, mas o parâmetro padrão garante que, se um valor não for fornecido, a função ainda terá um valor para trabalhar.",
+        "Incorreto. Os parâmetros padrão são usados quando o argumento é `undefined`. Se o valor `null` for passado, o valor padrão não será ativado, pois `null` é um valor válido.",
+        "Incorreto. Eles são uma forma de lidar com a ausência de um argumento, não de definir uma função sem parâmetros."
+      ]
+    },
+    {
+      "question": "Qual a principal função dos **`Rest Parameters`** (`...`) na **definição** de uma função?",
+      "options": [
+        "Eles copiam todos os argumentos de uma função para um novo array.",
+        "Eles expandem um array em argumentos individuais na chamada da função.",
+        "Eles coletam um número indefinido de argumentos e os agrupam em um único array.",
+        "Eles definem valores padrão para os argumentos que não foram fornecidos."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. Os `Rest Parameters` não 'copiam', eles 'coletam' os argumentos restantes em um array. A sintaxe de cópia é o `Spread Syntax`.",
+        "Incorreto. Essa é a função do `Spread Syntax`, que é usado na chamada da função, e não na definição.",
+        "Correto. Os **`Rest Parameters`** são usados para coletar um número indefinido de argumentos em um único array. Eles são ideais quando você não sabe quantos argumentos serão passados.",
+        "Incorreto. A definição de valores padrão é a função dos `Default Parameters`."
+      ]
+    },
+    {
+      "question": "Qual a principal função do **`Spread Syntax`** (`...`) ao **chamar** uma função ou criar um array/objeto?",
+      "options": [
+        "Ele agrupa vários argumentos em um único array.",
+        "Ele cria um novo array com base nos argumentos passados.",
+        "Ele expande os elementos de um iterável (como um array ou objeto) em elementos individuais.",
+        "Ele define valores padrão para os parâmetros de uma função."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O agrupamento de argumentos em um array é a função do `Rest Parameters`.",
+        "Incorreto. O `Spread Syntax` não cria um novo array com base nos argumentos passados. Ele 'espalha' os elementos de um array existente para a criação de um novo array.",
+        "Correto. O **`Spread Syntax`** expande os elementos de um iterável, como um array ou as propriedades de um objeto, em elementos ou propriedades individuais. É útil para criar cópias, combinar arrays/objetos ou passar elementos de um array como argumentos para uma função.",
+        "Incorreto. Essa é a função dos `Default Parameters`."
+      ]
+    },
+    {
+      "question": "Apesar de usarem a mesma sintaxe (`...`), qual a principal diferença entre os papéis de **`Spread`** e **`Rest`**?",
+      "options": [
+        "Rest é usado para copiar arrays/objetos, e Spread para combinar.",
+        "Rest é usado na definição da função para coletar argumentos, e Spread é usado na chamada/criação de literais para expandir elementos.",
+        "Rest é para arrays, e Spread é para objetos.",
+        "Rest é usado com `let`, e Spread com `const`."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A cópia e combinação de arrays e objetos são funções do `Spread Syntax`.",
+        "Correto. A principal diferença é o papel e o local de uso: **`Rest`** coleta e agrupa elementos e é usado na definição da função, enquanto **`Spread`** expande e espalha elementos e é usado na chamada da função ou na criação de novos arrays/objetos.",
+        "Incorreto. Ambos podem ser usados tanto com arrays quanto com objetos.",
+        "Incorreto. O uso de `let` ou `const` não diferencia `Rest` de `Spread`, pois essas palavras-chave estão relacionadas ao escopo e à mutabilidade das variáveis, não à sintaxe."
+      ]
+    },
+    {
+      "question": "Qual é a sintaxe moderna e popular para declarar uma função, de acordo com o roteiro?",
+      "options": [
+        "A sintaxe `function` padrão.",
+        "A sintaxe `Arrow Functions` (`=>`).",
+        "A sintaxe de `Function Expression`.",
+        "O comando `return`."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A sintaxe `function` padrão é a mais antiga e tradicional.",
+        "Correto. O roteiro de aula menciona que a sintaxe de **`Arrow Functions`** (`=>`) é uma forma mais curta, popular e moderna de declarar funções.",
+        "Incorreto. A `Function Expression` é uma forma de atribuir uma função a uma variável, mas o roteiro destaca a sintaxe de `Arrow Functions` como a mais moderna.",
+        "Incorreto. O `return` é um comando dentro de uma função para devolver um valor. Não é uma sintaxe para declarar a função em si."
+      ]
+    }
+  ]
