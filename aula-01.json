@@ -1,0 +1,162 @@
+[
+    {
+      "question": "Qual é a principal função do Node.js, de acordo com o contexto apresentado?",
+      "options": [
+        "É um framework para a criação de interfaces de usuário (frontend).",
+        "É um ambiente de execução que permite que o JavaScript seja executado fora de um navegador.",
+        "É uma nova versão do JavaScript com sintaxe diferente.",
+        "É uma ferramenta para otimizar o desempenho de sites no navegador."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. O Node.js não é um framework de frontend. Embora ele possa ser usado para criar servidores que alimentam frontends, sua função principal é ser um ambiente de execução.",
+        "Correto. O Node.js é descrito como um ambiente que retira o JavaScript do navegador, permitindo que ele seja usado em servidores e outras aplicações de linha de comando.",
+        "Incorreto. O Node.js não é uma nova versão do JavaScript; ele usa a mesma linguagem, mas em um ambiente diferente do navegador.",
+        "Incorreto. Embora o Node.js seja rápido, sua principal função não é otimizar o desempenho de sites no navegador. Ele lida com o código que roda no lado do servidor."
+      ]
+    },
+    {
+      "question": "O JavaScript foi criado com qual objetivo inicial?",
+      "options": [
+        "Para construir a lógica de servidores robustos e escaláveis.",
+        "Para criar interatividade e dinamismo nas páginas web dos navegadores.",
+        "Para substituir a linguagem Java em aplicações desktop.",
+        "Para ser um ambiente de desenvolvimento completo, do frontend ao backend."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A capacidade do JavaScript de rodar em servidores (backend) veio muito depois, com o advento de ambientes como o Node.js. Originalmente, ele foi criado para rodar no navegador.",
+        "Correto. O JavaScript foi inicialmente inventado em 1995 com o propósito de adicionar interatividade e dinamismo a páginas web, tornando-as mais responsivas para o usuário.",
+        "Incorreto. O JavaScript não foi criado para substituir o Java. O nome foi alterado para 'JavaScript' por motivos de marketing, para pegar carona no sucesso do Java na época.",
+        "Incorreto. O objetivo inicial do JavaScript era apenas a interatividade no navegador. A capacidade de ser usado em todo o ecossistema de desenvolvimento é um desenvolvimento moderno."
+      ]
+    },
+    {
+      "question": "O que é o REPL do Node.js?",
+      "options": [
+        "Um gerenciador de pacotes para instalar bibliotecas de terceiros.",
+        "Um editor de código integrado para desenvolver aplicações Node.js.",
+        "Um ambiente interativo de linha de comando para testar pequenos trechos de código JavaScript.",
+        "O arquivo principal de uma aplicação Node.js."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O gerenciador de pacotes no ecossistema Node.js é o npm (Node Package Manager).",
+        "Incorreto. O REPL não é um editor de código; ele é uma interface de linha de comando para testar código de forma interativa.",
+        "Correto. O REPL (Read-Eval-Print Loop) é um ambiente interativo onde você pode digitar, executar e ver imediatamente o resultado de comandos JavaScript, o que é ótimo para praticar e testar pequenos trechos de código.",
+        "Incorreto. O arquivo principal de uma aplicação Node.js é geralmente um arquivo .js, como `index.js`, e não o REPL."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença entre Node.js e o Bun?",
+      "options": [
+        "O Node.js só roda em navegadores, enquanto o Bun roda em servidores.",
+        "O Node.js é um framework, e o Bun é uma linguagem de programação.",
+        "Ambos são ambientes de execução para JavaScript, mas o Bun foi projetado para ser mais rápido.",
+        "O Bun é uma versão mais antiga do Node.js."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A principal função do Node.js é rodar fora do navegador, assim como o Bun.",
+        "Incorreto. Ambos são ambientes de execução (runtimes), e não frameworks ou linguagens de programação.",
+        "Correto. O Bun é apresentado como um ambiente de execução alternativo ao Node.js, com a mesma função, mas com o objetivo de ser mais rápido.",
+        "Incorreto. O Bun é uma tecnologia mais recente, e não uma versão antiga do Node.js."
+      ]
+    },
+    {
+      "question": "O que a padronização **ECMAScript** trouxe para o JavaScript?",
+      "options": [
+        "Tornou o JavaScript uma linguagem com tipagem estática.",
+        "Tornou o JavaScript mais desorganizado e inseguro.",
+        "Permitiu que o JavaScript fosse executado em navegadores.",
+        "Trouxe um padrão oficial para a linguagem, tornando-a mais organizada e segura."
+      ],
+      "correct": 3,
+      "feedback": [
+        "Incorreto. O JavaScript continua sendo uma linguagem com tipagem dinâmica. O ECMAScript não alterou esse comportamento.",
+        "Incorreto. A padronização teve o efeito oposto, tornando a linguagem mais organizada e segura. O roteiro menciona que o JavaScript foi 'bastante desorganizado' antes de ter o padrão ECMAScript.",
+        "Incorreto. O JavaScript já era executado em navegadores antes da padronização ECMAScript. Essa padronização veio para resolver problemas de compatibilidade e segurança entre as implementações.",
+        "Correto. A padronização ECMAScript trouxe uma especificação oficial para o JavaScript, o que ajudou a resolver problemas de desorganização e segurança, garantindo que o código se comportasse de forma consistente em diferentes ambientes."
+      ]
+    },
+    {
+      "question": "Qual é a ênfase principal do módulo de aprendizado de JavaScript, de acordo com o plano apresentado?",
+      "options": [
+        "A criação de servidores backend com APIs complexas.",
+        "O desenvolvimento de interfaces visuais e websites (frontend).",
+        "O aprendizado de frameworks populares como React e Angular.",
+        "A lógica de programação pura, incluindo variáveis, funções, loops, arrays e objetos."
+      ],
+      "correct": 3,
+      "feedback": [
+        "Incorreto. A criação de servidores backend não é o foco inicial do módulo, embora o Node.js seja a base para isso.",
+        "Incorreto. O foco não é a parte visual (frontend) nem frameworks. O módulo se concentra nos fundamentos da linguagem.",
+        "Incorreto. O plano não menciona o aprendizado de frameworks como React ou Angular. O foco está no 'Javascript Puro'.",
+        "Correto. O plano de aprendizado enfatiza que o foco inicial será no 'JavaScript Puro', abordando conceitos de lógica de programação, variáveis, funções, arrays e objetos, e usando o Node.js como ambiente de prática."
+      ]
+    },
+    {
+      "question": "Por que o Node.js foi escolhido como o ambiente principal de prática para o módulo de JavaScript?",
+      "options": [
+        "Porque ele é o único ambiente onde o JavaScript pode ser executado.",
+        "Porque ele é a forma mais popular de criar websites interativos.",
+        "Porque ele oferece um ambiente simples e direto para executar JavaScript sem as complexidades de um navegador ou de frameworks.",
+        "Porque ele é mais rápido do que qualquer outro ambiente de execução."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O JavaScript pode ser executado em diversos ambientes, como navegadores e outros runtimes.",
+        "Incorreto. O Node.js não é a única forma de criar websites interativos. Ele é usado para o backend, enquanto o frontend lida com a interatividade no navegador.",
+        "Correto. O Node.js foi escolhido como o ambiente de prática porque ele oferece uma forma simplificada de executar o JavaScript, permitindo que os alunos se concentrem na lógica de programação sem as complexidades iniciais de um navegador ou de frameworks.",
+        "Incorreto. Embora o Node.js seja eficiente, ele não é o ambiente mais rápido em todas as situações. A velocidade não é o principal motivo para a sua escolha como ambiente de prática."
+      ]
+    },
+    {
+      "question": "Qual é a principal diferença entre JavaScript e Java?",
+      "options": [
+        "Eles são a mesma linguagem, mas com nomes diferentes.",
+        "O Java é usado para a web e o JavaScript é usado para aplicações desktop.",
+        "Eles são linguagens completamente diferentes, apesar da semelhança no nome.",
+        "O JavaScript é uma versão mais antiga do Java."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. As duas linguagens são totalmente diferentes em sua sintaxe, conceitos e ecossistemas. O nome similar foi uma estratégia de marketing.",
+        "Incorreto. O JavaScript foi inicialmente criado para a web e o Java é amplamente utilizado em diversas aplicações, incluindo desktop e mobile.",
+        "Correto. O roteiro enfatiza que o JavaScript 'não é Java'. Eles são linguagens de programação distintas, apesar da confusão histórica causada pela similaridade dos nomes.",
+        "Incorreto. O JavaScript é uma linguagem mais recente do que o Java e não é uma versão dele."
+      ]
+    },
+    {
+      "question": "Qual era a principal limitação do JavaScript antes da criação de ambientes como o Node.js?",
+      "options": [
+        "Ele não podia ser usado para realizar cálculos matemáticos.",
+        "Ele não tinha capacidade para manipular elementos visuais de uma página web.",
+        "Ele era restrito à execução dentro de navegadores e não podia ser usado em servidores.",
+        "Ele era muito lento para ser utilizado em produção."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O JavaScript sempre teve a capacidade de realizar cálculos matemáticos e outras operações lógicas.",
+        "Incorreto. A capacidade de manipular elementos visuais (DOM) é a razão de ser do JavaScript no navegador.",
+        "Correto. Antes de ambientes como o Node.js, o JavaScript não podia ser executado fora do navegador. O Node.js expandiu o uso do JavaScript para outras plataformas, como servidores e sistemas de linha de comando.",
+        "Incorreto. O desempenho do JavaScript é otimizado pelos motores de navegador (como o V8), e não era uma limitação fundamental que impedia seu uso."
+      ]
+    },
+    {
+      "question": "Por que o nome do JavaScript foi alterado de LiveScript para JavaScript?",
+      "options": [
+        "Porque a sintaxe da linguagem foi completamente reescrita.",
+        "Porque a equipe de desenvolvimento achou que o nome era mais descritivo.",
+        "Para pegar carona no sucesso e na popularidade da linguagem Java na época.",
+        "Para evitar conflitos com outras linguagens de programação."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A sintaxe não foi completamente reescrita. A mudança de nome foi uma estratégia de marketing.",
+        "Incorreto. A mudança foi uma decisão estratégica de marketing, não uma busca por um nome mais descritivo.",
+        "Correto. A mudança de nome foi uma manobra de marketing para associar o LiveScript à popularidade do Java na década de 90, mesmo que as linguagens sejam fundamentalmente diferentes.",
+        "Incorreto. A mudança foi feita para criar uma associação positiva, não para evitar conflitos."
+      ]
+    }
+  ]
