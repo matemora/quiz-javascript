@@ -1,0 +1,162 @@
+[
+    {
+      "question": "Qual é a principal função de uma variável em programação?",
+      "options": [
+        "Executar um conjunto de instruções repetidamente.",
+        "Armazenar e rotular informações para uso posterior no código.",
+        "Tomar decisões com base em condições lógicas.",
+        "Realizar cálculos matemáticos complexos."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A execução repetitiva de instruções é a função dos laços de repetição (loops).",
+        "Correto. Variáveis funcionam como contêineres rotulados, permitindo que você guarde e referencie dados, como números, textos ou valores lógicos, em seu programa.",
+        "Incorreto. A tomada de decisões é a função das estruturas condicionais, como o `if` e o `else`.",
+        "Incorreto. Embora variáveis possam guardar o resultado de cálculos, a função de realizar a operação em si é dos operadores aritméticos."
+      ]
+    },
+    {
+      "question": "O que diferencia a declaração de uma variável usando `const` de uma usando `let`?",
+      "options": [
+        "Variáveis declaradas com `let` não podem ser alteradas, enquanto as com `const` podem.",
+        "Variáveis com `let` podem ser modificadas e variáveis com `const` não podem ter seu valor reatribuído após a primeira atribuição.",
+        "O `let` é usado apenas para números e o `const` é usado para texto.",
+        "O `const` é obsoleto e não deve ser usado em códigos modernos."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A regra é o oposto: `const` cria uma variável cujo valor não pode ser reatribuído.",
+        "Correto. A principal diferença é que `let` permite a reatribuição de valor à variável ao longo do tempo, enquanto `const` garante que a variável permaneça com o mesmo valor que recebeu na sua declaração inicial.",
+        "Incorreto. Ambos `let` e `const` podem ser usados para qualquer tipo de dado, como números, textos, booleanos, etc.",
+        "Incorreto. `const` é uma palavra-chave moderna e preferível para a declaração de variáveis que não terão seu valor alterado, melhorando a previsibilidade do código."
+      ]
+    },
+    {
+      "question": "Em JavaScript, o que representa um valor `undefined`?",
+      "options": [
+        "A ausência intencional de um valor.",
+        "Um erro de sintaxe no código.",
+        "Uma variável que foi declarada, mas ainda não recebeu um valor.",
+        "O resultado de uma operação matemática inválida."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A ausência intencional de valor é representada por `null`.",
+        "Incorreto. `undefined` não indica um erro de sintaxe. É um tipo de dado primitivo que representa um estado específico da variável.",
+        "Correto. O valor `undefined` é atribuído automaticamente a uma variável que foi declarada mas ainda não foi inicializada com um valor.",
+        "Incorreto. O resultado de uma operação matemática inválida é `NaN` (Not a Number)."
+      ]
+    },
+    {
+      "question": "Para que servem os operadores de comparação estrita (`===`) e não estrita (`==`) em relação a valores e tipos de dados?",
+      "options": [
+        "Ambos comparam apenas os valores, ignorando o tipo de dado.",
+        "O operador `==` compara o valor e o tipo de dado, enquanto o `===` compara apenas o valor.",
+        "O operador `==` compara o valor, enquanto o `===` compara o valor E o tipo de dado, sendo a forma recomendada.",
+        "O operador `===` é utilizado apenas para comparar números, e o `==` para textos."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O operador `===` não ignora o tipo de dado, ele o considera na comparação.",
+        "Incorreto. A descrição dos operadores está invertida. O operador `===` é o que compara valor e tipo.",
+        "Correto. O operador de igualdade estrita (`===`) é considerado uma boa prática, pois garante que tanto o valor quanto o tipo de dado sejam os mesmos para que a condição seja verdadeira. O `==` realiza uma conversão de tipo implícita, o que pode levar a comportamentos inesperados.",
+        "Incorreto. Ambos os operadores podem ser utilizados para comparar qualquer tipo de dado, não se restringindo a números ou textos."
+      ]
+    },
+    {
+      "question": "Em um contexto de lógica de programação, o que é um valor 'falsy'?",
+      "options": [
+        "Um valor que é o oposto de `true` e `false`.",
+        "Um valor que é interpretado como `true` em uma condição.",
+        "Um valor que é interpretado como `false` em um contexto booleano.",
+        "Um valor que causa um erro de execução no código."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. Não existe um tipo de valor que seja o oposto de `true` e `false`. A inversão lógica é feita com o operador `!` (NOT).",
+        "Incorreto. Um valor 'truthy' é aquele que é interpretado como `true`.",
+        "Correto. Um valor 'falsy' é um tipo de dado que, quando avaliado em um contexto booleano (como em uma instrução `if`), é tratado como `false`.",
+        "Incorreto. Um valor 'falsy' não causa erro. É um comportamento esperado da linguagem para determinados valores, como `0`, `null`, `undefined`, e a string vazia (`''`)."
+      ]
+    },
+    {
+      "question": "Qual é o principal propósito das estruturas condicionais como `if/else`?",
+      "options": [
+        "Repetir a execução de um bloco de código até que uma condição seja satisfeita.",
+        "Armazenar múltiplos valores em uma única variável.",
+        "Permitir que o programa tome decisões e execute diferentes blocos de código com base em uma condição.",
+        "Realizar cálculos matemáticos complexos de forma mais eficiente."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A repetição de código é a função dos laços de repetição (loops).",
+        "Incorreto. A armazenagem de múltiplos valores é a função de estruturas de dados como arrays e objetos.",
+        "Correto. As estruturas condicionais são a espinha dorsal da lógica de decisão em um programa, permitindo que você controle o fluxo de execução com base no resultado de uma condição booleana.",
+        "Incorreto. Embora o resultado de um cálculo possa ser usado em uma condição, o `if/else` não tem a função de realizar os cálculos por si só."
+      ]
+    },
+    {
+      "question": "Para que serve o operador lógico `&&` (AND)?",
+      "options": [
+        "Para inverter o valor de uma condição booleana.",
+        "Para verificar se pelo menos uma das condições é verdadeira.",
+        "Para combinar duas ou mais condições, retornando `true` somente se todas forem verdadeiras.",
+        "Para atribuir um novo valor a uma variável."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A inversão de um valor booleano é feita com o operador `!` (NOT).",
+        "Incorreto. A verificação de que pelo menos uma condição é verdadeira é a função do operador `||` (OR).",
+        "Correto. O operador lógico `&&` (AND) é usado para combinar condições, e o resultado será `true` apenas se todas as condições envolvidas forem avaliadas como `true`.",
+        "Incorreto. A atribuição de valor é feita com o operador `=` (igualdade de atribuição)."
+      ]
+    },
+    {
+      "question": "Em que situação a estrutura de repetição `for` é mais indicada do que um `while`?",
+      "options": [
+        "Quando a repetição precisa ser infinita.",
+        "Quando o número exato de repetições é conhecido antecipadamente.",
+        "Quando a condição de parada é complexa e não relacionada a um contador.",
+        "Quando a única condição para a repetição é o valor de uma variável booleana."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. Um loop infinito geralmente é um erro de lógica e, se intencional, pode ser alcançado com `while(true)`.",
+        "Correto. A estrutura `for` é ideal para situações onde você precisa executar um bloco de código um número predeterminado de vezes, pois sua sintaxe já inclui os campos de inicialização, condição e incremento.",
+        "Incorreto. Para condições de parada mais complexas e menos previsíveis, o `while` é geralmente a melhor escolha.",
+        "Incorreto. Um `while` é mais apropriado para controlar a repetição com base em uma única variável booleana que pode mudar dentro do loop."
+      ]
+    },
+    {
+      "question": "Qual é a função do comando `break` em um laço de repetição?",
+      "options": [
+        "Interromper a execução do programa e exibir um erro.",
+        "Pular a iteração atual e ir para a próxima.",
+        "Sair imediatamente do laço de repetição em que ele está.",
+        "Continuar a execução do laço, mas sem modificar o contador."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O comando `break` não causa um erro. Ele é um controle de fluxo de execução normal.",
+        "Incorreto. A função de pular uma iteração e ir para a próxima é do comando `continue`.",
+        "Correto. O comando `break` tem a função de encerrar a execução de um laço de repetição imediatamente, fazendo com que o fluxo do programa continue para a primeira instrução após o laço.",
+        "Incorreto. O `break` encerra o laço e, por isso, não continua a sua execução. A modificação do contador ocorre apenas se houver uma nova execução do laço."
+      ]
+    },
+    {
+      "question": "Por que é importante usar nomes de variáveis descritivos, como `userAge` ao invés de `x`?",
+      "options": [
+        "Para que o código seja executado mais rapidamente pelo computador.",
+        "Para que a variável ocupe menos espaço na memória.",
+        "Para melhorar a legibilidade e a manutenção do código por outros desenvolvedores e por você mesmo no futuro.",
+        "Para evitar conflitos de nomes de variáveis globais."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O nome da variável não impacta na velocidade de execução do código.",
+        "Incorreto. Nomes de variáveis curtos ou longos não afetam significativamente o espaço que ocupam na memória.",
+        "Correto. Nomes descritivos tornam o código mais fácil de entender e manter, pois comunicam claramente a finalidade da variável sem a necessidade de comentários adicionais.",
+        "Incorreto. A forma de evitar conflitos de nomes é usando escopos de bloco ou função, e não a escolha de nomes mais longos."
+      ]
+    }
+  ]
