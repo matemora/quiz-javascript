@@ -1,5 +1,4 @@
-{
-  "questions": [
+[
     {
       "question": "Imagine que você está desenvolvendo uma aplicação. Qual é a principal razão para usar programação assíncrona, em vez de programação síncrona, para carregar dados de uma API?",
       "options": [
@@ -161,4 +160,3 @@
       ]
     }
   ]
-}
