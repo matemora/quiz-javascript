@@ -74,7 +74,7 @@
       "correct": 3,
       "feedback": [
         "Incorreto. O JavaScript continua sendo uma linguagem com tipagem dinâmica. O ECMAScript não alterou esse comportamento.",
-        "Incorreto. A padronização teve o efeito oposto, tornando a linguagem mais organizada e segura. O roteiro menciona que o JavaScript foi 'bastante desorganizado' antes de ter o padrão ECMAScript.",
+        "Incorreto. A padronização teve o efeito oposto, tornando a linguagem mais organizada e segura. O JavaScript foi 'bastante desorganizado' antes de ter o padrão ECMAScript.",
         "Incorreto. O JavaScript já era executado em navegadores antes da padronização ECMAScript. Essa padronização veio para resolver problemas de compatibilidade e segurança entre as implementações.",
         "Correto. A padronização ECMAScript trouxe uma especificação oficial para o JavaScript, o que ajudou a resolver problemas de desorganização e segurança, garantindo que o código se comportasse de forma consistente em diferentes ambientes."
       ]
@@ -123,7 +123,7 @@
       "feedback": [
         "Incorreto. As duas linguagens são totalmente diferentes em sua sintaxe, conceitos e ecossistemas. O nome similar foi uma estratégia de marketing.",
         "Incorreto. O JavaScript foi inicialmente criado para a web e o Java é amplamente utilizado em diversas aplicações, incluindo desktop e mobile.",
-        "Correto. O roteiro enfatiza que o JavaScript 'não é Java'. Eles são linguagens de programação distintas, apesar da confusão histórica causada pela similaridade dos nomes.",
+        "Correto. O JavaScript 'não é Java'. Eles são linguagens de programação distintas, apesar da confusão histórica causada pela similaridade dos nomes.",
         "Incorreto. O JavaScript é uma linguagem mais recente do que o Java e não é uma versão dele."
       ]
     },
