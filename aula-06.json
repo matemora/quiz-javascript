@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "question": "Imagine que você está desenvolvendo uma aplicação. Qual é a principal razão para usar programação assíncrona, em vez de programação síncrona, para carregar dados de uma API?",
+      "options": [
+        "Para garantir que o código seja executado em uma ordem específica, de cima para baixo.",
+        "Para evitar que a interface do usuário congele enquanto a aplicação espera pelos dados.",
+        "Para permitir que a aplicação execute várias tarefas demoradas simultaneamente, sem bloqueio.",
+        "Para simplificar o código, eliminando a necessidade de tratamento de erros."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. A programação síncrona é que garante a ordem específica de cima para baixo, o que pode causar bloqueios em tarefas longas.",
+        "Incorreto. Embora a programação assíncrona ajude a evitar que a interface do usuário congele, essa é uma consequência da sua principal função: permitir que o programa continue executando outras tarefas, mesmo enquanto espera por uma resposta externa.",
+        "Correto. O principal benefício da programação assíncrona é permitir que o programa inicie uma operação que leva tempo (como uma requisição de rede) e continue a executar outras tarefas imediatamente, sem bloquear o fluxo principal de execução.",
+        "Incorreto. A programação assíncrona não elimina o tratamento de erros. Na verdade, ela exige mecanismos de tratamento de erros específicos (como `try...catch` ou `.catch()`) para lidar com as falhas nas operações assíncronas."
+      ]
+    },
+    {
+      "question": "O que uma Promise representa fundamentalmente no JavaScript?",
+      "options": [
+        "Um loop que continua executando até que uma condição seja satisfeita.",
+        "Uma variável que armazena o resultado de uma operação assíncrona.",
+        "Um objeto que representa a conclusão (ou falha) de uma operação assíncrona e seu valor resultante.",
+        "Uma função que é executada automaticamente quando a página é carregada."
+      ],
+      "correct": 2,
+      "feedback": [
+        "Incorreto. O conceito de um loop infinito é síncrono, enquanto uma Promise é assíncrona. O loop bloqueia a execução, enquanto a Promise permite que o código continue a ser executado.",
+        "Incorreto. Uma Promise não é uma variável simples. Ela é um objeto que pode estar em diferentes estados (`pending`, `fulfilled`, `rejected`) e contém o resultado futuro da operação, não apenas o valor.",
+        "Correto. Uma Promise é um objeto de estado que garante que uma operação assíncrona terá um resultado em algum momento no futuro, seja um valor de sucesso (`fulfilled`) ou um erro (`rejected`).",
+        "Incorreto. Uma Promise pode ser criada em qualquer momento, e sua execução depende de quando a operação assíncrona é iniciada, não do carregamento da página."
+      ]
+    },
+    {
+      "question": "O que é `Callback Hell` e qual é a principal solução moderna para esse problema?",
+      "options": [
+        "É um erro de sintaxe em funções de retorno, e a solução é o uso de laços de repetição.",
+        "É o nome para uma função de retorno que não funciona, e a solução é o uso de Promises.",
+        "É o resultado de múltiplas Promises aninhadas, e a solução é o uso de `Promise.all`.",
+        "É o aninhamento excessivo de funções de retorno (callbacks), e a solução é o uso de Promises e `async/await`."
+      ],
+      "correct": 3,
+      "feedback": [
+        "Incorreto. O `Callback Hell` não é um erro de sintaxe, e sim um problema de legibilidade causado por uma estrutura complexa de aninhamento. A solução não são laços de repetição.",
+        "Incorreto. A função de retorno em si não é o problema. O problema é a forma como o código é aninhado. A solução moderna inclui Promises, mas o conceito vai além de simplesmente usá-las.",
+        "Incorreto. `Callback Hell` é um problema com `callbacks`, não com Promises. O `Promise.all` é uma ferramenta para executar Promises em paralelo, mas não resolve o problema fundamental de aninhamento de callbacks.",
+        "Correto. O `Callback Hell` é um problema de legibilidade e manutenção causado por aninhar callbacks dentro de outras. A solução moderna é o uso de Promises para encadear operações de forma linear com `.then()`s, e a sintaxe `async/await` para tornar a leitura do código ainda mais limpa e parecida com o código síncrono."
+      ]
+    },
+    {
+      "question": "Qual é a diferença conceitual entre `Promise.race()` e `Promise.any()`?",
+      "options": [
+        "Ambos são idênticos, mas `Promise.any()` é uma versão mais nova.",
+        "`Promise.race()` retorna o resultado da primeira promessa a terminar, independentemente do sucesso ou falha, enquanto `Promise.any()` espera pela primeira promessa a ter sucesso.",
+        "`Promise.race()` retorna todas as promessas que terminam, e `Promise.any()` retorna apenas uma.",
+        "`Promise.race()` é para Promises que falham, e `Promise.any()` é para Promises que têm sucesso."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. Embora ambos lidem com múltiplas Promises, eles têm comportamentos diferentes, o que os torna adequados para cenários distintos. O `Promise.any()` é mais recente, mas não é idêntico ao `Promise.race()`.",
+        "Correto. O `Promise.race()` é uma 'corrida' onde a primeira Promise que se resolve ou rejeita 'vence'. Já o `Promise.any()` tem como foco encontrar a primeira Promise que seja resolvida, ignorando as que forem rejeitadas até que uma seja bem-sucedida.",
+        "Incorreto. Ambos os métodos retornam apenas uma única Promise. O `Promise.race()` retorna a primeira que terminar, e o `Promise.any()` retorna a primeira que tiver sucesso.",
+        "Incorreto. O `Promise.race()` e o `Promise.any()` podem lidar tanto com sucesso quanto com falha, mas a diferença está em como eles tratam esses resultados. `Promise.race()` é focado na velocidade, enquanto `Promise.any()` é focado no sucesso."
+      ]
+    },
+    {
+      "question": "Qual é o principal propósito da API `fetch` e como ela se relaciona com as Promises?",
+      "options": [
+        "O `fetch` é usado para executar código síncrono no servidor e é incompatível com Promises.",
+        "O `fetch` é a API moderna para fazer requisições de rede (HTTP), e sua execução sempre retorna uma Promise.",
+        "O `fetch` é um substituto para `async/await` e não usa Promises internamente.",
+        "O `fetch` é usado para ler arquivos do disco local e o resultado é retornado diretamente."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. A API `fetch` é assíncrona por natureza e opera no lado do cliente (navegador ou Node.js). Ela é fundamentalmente construída sobre Promises.",
+        "Correto. O `fetch` é a API padrão para buscar recursos de uma rede. Ele retorna um objeto `Promise` que, quando resolvido, dá acesso ao objeto `Response`, que por sua vez também possui um método que retorna uma `Promise` (`.json()`, por exemplo).",
+        "Incorreto. `fetch` não é um substituto para `async/await`; eles funcionam juntos. O `async/await` é uma sintaxe mais limpa para lidar com as Promises que o `fetch` retorna.",
+        "Incorreto. Embora existam APIs para leitura de arquivos no disco, a `fetch` foi projetada especificamente para operações de rede, não para o sistema de arquivos local."
+      ]
+    },
+    {
+      "question": "A sintaxe `async/await` foi introduzida no JavaScript para resolver qual problema conceitual?",
+      "options": [
+        "A incapacidade de usar funções de retorno (`callbacks`) para tarefas assíncronas.",
+        "O problema de legibilidade e complexidade causado pelo encadeamento de `.then()`s em Promises.",
+        "A falta de uma maneira de fazer o código esperar por uma operação assíncrona.",
+        "Problemas de segurança ao fazer requisições de rede."
+      ],
+      "correct": 1,
+      "feedback": [
+        "Incorreto. Funções de retorno já eram usadas para tarefas assíncronas. O `async/await` foi criado como uma alternativa mais legível ao encadeamento de `thens`.",
+        "Correto. A sintaxe `async/await` foi introduzida como um 'açúcar sintático' para simplificar o trabalho com Promises. Ela permite que o código assíncrono seja escrito de forma linear e sequencial, facilitando a leitura e a manutenção, ao contrário do aninhamento excessivo do `.then()`.",
+        "Incorreto. A capacidade de 'esperar' por uma operação assíncrona já existia com os encadeamentos de `.then()`s. O `async/await` apenas oferece uma sintaxe mais clara para essa mesma funcionalidade.",
+        "Incorreto. `async/await` é uma ferramenta para o controle do fluxo de execução. Problemas de segurança de rede são tratados em outras camadas, como HTTPS e CORS, não pela sintaxe de Promises."
+      ]
+    }
+  ]
+}
