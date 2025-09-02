@@ -128,7 +128,7 @@
     ]
   },
   {
-    "question": "Qual das seguintes opções NÃO é uma vantagem direta de usar Next.js em comparação com um projeto criado apenas com React (CRA - Create React App)?",
+    "question": "Qual das seguintes opções NÃO é uma vantagem direta de usar Next.js em comparação com um projeto criado apenas com React (com Vite, por exemplo)?",
     "options": [
       "Renderização no Servidor (SSR) e Geração de Sites Estáticos (SSG) nativas, melhorando o SEO.",
       "Sistema de roteamento baseado em arquivos, simplificando a criação de páginas.",
