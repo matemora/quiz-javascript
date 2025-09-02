@@ -81,6 +81,10 @@
             background: linear-gradient(135deg, #667eea 0%, #3eb28f 100%);
         }
 
+        .quiz-button.tint-3 {
+            background: linear-gradient(to right, #283048 0%, #859398  51%, #283048  100%);
+        }
+
         .quiz-button::before {
             content: '';
             position: absolute;
@@ -212,6 +216,10 @@
             <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-16')">
                 <span class="quiz-icon">📝</span>
                 Quiz Aula 16 - TailwindCSS
+            </button>
+            <button class="quiz-button tint-3" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-17')">
+                <span class="quiz-icon">📝</span>
+                Quiz Aula 17 - Intro ao NextJS
             </button>
         </div>
     </div>
