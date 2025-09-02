@@ -1,0 +1,164 @@
+```json
+[
+  {
+    "question": "Qual é a principal função do Next.js no ecossistema de desenvolvimento web?",
+    "options": [
+      "Ser uma biblioteca de componentes de interface, como o Material-UI.",
+      "Ser um framework full-stack que usa React para construir aplicações web otimizadas para performance e SEO.",
+      "Substituir completamente o React por uma nova forma de escrever componentes.",
+      "Gerenciar bancos de dados SQL diretamente no navegador."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Embora o Next.js se integre com qualquer biblioteca de UI, sua função principal é ser um framework completo, não apenas uma coleção de componentes.",
+      "Correto! O Next.js é um framework que estende o React, adicionando funcionalidades de back-end, renderização no servidor (SSR), geração de sites estáticos (SSG) e outras otimizações.",
+      "Incorreto. Next.js não substitui o React; ele o utiliza como base. Todo o seu conhecimento de React é fundamental para usar o Next.js.",
+      "Incorreto. Next.js permite que seu lado do servidor se comunique com bancos de dados, mas ele próprio não é um sistema de gerenciamento de banco de dados."
+    ]
+  },
+  {
+    "question": "No App Router do Next.js, qual é a convenção correta para criar uma rota que seja acessível na URL '/contato'?",
+    "options": [
+      "Criar um arquivo chamado `app/contato.tsx`.",
+      "Configurar a rota no arquivo `package.json`.",
+      "Criar uma pasta `app/contato/` e, dentro dela, um arquivo chamado `page.tsx`.",
+      "Criar um componente chamado `ContatoPage` e exportá-lo no `app/page.tsx`."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O App Router funciona com um sistema de pastas. Um arquivo com o nome da rota diretamente dentro de `app` não criará a página.",
+      "Incorreto. O `package.json` gerencia as dependências e scripts do projeto, mas não as rotas da aplicação.",
+      "Correto! O roteamento baseado em arquivos do App Router dita que o nome da pasta define o caminho da URL, e o arquivo `page.tsx` dentro dela define a interface daquela rota.",
+      "Incorreto. Embora você possa criar o componente `ContatoPage`, ele precisaria ser usado dentro do arquivo `app/contato/page.tsx` para funcionar como uma rota."
+    ]
+  },
+  {
+    "question": "Qual é a principal característica dos Server Components no Next.js?",
+    "options": [
+      "Eles são ideais para interatividade e manipulação de estado com `useState`.",
+      "São renderizados exclusivamente no navegador (cliente).",
+      "São o tipo de componente padrão no App Router, renderizados no servidor e não podem usar hooks de interatividade como `useState` ou `useEffect`.",
+      "Precisam da diretiva `\"use server\";` para funcionar."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Essa é a característica dos Client Components. Server Components não podem ter estado interativo.",
+      "Incorreto. Server Components, como o nome sugere, são renderizados no servidor, antes de serem enviados para o navegador.",
+      "Correto! Por padrão, os componentes no App Router são Server Components. Eles são ótimos para buscar dados e performance, mas a interatividade é deixada para os Client Components.",
+      "Incorreto. Eles são o padrão e não precisam de nenhuma diretiva especial para serem definidos. A diretiva `\"use client\";` é que é usada para definir o oposto."
+    ]
+  },
+  {
+    "question": "Quando você precisa usar a diretiva `\"use client\";` no topo de um arquivo de componente?",
+    "options": [
+      "Sempre que o componente precisar acessar o sistema de arquivos do servidor.",
+      "Para indicar que o componente deve ser renderizado mais rapidamente.",
+      "Apenas em componentes que utilizam TypeScript.",
+      "Quando o componente precisa de interatividade, utilizando hooks como `useState`, `useEffect` ou manipuladores de eventos como `onClick`."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O acesso ao sistema de arquivos do servidor é uma capacidade dos Server Components, que são o padrão (sem diretiva).",
+      "Incorreto. A performance de carregamento inicial é geralmente melhor nos Server Components. A diretiva `\"use client\";` é usada por necessidade funcional, não por otimização de velocidade.",
+      "Incorreto. A diretiva é um conceito do Next.js/React e funciona tanto com JavaScript quanto com TypeScript.",
+      "Correto! A diretiva `\"use client\";` é a fronteira que transforma um Server Component padrão em um Client Component, permitindo que ele seja interativo no navegador."
+    ]
+  },
+  {
+    "question": "O que é \"roteamento\" no contexto de uma aplicação web como as feitas com Next.js?",
+    "options": [
+      "O processo de otimizar imagens para a web.",
+      "O mapeamento de URLs (endereços web) para as páginas ou componentes correspondentes que devem ser exibidos.",
+      "A forma como os dados são enviados do cliente para o servidor.",
+      "A instalação de pacotes e dependências do projeto."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O Next.js possui otimização de imagens, mas isso é uma funcionalidade separada do conceito de roteamento.",
+      "Correto! Roteamento é o mecanismo que 'decide' qual conteúdo mostrar com base na URL que o usuário acessa, como um GPS para as páginas do seu site.",
+      "Incorreto. Isso está mais relacionado ao funcionamento de APIs e envio de formulários, que são parte de uma aplicação, mas não a definição de roteamento.",
+      "Incorreto. A instalação de dependências é parte do setup do projeto, gerenciado por ferramentas como npm ou yarn, não pelo roteamento."
+    ]
+  },
+  {
+    "question": "Qual comando é usado para iniciar um novo projeto Next.js com as configurações mais recentes?",
+    "options": [
+      "npx create-next-app@latest",
+      "npm install next",
+      "npx create-react-app",
+      "npm init next-project"
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Este é o comando oficial e recomendado para criar um novo projeto Next.js, que inicia um instalador interativo para configurar o projeto.",
+      "Incorreto. `npm install next` adicionaria o Next.js como uma dependência a um projeto já existente, mas não cria toda a estrutura inicial do projeto.",
+      "Incorreto. Este comando é usado para criar um projeto com React puro (CRA), sem as funcionalidades e a estrutura do Next.js.",
+      "Incorreto. Este não é um comando padrão do npm ou do Next.js para criação de projetos."
+    ]
+  },
+  {
+    "question": "Qual é a principal finalidade do componente `&lt;Link&gt;` do Next.js?",
+    "options": [
+      "Criar links para sites externos, pois ele não funciona para navegação interna.",
+      "Estilizar links para que pareçam botões.",
+      "Substituir a tag `&lt;a&gt;` para permitir uma navegação otimizada entre páginas da aplicação, sem a necessidade de um recarregamento completo da página (Client-Side Navigation).",
+      "Apenas para criar âncoras que rolam para uma seção na mesma página."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O componente `<Link>` é projetado primariamente para navegação interna, embora também possa ser usado para links externos.",
+      "Incorreto. A estilização de um link é feita com CSS. O componente `<Link>` foca na funcionalidade de navegação, não na aparência.",
+      "Correto! O `<Link>` habilita a navegação no lado do cliente (client-side navigation), que é muito mais rápida, pois troca apenas o conteúdo necessário da página em vez de recarregar tudo do servidor.",
+      "Incorreto. Para âncoras na mesma página, a tag `<a>` com um `href=\"#id\"` é geralmente suficiente. A principal vantagem do `<Link>` é a transição entre rotas diferentes."
+    ]
+  },
+  {
+    "question": "Se você tentar usar o hook `useState` dentro de um componente no App Router sem adicionar nenhuma diretiva, o que acontecerá?",
+    "options": [
+      "O hook funcionará normalmente, pois todos os componentes aceitam `useState`.",
+      "Ocorrerá um erro, pois por padrão o componente é um Server Component, que não pode ter estado interativo.",
+      "O componente será automaticamente convertido para um Client Component.",
+      "O estado será gerenciado no servidor em vez de no cliente."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Apenas Client Components, marcados com `\"use client\";`, podem usar hooks de interatividade como o `useState`.",
+      "Correto! Esta é uma das regras fundamentais do App Router. Server Components não podem usar hooks que dependem do ambiente do navegador, e o Next.js irá gerar um erro para te avisar disso.",
+      "Incorreto. A conversão não é automática; o desenvolvedor precisa ser explícito e adicionar a diretiva `\"use client\";` para que o componente possa ser interativo.",
+      "Incorreto. O estado interativo gerenciado pelo `useState` é um conceito exclusivo do lado do cliente (navegador)."
+    ]
+  },
+  {
+    "question": "Qual das seguintes opções NÃO é uma vantagem direta de usar Next.js em comparação com um projeto criado apenas com React (CRA - Create React App)?",
+    "options": [
+      "Renderização no Servidor (SSR) e Geração de Sites Estáticos (SSG) nativas, melhorando o SEO.",
+      "Sistema de roteamento baseado em arquivos, simplificando a criação de páginas.",
+      "Otimizações automáticas de imagens, fontes e scripts.",
+      "A capacidade de usar componentes React com a sintaxe JSX."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Esta é uma das maiores vantagens do Next.js, pois melhora muito a performance de carregamento e a indexação por buscadores.",
+      "Incorreto. O roteamento simplificado é uma característica central do Next.js que agiliza o desenvolvimento.",
+      "Incorreto. O Next.js vem com uma série de otimizações de performance prontas para uso que não existem por padrão no Create React App.",
+      "Correto! A capacidade de usar componentes com JSX é uma característica do React em si. Tanto um projeto com Next.js quanto um com Create React App possuem essa capacidade."
+    ]
+  },
+  {
+    "question": "No App Router, o que são os arquivos com nomes especiais como `layout.tsx`, `loading.tsx` e `error.tsx`?",
+    "options": [
+      "São apenas sugestões de nomes, mas não têm funcionalidade especial.",
+      "São convenções de arquivos que permitem criar UIs compartilhadas (layout), estados de carregamento e tratamento de erros para segmentos de rotas específicos.",
+      "São arquivos obrigatórios para configurar o servidor do Next.js.",
+      "São formas de criar rotas, assim como o `page.tsx`."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Eles têm funcionalidades muito específicas e poderosas, sendo uma parte central do design do App Router.",
+      "Correto! O Next.js usa esses arquivos por convenção para automaticamente aplicar layouts, mostrar telas de carregamento enquanto os dados não chegam e tratar erros de forma elegante.",
+      "Incorreto. A configuração do servidor é gerenciada em outros arquivos, como `next.config.js`. Estes arquivos são focados na UI.",
+      "Incorreto. O único arquivo que cria a UI principal de uma rota é o `page.tsx`. Os outros servem para 'envelopar' o conteúdo da página com funcionalidades adicionais."
+    ]
+  }
+]
+```
