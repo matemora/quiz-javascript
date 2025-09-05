@@ -26,7 +26,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             padding: 3rem;
-            max-width: 600px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
         }
@@ -49,43 +49,49 @@
             font-weight: 300;
         }
 
-        .quiz-menu {
-            display: flex;
-            flex-direction: column;
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
+            justify-content: center;
         }
 
-        .quiz-button {
-            border: none;
+        .quiz-card {
+            background: #fff;
             border-radius: 15px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 1.5rem 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
+            color: white;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .quiz-button.tint-1 {
+        .quiz-card.tint-1 {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        .quiz-button.tint-2 {
+        .quiz-card.tint-2 {
             background: linear-gradient(135deg, #667eea 0%, #3eb28f 100%);
         }
 
-        .quiz-button.tint-3 {
+        .quiz-card.tint-3 {
             background: linear-gradient(135deg, #283048 0%, #859398 100%);
         }
 
-        .quiz-button::before {
+        .quiz-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .quiz-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -96,37 +102,41 @@
             transition: left 0.5s;
         }
 
-        .quiz-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .quiz-button:hover::before {
+        .quiz-card:hover::before {
             left: 100%;
         }
 
-        .quiz-button:active {
-            transform: translateY(-1px);
+        .quiz-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            line-height: 1.4;
         }
 
         .quiz-icon {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .coming-soon {
-            background: linear-gradient(135deg, #ccc 0%, #999 100%);
-            cursor: not-allowed;
-            opacity: 0.6;
+        .footer {
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
         }
 
-        .coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .container {
                 padding: 2rem;
+            }
+
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
                 margin: 1rem;
             }
 
@@ -134,16 +144,13 @@
                 font-size: 2rem;
             }
 
-            .quiz-button {
-                padding: 1.2rem 1.5rem;
+            .quiz-card {
+                padding: 1.2rem;
+            }
+
+            .quiz-card-title {
                 font-size: 1.1rem;
             }
-        }
-
-        .footer {
-            margin-top: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -152,79 +159,79 @@
         <h1 class="title">Quizzes das Aulas</h1>
         <p class="subtitle">Selecione o quiz que deseja realizar</p>
         
-        <div class="quiz-menu">
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-01')">
+        <div class="quiz-grid">
+            <a href="/quiz-javascript/quiz?quizId=aula-01" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 1 - O que é node?
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-02')">
+                <span class="quiz-card-title">Quiz Aula 1 - O que é Node?</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-02" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 2 - Variáveis, operadores e loops
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-03')">
+                <span class="quiz-card-title">Quiz Aula 2 - Variáveis, operadores e loops</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-03" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 3 - Funções, spread, rest
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-04')">
+                <span class="quiz-card-title">Quiz Aula 3 - Funções, spread, rest</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-04" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 4 - Arrays e Objetos
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-05')">
+                <span class="quiz-card-title">Quiz Aula 4 - Arrays e Objetos</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-05" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 5 - npm e módulos
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-06')">
+                <span class="quiz-card-title">Quiz Aula 5 - npm e módulos</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-06" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 6 - Promises e fetch
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-07')">
+                <span class="quiz-card-title">Quiz Aula 6 - Promises e fetch</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-07" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 7 - JS no Browser - DOM
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-08')">
+                <span class="quiz-card-title">Quiz Aula 7 - JS no Browser - DOM</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-08" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 8 - JS no Browser - Eventos
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-09')">
+                <span class="quiz-card-title">Quiz Aula 8 - JS no Browser - Eventos</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-09" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 9 - TypeScript I
-            </button>
-            <button class="quiz-button tint-1" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-10')">
+                <span class="quiz-card-title">Quiz Aula 9 - TypeScript I</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-10" class="quiz-card tint-1">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 10 - Typescript II
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-11')">
+                <span class="quiz-card-title">Quiz Aula 10 - Typescript II</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-11" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 11 - JS Puro vs ReactJS
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-12')">
+                <span class="quiz-card-title">Quiz Aula 11 - JS Puro vs ReactJS</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-12" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 12 - ReactJS & JSX
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-13')">
+                <span class="quiz-card-title">Quiz Aula 12 - ReactJS & JSX</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-13" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 13 - Componentes e Props
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-14')">
+                <span class="quiz-card-title">Quiz Aula 13 - Componentes e Props</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-14" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 14 - Estados e Hooks
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-15')">
+                <span class="quiz-card-title">Quiz Aula 14 - Estados e Hooks</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-15" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 15 - Formulários e Eventos
-            </button>
-            <button class="quiz-button tint-2" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-16')">
+                <span class="quiz-card-title">Quiz Aula 15 - Formulários e Eventos</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-16" class="quiz-card tint-2">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 16 - TailwindCSS
-            </button>
-            <button class="quiz-button tint-3" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-17')">
+                <span class="quiz-card-title">Quiz Aula 16 - TailwindCSS</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-17" class="quiz-card tint-3">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 17 - Intro ao NextJS
-            </button>
-            <button class="quiz-button tint-3" onclick="navigateToQuiz('/quiz-javascript/quiz?quizId=aula-18')">
+                <span class="quiz-card-title">Quiz Aula 17 - Intro ao NextJS</span>
+            </a>
+            <a href="/quiz-javascript/quiz?quizId=aula-18" class="quiz-card tint-3">
                 <span class="quiz-icon">📝</span>
-                Quiz Aula 18 - Componentes do NextJS
-            </button>
+                <span class="quiz-card-title">Quiz Aula 18 - Componentes do NextJS</span>
+            </a>
         </div>
     </div>
 
@@ -233,21 +240,13 @@
     </div>
 
     <script>
+        // A função de navegação e o script de animação foram mantidos
         function navigateToQuiz(path) {
-            // Add a subtle loading effect
-            //const button = event.target.closest('.quiz-button');
-            //const originalText = button.innerHTML;
-            
-            //button.innerHTML = '<span class="quiz-icon">⏳</span> Carregando...';
-            //button.style.opacity = '0.7';
-            
-            // Navigate after a brief delay for visual feedback
             setTimeout(() => {
                 window.location.href = path;
             }, 500);
         }
 
-        // Add some entrance animation
         window.addEventListener('load', () => {
             const container = document.querySelector('.container');
             container.style.opacity = '0';
@@ -258,6 +257,15 @@
                 container.style.opacity = '1';
                 container.style.transform = 'translateY(0)';
             }, 100);
+        });
+
+        // Adiciona o evento de clique aos novos cards (agora links <a>)
+        document.querySelectorAll('.quiz-card').forEach(card => {
+            card.addEventListener('click', (event) => {
+                event.preventDefault(); // Evita a navegação imediata do link
+                const path = card.getAttribute('href');
+                navigateToQuiz(path);
+            });
         });
     </script>
 </body>
