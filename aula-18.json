@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal vantagem de usar o componente `&lt;Link&gt;` do Next.js em vez da tag `&lt;a&gt;` para navegação interna em uma aplicação?",
+    "options": [
+      "Ele aplica estilos CSS automaticamente aos links, melhorando a aparência.",
+      "Ele habilita a navegação no lado do cliente (Client-Side Navigation), que evita o recarregamento completo da página.",
+      "Ele funciona exclusivamente para links externos, otimizando a comunicação com outros sites.",
+      "Ele reduz o tamanho final do bundle JavaScript da aplicação."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A estilização de links continua sendo responsabilidade do desenvolvedor, geralmente através de CSS.",
+      "Correto! O `&lt;Link&gt;` gerencia a transição de rotas no navegador, trocando apenas o conteúdo necessário e tornando a navegação muito mais rápida e fluida.",
+      "Incorreto. Pelo contrário, o `&lt;Link&gt;` é otimizado para navegação interna. Para links externos, a tag `&lt;a&gt;` tradicional ainda deve ser usada.",
+      "Incorreto. Embora a performance seja o foco, o benefício direto não é a redução do bundle, mas sim como as transições de página são feitas de forma mais eficiente."
+    ]
+  },
+  {
+    "question": "Ao usar o componente `&lt;Image&gt;` do Next.js para uma imagem externa, por que é crucial fornecer as propriedades `width` e `height`?",
+    "options": [
+      "Para permitir que o Next.js aplique um filtro de redimensionamento na imagem.",
+      "Para que o Next.js possa converter a imagem para o formato SVG.",
+      "Para garantir que a imagem seja carregada antes de qualquer outro elemento da página.",
+      "Para prevenir o 'Layout Shift', reservando o espaço correto para a imagem antes que ela seja carregada."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O redimensionamento é uma das otimizações, mas a razão principal para `width` e `height` é a estabilidade do layout.",
+      "Incorreto. O Next.js otimiza para formatos como WebP ou AVIF, mas não converte imagens externas para SVG.",
+      "Incorreto. A prioridade de carregamento pode ser controlada com a propriedade `priority`, mas `width` e `height` têm outro propósito.",
+      "Correto! Ao saber as dimensões da imagem, o navegador reserva o espaço exato na tela, evitando que o conteúdo da página 'pule' quando a imagem finalmente carrega."
+    ]
+  },
+  {
+    "question": "Qual é o principal benefício de performance ao utilizar `next/font` para gerenciar fontes (locais ou do Google Fonts)?",
+    "options": [
+      "Ele permite usar um número ilimitado de fontes diferentes na mesma página.",
+      "Ele remove requisições de rede adicionais para buscar arquivos de fonte, hospedando-os junto com a aplicação.",
+      "Ele converte automaticamente todas as fontes para uma única fonte padrão do sistema, economizando espaço.",
+      "Ele garante que as fontes sejam carregadas apenas após a interação do usuário com a página."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Embora seja tecnicamente possível, usar muitas fontes ainda é uma má prática de design e performance, independentemente de como são carregadas.",
+      "Correto! Ao hospedar as fontes durante o build, `next/font` elimina a necessidade de o navegador buscar esses arquivos em servidores externos, o que acelera o carregamento inicial e melhora a métrica de Core Web Vitals.",
+      "Incorreto. A ferramenta otimiza o carregamento da fonte que você escolheu, não a substitui por uma fonte padrão.",
+      "Incorreto. O objetivo é justamente o contrário: ter a fonte disponível o mais rápido possível para evitar o 'piscar' de texto (Layout Shift) durante o carregamento."
+    ]
+  },
+  {
+    "question": "Ao usar o componente `&lt;Script&gt;` do Next.js, qual valor da propriedade `strategy` é mais indicado para um script não essencial, como o do Google Analytics, para que ele não bloqueie a interatividade da página?",
+    "options": [
+      "beforeInteractive",
+      "lazyOnload",
+      "afterInteractive",
+      "critical"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A estratégia `beforeInteractive` é usada para scripts críticos que precisam carregar antes da página se tornar interativa e deve ser usada com muita cautela, pois pode impactar a performance.",
+      "Incorreto. Embora `lazyOnload` também adie o carregamento, ele espera até que todos os outros recursos da página sejam baixados, sendo ideal para scripts de baixa prioridade, como um chat de suporte.",
+      "Correto! A estratégia `afterInteractive` (que é a padrão) carrega o script logo após a página se tornar interativa, sendo a escolha ideal para scripts como os de analytics, que não precisam bloquear a renderização inicial.",
+      "Incorreto. `critical` não é um valor válido para a propriedade `strategy` no componente `&lt;Script&gt;`."
+    ]
+  },
+  {
+    "question": "O que o recurso de 'prefetching' do componente `&lt;Link&gt;` faz automaticamente para otimizar a navegação?",
+    "options": [
+      "Ele armazena em cache todas as páginas da aplicação no primeiro carregamento.",
+      "Ele pré-carrega o código JavaScript da página de destino quando o link se torna visível na tela (viewport).",
+      "Ele abre a página de destino em uma nova aba do navegador para acelerar o acesso.",
+      "Ele executa todas as funções da página de destino em segundo plano antes do clique."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O prefetching é mais seletivo e focado nos links que o usuário provavelmente visitará a seguir, não em toda a aplicação.",
+      "Correto! Essa é a 'mágica' do prefetching. Ao antecipar a necessidade do código da próxima página, a transição se torna quase instantânea quando o usuário finalmente clica no link.",
+      "Incorreto. O comportamento de abrir em nova aba é controlado pela tag `&lt;a&gt;` com `target='_blank'`, não sendo uma função do prefetching.",
+      "Incorreto. Ele pré-carrega apenas os recursos estáticos (código), não executa a lógica da página de destino antes da navegação."
+    ]
+  },
+  {
+    "question": "Qual das seguintes otimizações NÃO é uma característica nativa do componente `&lt;Image&gt;` do Next.js?",
+    "options": [
+      "Compressão automática de imagens para reduzir o tamanho do arquivo.",
+      "Lazy Loading, para carregar a imagem apenas quando ela está próxima de ser exibida.",
+      "Adição automática de uma marca d'água com o logo do Next.js em todas as imagens.",
+      "Servir imagens em formatos modernos e mais eficientes, como WebP ou AVIF, quando o navegador suporta."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Esta é uma das principais características. O Next.js comprime as imagens para garantir que tenham o menor tamanho possível sem uma perda significativa de qualidade.",
+      "Incorreto. O Lazy Loading é um recurso padrão que adia o carregamento de imagens fora da tela, melhorando o tempo de carregamento inicial da página.",
+      "Correto! O componente `&lt;Image&gt;` não adiciona nenhuma marca d'água. Ele foca exclusivamente em otimizações de performance e experiência do usuário.",
+      "Incorreto. A conversão para formatos modernos é um dos grandes benefícios, pois esses formatos oferecem melhor compressão que JPEG e PNG com qualidade similar."
+    ]
+  },
+  {
+    "question": "Um desenvolvedor quer que, após o usuário fazer login, ele seja redirecionado para o painel de controle, mas sem a possibilidade de clicar no botão 'voltar' do navegador para retornar à página de login. Qual propriedade do componente `&lt;Link&gt;` alcançaria esse comportamento?",
+    "options": [
+      "scroll={false}",
+      "prefetch={false}",
+      "replace",
+      "history={false}"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. `scroll={false}` apenas impede que a página role para o topo após a navegação, mantendo a posição atual.",
+      "Incorreto. `prefetch={false}` desabilita o pré-carregamento da rota, o que na verdade tornaria a navegação potencialmente mais lenta.",
+      "Correto! A propriedade `replace` substitui a entrada atual no histórico do navegador em vez de adicionar uma nova, impedindo o usuário de 'voltar' para a página anterior.",
+      "Incorreto. `history={false}` não é uma propriedade válida para o componente `&lt;Link&gt;`."
+    ]
+  },
+  {
+    "question": "Qual o motivo principal pelo qual o Next.js desenvolveu seus próprios componentes, como `&lt;Link&gt;` e `&lt;Image&gt;`, em vez de usar apenas as tags HTML padrão?",
+    "options": [
+      "Para tornar o código exclusivo e incompatível com outros frameworks.",
+      "Para estender os elementos HTML padrão com otimizações automáticas de performance e experiência do usuário.",
+      "Para remover completamente a necessidade de escrever CSS.",
+      "Para forçar os desenvolvedores a usar apenas a infraestrutura de hospedagem da Vercel."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O objetivo não é exclusividade, mas sim resolver problemas comuns do desenvolvimento web de forma mais eficiente dentro do ecossistema Next.js.",
+      "Correto! O Next.js encapsula as tags HTML para resolver desafios comuns como performance de imagem, navegação rápida e carregamento de fontes, automatizando tarefas complexas para o desenvolvedor.",
+      "Incorreto. A estilização continua sendo feita com CSS ou outras soluções de estilo, de forma independente dos componentes do Next.js.",
+      "Incorreto. Embora otimizados para a Vercel, os componentes do Next.js funcionam em qualquer ambiente de hospedagem que suporte Next.js."
+    ]
+  },
+  {
+    "question": "Qual formato de imagem, descrito no material como o mais recente e eficiente, oferece a melhor compressão e é baseado no codec de vídeo AV1?",
+    "options": [
+      "JPEG",
+      "PNG",
+      "WebP",
+      "AVIF"
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. JPEG é um formato clássico ideal para fotografias, mas sua compressão não é tão eficiente quanto a dos formatos mais modernos.",
+      "Incorreto. PNG é excelente para imagens com transparência e bordas nítidas, mas geralmente resulta em arquivos maiores.",
+      "Incorreto. WebP, desenvolvido pelo Google, já é uma grande melhoria sobre JPEG e PNG, mas o AVIF consegue ser ainda mais eficiente.",
+      "Correto! O AVIF é o formato mais moderno listado, oferecendo a maior taxa de compressão com boa manutenção da qualidade visual, sendo ideal para otimização máxima."
+    ]
+  },
+  {
+    "question": "Para qual finalidade o novo componente `&lt;Form&gt;`, introduzido no Next.js 15, foi projetado?",
+    "options": [
+      "Para criar formulários com estilos visuais predefinidos.",
+      "Para validar automaticamente todos os campos do formulário no lado do cliente.",
+      "Para se integrar diretamente com Server Actions, simplificando a submissão de dados e o gerenciamento de estados de UI.",
+      "Para substituir o uso de inputs HTML por componentes de UI personalizados."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O componente `&lt;Form&gt;` não lida com a estilização, que continua sendo responsabilidade do desenvolvedor.",
+      "Incorreto. A validação de dados ainda precisa ser implementada pelo desenvolvedor, embora o componente facilite o gerenciamento dos estados de erro.",
+      "Correto! Seu principal benefício é simplificar a interação com a lógica do servidor (Server Actions), gerenciando automaticamente os estados de carregamento e erro para uma melhor experiência do usuário e do desenvolvedor.",
+      "Incorreto. Ele atua como um invólucro para o formulário HTML tradicional (`&lt;form&gt;`), não substituindo seus elementos internos como `&lt;input&gt;`."
+    ]
+  }
+]
