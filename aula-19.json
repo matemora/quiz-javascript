@@ -1,0 +1,162 @@
+[
+  {
+    "question": "No Next.js, qual é o principal benefício de utilizar layouts aninhados (um `layout.tsx` dentro de uma subpasta como `app/dashboard/layout.tsx`)?",
+    "options": [
+      "Substituir completamente o layout raiz (`app/layout.tsx`) pelas definições do layout aninhado.",
+      "Forçar que todos os componentes da aplicação sejam renderizados no servidor.",
+      "Aumentar o tamanho do bundle final da aplicação.",
+      "Preservar o estado de componentes do layout pai e evitar re-renderizações desnecessárias ao navegar entre rotas filhas."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O layout aninhado é renderizado dentro do layout pai, não o substitui.",
+      "Incorreto. Layouts aninhados não forçam a renderização de todos os componentes no servidor; eles organizam a UI.",
+      "Incorreto. A ideia é melhorar a performance e a organização, não aumentar o bundle.",
+      "Correto! Ao manter o layout pai montado, o estado é preservado e a performance melhora, pois apenas o conteúdo interno é trocado."
+    ]
+  },
+  {
+    "question": "Ao organizar a estrutura de arquivos de um projeto Next.js, qual é a finalidade de usar um Grupo de Rotas, como uma pasta chamada `(auth)`?",
+    "options": [
+      "Criar uma rota base `/auth` para todas as páginas dentro do grupo.",
+      "Organizar logicamente as rotas no sistema de arquivos sem que o nome do grupo (`auth`) afete a URL final.",
+      "Tornar todas as rotas dentro da pasta `(auth)` privadas e inacessíveis pela URL.",
+      "Indicar que as rotas dentro deste grupo devem ser renderizadas exclusivamente no cliente."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A principal característica dos grupos de rotas é justamente *não* adicionar o nome da pasta à URL.",
+      "Correto! Grupos de rotas são uma convenção para organização do código que é ignorada pelo sistema de roteamento na hora de construir a URL.",
+      "Incorreto. Para tornar pastas inacessíveis, utiliza-se o prefixo `_` (underscore), não parênteses.",
+      "Incorreto. A forma de renderização (servidor ou cliente) não é definida pela organização em grupos de rotas."
+    ]
+  },
+  {
+    "question": "Em um projeto Next.js, para que serve a convenção de nomear uma pasta com um underscore no início, como `_components`?",
+    "options": [
+      "Para evitar que a pasta e seus subdiretórios sejam tratados como rotas, permitindo co-localizar arquivos de suporte.",
+      "Para indicar que a pasta contém rotas dinâmicas que dependem de um parâmetro.",
+      "Para agrupar rotas que devem ter um layout específico em comum.",
+      "Para criar uma rota pública na URL com o nome da pasta (ex: `/_components`)."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Pastas privadas são ideais para organizar componentes, hooks, utils e outros arquivos que não devem ser acessíveis via URL.",
+      "Incorreto. Rotas dinâmicas são criadas com colchetes, como `[slug]`.",
+      "Incorreto. Para agrupar rotas com um layout comum, pode-se usar um layout aninhado ou um grupo de rotas com um layout.",
+      "Incorreto. O prefixo `_` faz exatamente o oposto: exclui a pasta do sistema de roteamento."
+    ]
+  },
+  {
+    "question": "Dada a estrutura de rota dinâmica `app/blog/[slug]/page.tsx` no Next.js, como o componente da página acessa o valor do segmento dinâmico da URL (por exemplo, \"meu-post-incrivel\")?",
+    "options": [
+      "Utilizando o hook `useRouter` para extrair o valor da query.",
+      "Através de uma prop chamada `data`, que contém o valor `slug`.",
+      "O valor é automaticamente injetado como uma variável global chamada `slug`.",
+      "Recebendo um objeto `params` como prop, onde `params.slug` conterá o valor."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Embora `useRouter` seja usado para roteamento no lado do cliente, o acesso ao parâmetro em Server Components é feito diretamente via props.",
+      "Incorreto. Não existe uma prop padrão chamada `data` para essa finalidade.",
+      "Incorreto. O Next.js não utiliza variáveis globais para passar parâmetros de rota.",
+      "Correto! O Next.js passa os parâmetros da rota dinâmica para o componente da página através da prop `params`."
+    ]
+  },
+  {
+    "question": "Qual é a função do arquivo `loading.tsx` no App Router do Next.js?",
+    "options": [
+      "Definir uma tela de erro personalizada para quando a busca de dados falha.",
+      "Acelerar o tempo de carregamento da aplicação inteira através de pré-carregamento de assets.",
+      "Exibir uma UI de carregamento instantânea, baseada em React Suspense, enquanto o conteúdo da rota principal está sendo carregado.",
+      "Criar uma página que só é exibida quando a conexão do usuário está lenta."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A tela de erro é definida pelo arquivo `error.tsx`.",
+      "Incorreto. Embora o Next.js tenha mecanismos de otimização, a função específica do `loading.tsx` é ser uma UI de fallback de carregamento.",
+      "Correto! O `loading.tsx` é renderizado no servidor e mostrado imediatamente, melhorando a experiência do usuário durante o carregamento de dados.",
+      "Incorreto. Ele é exibido durante qualquer carregamento de rota, independentemente da velocidade da conexão."
+    ]
+  },
+  {
+    "question": "O que é fundamental sobre a implementação e o funcionamento do arquivo `error.tsx` no Next.js?",
+    "options": [
+      "Ele deve ser obrigatoriamente um Server Component para capturar erros do servidor.",
+      "Ele precisa ser um Client Component (`'use client'`) e recebe uma função `reset` para tentar recuperar a renderização.",
+      "Ele renderiza uma página 404 quando uma rota não é encontrada.",
+      "Ele só funciona para erros de sintaxe no código e não para falhas em chamadas de API."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Pelo contrário, ele precisa ser um Client Component para permitir interatividade, como o botão de tentar novamente.",
+      "Correto! A diretiva `'use client'` é obrigatória, e a função `reset` é uma de suas props principais para permitir que o usuário tente renderizar o segmento novamente.",
+      "Incorreto. A página 404 é tratada pelo arquivo `not-found.tsx`.",
+      "Incorreto. Ele é projetado para capturar erros que acontecem durante a renderização do segmento, incluindo falhas em chamadas de API."
+    ]
+  },
+  {
+    "question": "No contexto do Next.js, onde um `middleware.ts` é executado e qual é uma de suas principais capacidades?",
+    "options": [
+      "É executado no navegador do cliente após a página ser totalmente carregada, para manipular eventos de clique.",
+      "É executado durante o processo de build da aplicação, para otimizar imagens e scripts.",
+      "É executado no servidor apenas quando ocorre um erro 500, para registrar logs.",
+      "É executado no servidor antes de uma requisição ser completada, permitindo redirecionar ou reescrever a resposta."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Middleware é uma lógica que roda no servidor, antes da requisição chegar à lógica da página.",
+      "Incorreto. Otimizações de build são parte do processo de compilação, não da função do middleware em tempo de execução.",
+      "Incorreto. Sua execução não se limita a erros; ele roda em requisições que correspondem à sua configuração.",
+      "Correto! O middleware intercepta a requisição no servidor e pode reescrever, redirecionar ou modificar cabeçalhos antes de prosseguir."
+    ]
+  },
+  {
+    "question": "Como é possível redirecionar programaticamente um usuário para outra página do lado do servidor em um Server Component no Next.js?",
+    "options": [
+      "Chamando a função `redirect` importada de `next/navigation`.",
+      "Usando o hook `useRouter` e chamando `router.push('/nova-pagina')`.",
+      "Manipulando diretamente o objeto `window.location.href`.",
+      "Retornando um componente especial `<Redirect to=\"/nova-pagina\" />` do componente."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! A função `redirect` de `next/navigation` é a maneira canônica de realizar redirecionamentos no lado do servidor.",
+      "Incorreto. O hook `useRouter` só está disponível em Client Components.",
+      "Incorreto. O objeto `window` não existe no ambiente do servidor, onde os Server Components são executados.",
+      "Incorreto. Embora outras bibliotecas de roteamento usem essa abordagem, o Next.js utiliza a função `redirect` para essa finalidade."
+    ]
+  },
+  {
+    "question": "Além de ser exibido automaticamente para URLs inexistentes, como a UI definida em `not-found.tsx` pode ser acionada programaticamente?",
+    "options": [
+      "Lançando um erro com a mensagem \"404\" em qualquer componente.",
+      "Retornando `null` de um componente de página (`page.tsx`).",
+      "Chamando a função `notFound()` importada de `next/navigation` dentro de um componente.",
+      "Criando um arquivo `error.tsx` que redireciona para a página 404."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Lançar um erro genérico acionaria o `error.tsx`, não o `not-found.tsx`.",
+      "Incorreto. Retornar `null` resultaria em uma página em branco, não na página 404.",
+      "Correto! A função `notFound()` é a forma correta de acionar a renderização da UI 404, por exemplo, quando um recurso não é encontrado no banco de dados.",
+      "Incorreto. Embora seja tecnicamente possível, essa não é a forma idiomática. A função `notFound()` é a ferramenta correta para isso."
+    ]
+  },
+  {
+    "question": "Qual é a diferença fundamental entre ter uma estrutura `app/dashboard/page.tsx` e `app/(marketing)/dashboard/page.tsx`?",
+    "options": [
+      "A primeira gera a URL `/dashboard`, enquanto a segunda é uma pasta privada que não gera uma rota acessível.",
+      "A primeira gera a URL `/dashboard`, enquanto a segunda também gera a URL `/dashboard`, mas permite organizar o código-fonte em um grupo lógico.",
+      "A primeira é otimizada para Server Components, e a segunda para Client Components.",
+      "Não há diferença funcional, são apenas duas convenções de nomenclatura para o mesmo resultado."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Pastas privadas, que não geram rotas, são prefixadas com underscore `_`.",
+      "Correto! A pasta `dashboard` cria um segmento na URL. A pasta `(marketing)` é um grupo de rotas e seu nome é omitido da URL, servindo apenas para organização.",
+      "Incorreto. Ambas as estruturas podem conter tanto Server quanto Client Components.",
+      "Incorreto. A diferença é fundamental para a organização do projeto sem afetar as URLs públicas."
+    ]
+  }
+]
