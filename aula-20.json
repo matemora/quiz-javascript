@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal motivação por trás da criação dos Server Components no React?",
+    "options": [
+      "Eliminar a necessidade de CSS nas aplicações.",
+      "Tornar o código JavaScript mais difícil de ser depurado.",
+      "Resolver problemas como bundles de JavaScript grandes, lentidão na primeira carga e exposição de chaves de API.",
+      "Forçar o uso exclusivo de bibliotecas de classes para estilização."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Server Components não têm relação direta com a forma como o CSS é utilizado ou escrito.",
+      "Incorreto. O objetivo é melhorar a arquitetura e a performance, não complicar a depuração.",
+      [cite_start]"Correto. Server Components surgiram para resolver dores do modelo 'tudo no cliente', como a performance da carga inicial e a segurança de dados sensíveis. [cite: 26, 27, 29, 30]",
+      "Incorreto. A escolha de bibliotecas de estilização é independente da arquitetura de Server ou Client Components."
+    ]
+  },
+  {
+    "question": "Em uma aplicação Next.js com App Router, qual é o tipo de componente padrão se nenhuma diretiva for especificada no arquivo?",
+    "options": [
+      "Server Component.",
+      "Client Component.",
+      "Componente Universal, que roda em ambos os ambientes por padrão.",
+      "Nenhum, o Next.js sempre exige a especificação explícita."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! [cite_start]Por padrão, todos os componentes no App Router do Next.js são Server Components. [cite: 5, 43]",
+      "Incorreto. [cite_start]Para que um componente seja um Client Component, ele precisa incluir a diretiva 'use client' no topo do arquivo. [cite: 11, 51]",
+      "Incorreto. Embora Client Components possam ser renderizados no servidor inicialmente, o padrão fundamental é o Server Component.",
+      "Incorreto. O Next.js adota o Server Component como padrão para otimizar a performance desde o início."
+    ]
+  },
+  {
+    "question": "O que acontecerá se você tentar usar um hook como `useState` ou um evento como `onClick` em um Server Component?",
+    "options": [
+      "O Next.js irá converter automaticamente o componente para um Client Component.",
+      "O código funcionará, mas um aviso de performance será exibido no console.",
+      "O hook e o evento serão simplesmente ignorados pelo servidor, e a funcionalidade não existirá.",
+      "A aplicação irá gerar um erro, pois hooks e eventos de interatividade são exclusivos do ambiente do cliente."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. [cite_start]A conversão para Client Component deve ser feita manualmente pelo desenvolvedor adicionando a diretiva 'use client'. [cite: 11]",
+      "Incorreto. Isso não é apenas uma questão de performance, mas de compatibilidade de ambiente. [cite_start]O servidor não tem o contexto para executar hooks de estado ou eventos de navegador, resultando em um erro. [cite: 8, 61]",
+      "Incorreto. [cite_start]A aplicação não ignora o código, ela quebra durante o processo de renderização, pois não reconhece essas funcionalidades no servidor. [cite: 8, 77]",
+      "Correto! [cite_start]Server Components rodam exclusivamente no servidor, onde não há o conceito de estado do lado do cliente ou eventos de navegador como cliques. [cite: 8, 61, 77]"
+    ]
+  },
+  {
+    "question": "Qual é a regra fundamental para a composição entre Server e Client Components?",
+    "options": [
+      "Um Client Component pode importar um Server Component diretamente.",
+      "Um Server Component pode importar e renderizar um Client Component.",
+      "Componentes de servidor e cliente não podem ser usados na mesma página.",
+      "Apenas Server Components podem ter componentes filhos."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Esta é a principal restrição na composição. [cite_start]Um Client Component não pode importar um Server Component. [cite: 16, 60, 77]",
+      "Correto! [cite_start]Um Server Component pode importar um Client Component para criar 'ilhas de interatividade' dentro de uma estrutura renderizada no servidor. [cite: 15, 61, 74]",
+      "Incorreto. [cite_start]A grande vantagem dessa arquitetura é justamente a capacidade de mesclar os dois tipos de componentes de forma eficiente. [cite: 15]",
+      "Incorreto. Tanto Server quanto Client Components podem ter componentes filhos, seguindo as regras de composição."
+    ]
+  },
+  {
+    "question": "Como é possível renderizar um Server Component dentro de um Client Component, já que a importação direta não é permitida?",
+    "options": [
+      "Utilizando a função `React.lazy()` com `Suspense`.",
+      "Passando o Server Component como uma `prop` ou `children` para o Client Component.",
+      "Convertendo o Server Component para JSON antes de passá-lo.",
+      "Isso não é possível, a arquitetura proíbe essa combinação."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. `React.lazy()` é usado para 'lazy loading' de componentes, mas não resolve a restrição de importação de Server em Client Components.",
+      "Correto! Esta é a solução recomendada. [cite_start]O Server Component é renderizado no servidor e seu resultado (HTML) é passado para o Client Component, que o insere em sua estrutura. [cite: 16, 60, 66]",
+      "Incorreto. Componentes não são serializáveis para JSON dessa forma; o padrão correto é passá-los como `children` ou `props`.",
+      "Incorreto. É uma operação comum e poderosa na arquitetura do Next.js, mas precisa ser feita da maneira correta, através de props ou children."
+    ]
+  },
+  {
+    "question": "Qual das seguintes tarefas é idealmente realizada por um Server Component?",
+    "options": [
+      "Gerenciar o estado de um formulário de busca em tempo real.",
+      "Criar um botão com um contador de cliques.",
+      "Acessar diretamente um banco de dados ou usar chaves de API secretas para buscar dados.",
+      "Executar uma animação quando o usuário rola a página."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. [cite_start]Gerenciar estado em tempo real com base na interação do usuário (`useState`, `useEffect`) é uma tarefa para um Client Component. [cite: 63]",
+      "Incorreto. [cite_start]Um contador de cliques requer estado (`useState`) e um manipulador de eventos (`onClick`), que são exclusivos de Client Components. [cite: 63]",
+      "Correto! [cite_start]O código de um Server Component nunca é exposto no navegador, tornando-o o local perfeito e seguro para acessar dados sensíveis. [cite: 6, 63]",
+      "Incorreto. Animações e a manipulação de eventos do navegador (como o scroll) são responsabilidades de um Client Component."
+    ]
+  },
+  {
+    "question": "Para transformar um componente padrão em um Client Component, o que é necessário fazer?",
+    "options": [
+      "Adicionar a diretiva `\"use client\";` no topo do arquivo.",
+      "Renomear o arquivo para `Componente.client.jsx`.",
+      "Envolver o componente com a função `createClientComponent()`.",
+      "Usar o hook `useClient()` dentro do componente."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! [cite_start]A diretiva `\"use client\";` é a marcação que instrui o Next.js a tratar o arquivo como um Client Component, incluindo seu código no bundle do navegador. [cite: 11, 51, 52]",
+      "Incorreto. A convenção de nomenclatura de arquivos não determina o tipo de componente; a diretiva no código é que faz isso.",
+      "Incorreto. Não existe uma função `createClientComponent()` na API do React ou Next.js para este propósito.",
+      "Incorreto. Não existe um hook `useClient()`. A marcação é feita por meio de uma diretiva no escopo do módulo (arquivo)."
+    ]
+  },
+  {
+    "question": "Qual é a principal vantagem de realizar a busca de dados (data fetching) em um Server Component?",
+    "options": [
+      "Permite exibir um 'spinner' de carregamento de forma mais fácil.",
+      "Reduz a carga no servidor, pois o cliente faz todo o trabalho.",
+      "O acesso aos dados é mais rápido, seguro e o HTML já chega ao navegador com o conteúdo, melhorando o SEO.",
+      "Facilita o uso de hooks como `useEffect` para controlar o ciclo de vida da requisição."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Exibir 'spinners' é mais comum e direto em Client Components, que gerenciam estados de carregamento.",
+      "Incorreto. A busca de dados no servidor aumenta a carga no servidor, mas isso é feito para diminuir drasticamente o trabalho do cliente.",
+      "Correto! [cite_start]A busca de dados no servidor é segura (não expõe chaves de API), e a página já chega pronta para o usuário, o que melhora a performance percebida e a indexação por buscadores (SEO). [cite: 63]",
+      "Incorreto. Server Components não podem usar `useEffect`. [cite_start]Eles utilizam `async/await` diretamente na função do componente para a busca de dados. [cite: 61]"
+    ]
+  },
+  {
+    "question": "O que significa o termo 'ilha de interatividade' no contexto de Server e Client Components?",
+    "options": [
+      "Uma página inteira que deve ser obrigatoriamente um Client Component.",
+      "Um Server Component que é renderizado isoladamente do resto da aplicação.",
+      "A prática de manter a maior parte da UI como Server Components e transformar em Client Components apenas os pedaços que necessitam de interatividade.",
+      "Uma técnica para evitar o uso de JavaScript em aplicações Next.js."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A ideia é justamente o oposto: evitar que páginas inteiras se tornem Client Components desnecessariamente.",
+      "Incorreto. A analogia se refere a Client Components dentro de uma estrutura de Server Components.",
+      "Correto! [cite_start]Esta é a melhor prática: use Server Components por padrão e crie pequenas 'ilhas' de Client Components (como um botão ou um formulário) apenas onde a interatividade do usuário é necessária. [cite: 14, 80]",
+      "Incorreto. A técnica gerencia o uso de JavaScript para que ele seja enviado ao cliente apenas quando agrega valor, não para evitá-lo completamente."
+    ]
+  },
+  {
+    "question": "Por que passar uma função como `prop` de um Server Component para um Client Component pode causar um erro?",
+    "options": [
+      "Porque funções em Server Components são sempre assíncronas.",
+      "Porque o Client Component pode não entender TypeScript.",
+      "Porque funções não são 'serializáveis', ou seja, não podem ser transportadas do ambiente do servidor para o do cliente.",
+      "Porque todas as `props` entre esses componentes devem ser strings."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Embora Server Components possam ser assíncronos, essa não é a razão da restrição de props.",
+      "Incorreto. O problema não está relacionado ao TypeScript, mas sim à natureza da comunicação entre o servidor e o cliente.",
+      "Correto! A comunicação entre o servidor e o cliente exige que os dados sejam serializáveis (convertidos para um formato de texto, como JSON). [cite_start]Funções, classes e outros tipos complexos não podem ser serializados, o que causa um erro. [cite: 20, 77]",
+      "Incorreto. Outros tipos de dados serializáveis (como números, booleanos, objetos e arrays simples) podem ser passados como props."
+    ]
+  }
+]
