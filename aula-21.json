@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal função de uma API (Application Programming Interface)?",
+    "options": [
+      "Armazenar dados de forma segura no navegador do usuário.",
+      "Estilizar a aparência de uma página da web, substituindo o CSS.",
+      "Permitir que diferentes aplicações de software se comuniquem entre si de forma padronizada.",
+      "Executar a lógica de negócios exclusivamente no lado do cliente (frontend)."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O armazenamento de dados no navegador é geralmente feito com tecnologias como LocalStorage ou Cookies, não sendo a função principal de uma API.",
+      "Incorreto. A estilização de páginas web é responsabilidade do CSS, e uma API não tem essa finalidade.",
+      "Correto! Uma API atua como um contrato ou uma ponte, definindo regras para que diferentes sistemas possam trocar informações e solicitar ações um do outro.",
+      "Incorreto. Uma das vantagens das APIs é justamente separar as responsabilidades, mantendo a lógica de negócios sensível no servidor (backend)."
+    ]
+  },
+  {
+    "question": "De acordo com os princípios REST, qual é a maneira mais apropriada de nomear uma URL para buscar todos os usuários?",
+    "options": [
+      "GET /pegarTodosOsUsuarios",
+      "POST /usuarios",
+      "GET /api/users",
+      "GET /api/user"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. URLs RESTful devem evitar o uso de verbos como 'pegar'. A ação é definida pelo método HTTP (GET), e a URL deve representar o recurso (substantivo).",
+      "Incorreto. O método POST é usado para criar um novo recurso, não para buscar dados existentes.",
+      "Correto! A URL representa o recurso ('users') com um substantivo no plural, e o método GET indica a ação de busca, seguindo as convenções REST.",
+      "Incorreto. Embora use um substantivo, a convenção REST recomenda o uso do plural para coleções de recursos (vários usuários)."
+    ]
+  },
+  {
+    "question": "Qual método HTTP é o mais indicado para criar um novo recurso em um servidor?",
+    "options": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O método GET é utilizado para solicitar e recuperar dados de um servidor, sem alterá-los.",
+      "Correto! O método POST é o padrão para enviar dados a um servidor para criar uma nova entidade ou recurso.",
+      "Incorreto. O método PUT é geralmente utilizado para atualizar um recurso existente por completo.",
+      "Incorreto. O método DELETE é usado para remover um recurso específico do servidor."
+    ]
+  },
+  {
+    "question": "Ao tentar acessar uma URL de uma API e receber o código de status HTTP 404, o que isso significa?",
+    "options": [
+      "A requisição foi bem-sucedida e o recurso foi encontrado.",
+      "O servidor encontrou um erro interno e não conseguiu processar a requisição.",
+      "O recurso solicitado não foi encontrado no servidor.",
+      "Os dados enviados na requisição são inválidos ou mal formatados."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O código para sucesso em uma requisição GET é 200 (OK).",
+      "Incorreto. Um erro interno do servidor é geralmente indicado pelo código 500.",
+      "Correto! O código 404 (Not Found) indica que o servidor entendeu a requisição, mas não conseguiu encontrar o recurso específico na URL solicitada.",
+      "Incorreto. Dados inválidos geralmente resultam em um código 400 (Bad Request)."
+    ]
+  },
+  {
+    "question": "No Next.js, como são criados os endpoints de uma API usando Route Handlers?",
+    "options": [
+      "Criando componentes React dentro de uma pasta `pages/api`.",
+      "Adicionando um arquivo `route.ts` dentro da estrutura de pastas `/app`, onde cada função exportada corresponde a um método HTTP.",
+      "Configurando um servidor Express separado e conectando-o ao Next.js.",
+      "Escrevendo todas as rotas em um único arquivo chamado `next.config.js`."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Essa era a abordagem do `Pages Router`. No `App Router` (versão 13+), a convenção mudou.",
+      "Correto! No `App Router` do Next.js, a criação de APIs é feita com arquivos `route.ts` (ou `.js`), onde funções nomeadas como `GET`, `POST`, `PUT`, etc., definem os endpoints.",
+      "Incorreto. Embora seja possível, o Next.js oferece uma maneira integrada de criar APIs (Route Handlers) sem a necessidade de um servidor customizado.",
+      "Incorreto. O arquivo `next.config.js` é usado para configurações gerais do projeto, não para definir rotas de API."
+    ]
+  },
+  {
+    "question": "Em um Route Handler do Next.js, como você acessa o corpo (body) de uma requisição POST que envia dados em formato JSON?",
+    "options": [
+      "const body = request.body;",
+      "const body = request.query;",
+      "const body = await request.text();",
+      "const body = await request.json();"
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O objeto `request` não possui uma propriedade `body` diretamente acessível dessa forma; é preciso usar um método para processar o stream de dados.",
+      "Incorreto. A propriedade `query` é usada para acessar parâmetros da URL (query parameters), não o corpo da requisição.",
+      "Incorreto. O método `request.text()` leria o corpo como texto puro, mas não faria o parse (análise) para um objeto JavaScript.",
+      "Correto! O método `request.json()` é uma operação assíncrona que lê o corpo da requisição e o converte de uma string JSON para um objeto JavaScript."
+    ]
+  },
+  {
+    "question": "Como o Next.js lida com parâmetros dinâmicos em uma rota de API, como o ID de um produto em `/api/products/[id]`?",
+    "options": [
+      "O valor é acessado através de `request.query.id`.",
+      "O valor é capturado automaticamente e passado como um argumento para a função do Route Handler, geralmente em um objeto `params`.",
+      "É necessário usar uma biblioteca externa, como o `express-validator`, para capturar o ID.",
+      "O valor é lido diretamente do cabeçalho (header) da requisição HTTP."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A propriedade `query` é mais associada ao antigo `Pages Router` ou a parâmetros de busca (ex: `?id=123`), não a segmentos dinâmicos da URL no `App Router`.",
+      "Correto! A estrutura de pastas com colchetes (ex: `[id]`) faz com que o Next.js capture esse segmento da URL e o disponibilize no segundo argumento da função, dentro do objeto `params` (ex: `params.id`).",
+      "Incorreto. O Next.js possui um mecanismo nativo para lidar com rotas dinâmicas, não sendo necessário uma biblioteca externa para essa funcionalidade básica.",
+      "Incorreto. Parâmetros de rota fazem parte da URL, não dos cabeçalhos da requisição."
+    ]
+  },
+  {
+    "question": "Qual código de status HTTP é o mais apropriado para retornar em uma resposta de API após a criação bem-sucedida de um novo recurso (por exemplo, após um POST)?",
+    "options": [
+      "200 OK",
+      "201 Created",
+      "204 No Content",
+      "400 Bad Request"
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O código 200 (OK) é uma resposta genérica de sucesso, mas o 201 é mais específico e semântico para a criação de recursos.",
+      "Correto! O status 201 (Created) indica que a requisição foi bem-sucedida e, como resultado, um novo recurso foi criado.",
+      "Incorreto. O código 204 (No Content) é usado quando uma ação é bem-sucedida, mas não há nada para retornar no corpo da resposta, como em uma requisição DELETE.",
+      "Incorreto. O código 400 (Bad Request) indica que a requisição do cliente era inválida e não pôde ser processada."
+    ]
+  },
+  {
+    "question": "Qual das seguintes URLs é um exemplo de uma má prática de design de API RESTful?",
+    "options": [
+      "DELETE /api/posts/42",
+      "GET /api/users/1/comments",
+      "POST /api/create-new-product",
+      "PUT /api/orders/123"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Esta é uma boa prática. A URL representa o recurso específico (`/api/posts/42`) e o método HTTP (`DELETE`) define a ação.",
+      "Incorreto. Esta é uma boa prática que demonstra hierarquia. A URL busca os comentários que pertencem a um usuário específico.",
+      "Correto! Esta é uma má prática porque a URL contém um verbo ('create'). A ação de criar deve ser expressa pelo método HTTP (POST), enquanto a URL (`/api/products`) deve identificar o recurso.",
+      "Incorreto. Esta é uma boa prática. A URL identifica o recurso a ser atualizado (`/api/orders/123`) e o método HTTP (`PUT`) especifica a ação de atualização."
+    ]
+  },
+  {
+    "question": "Ao consumir uma API no frontend usando `fetch` para enviar dados JSON com o método POST, por que é necessário usar `JSON.stringify()`?",
+    "options": [
+      "Para criptografar os dados antes de enviá-los pela rede.",
+      "Para converter um objeto JavaScript em uma string no formato JSON, que é o formato esperado pelo corpo (body) da requisição.",
+      "Para validar se o objeto JavaScript contém todos os campos obrigatórios.",
+      "Para adicionar automaticamente os cabeçalhos (headers) corretos à requisição."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. `JSON.stringify()` não tem função de criptografia; é apenas uma conversão de formato.",
+      "Correto! O corpo (body) de uma requisição HTTP precisa ser enviado como uma string ou um buffer. `JSON.stringify()` serializa o objeto JavaScript para uma string no formato JSON padrão, que pode então ser enviada e interpretada corretamente pelo servidor.",
+      "Incorreto. A validação de dados deve ser feita antes de enviar a requisição ou no servidor. `JSON.stringify()` apenas converte o formato, sem validar o conteúdo.",
+      "Incorreto. Os cabeçalhos, como `'Content-Type': 'application/json'`, devem ser definidos explicitamente no objeto de opções do `fetch`."
+    ]
+  }
+]
