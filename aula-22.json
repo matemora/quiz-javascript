@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal finalidade das Server Actions no contexto de formulários em Next.js?",
+    "options": [
+      "Estilizar formulários de maneira mais eficiente, substituindo o CSS.",
+      "Permitir que funções executadas no servidor sejam chamadas diretamente de componentes no cliente, simplificando a mutação de dados.",
+      "Gerenciar o estado dos campos do formulário exclusivamente no lado do cliente, sem a necessidade de hooks como o useState.",
+      "Realizar a validação de dados unicamente no navegador para fornecer feedback instantâneo ao usuário."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. As Server Actions não têm relação com a estilização de componentes; essa ainda é uma tarefa para o CSS.",
+      "Correto! As Server Actions criam uma ponte direta e segura entre o cliente e o servidor, eliminando a necessidade de criar API Routes manualmente para o envio de formulários.",
+      "Incorreto. Embora simplifiquem a comunicação, o gerenciamento de estados complexos no cliente ainda pode necessitar de hooks como `useState` ou, mais apropriadamente, `useActionState`.",
+      "Incorreto. As Server Actions são fundamentais para a validação no lado do servidor (back-end), que é crucial para a segurança, embora a validação no cliente também seja importante para a experiência do usuário."
+    ]
+  },
+  {
+    "question": "Ao utilizar Server Actions, qual atributo de um elemento de input é essencial para que seus dados sejam corretamente capturados pelo FormData?",
+    "options": [
+      "O atributo `id`, para identificação única no DOM.",
+      "O atributo `value`, para definir seu conteúdo inicial.",
+      "O atributo `type`, para especificar o tipo de dado.",
+      "O atributo `name`, que é usado como chave para o valor do campo."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O `id` é importante para acessibilidade e manipulação do DOM, mas não é utilizado pelo FormData para coletar os dados do formulário.",
+      "Incorreto. O atributo `value` define o valor do campo, mas sem o atributo `name`, o FormData não sabe como identificar e coletar esse valor.",
+      "Incorreto. O `type` é fundamental para o comportamento do input (texto, senha, etc.), mas não é a chave que o FormData usa para a coleta de dados.",
+      "Correto! O FormData cria um conjunto de pares chave/valor, e a chave para cada campo do formulário é o seu atributo `name`. Sem ele, o dado do input é ignorado."
+    ]
+  },
+  {
+    "question": "Qual é a principal diferença entre a validação de formulários no front-end e no back-end?",
+    "options": [
+      "A validação no front-end é focada em segurança, enquanto no back-end é focada na experiência do usuário (UX).",
+      "A validação no front-end é obrigatória e infalível, enquanto a do back-end é opcional.",
+      "A validação no front-end foca na UX com feedback rápido, enquanto a do back-end garante a segurança e integridade dos dados, sendo a verificação definitiva.",
+      "Não há diferença funcional; ambas executam as mesmas regras de validação em locais diferentes."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A relação é inversa: front-end foca em melhorar a experiência do usuário (UX) com feedbacks imediatos, e o back-end é crucial para a segurança.",
+      "Incorreto. A validação no front-end pode ser facilmente burlada (por exemplo, desativando o JavaScript), tornando a validação no back-end a etapa de segurança obrigatória.",
+      "Correto! A validação no front-end melhora a usabilidade, mas a validação no back-end é a autoridade final que protege a aplicação contra dados maliciosos ou inválidos.",
+      "Incorreto. As regras podem ser semelhantes, mas seus propósitos e níveis de segurança são fundamentalmente diferentes. A validação de back-end pode conter regras de negócio complexas que não devem ser expostas no cliente."
+    ]
+  },
+  {
+    "question": "Qual hook do React 19 é utilizado para gerenciar o estado de uma Server Action, incluindo o resultado e o estado de carregamento (pending)?",
+    "options": [
+      "useEffect",
+      "useState",
+      "useActionState",
+      "useServerState"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O `useEffect` é usado para lidar com efeitos colaterais em componentes, mas não gerencia nativamente o ciclo de vida de uma Server Action.",
+      "Incorreto. O `useState` pode ser usado para criar manualmente um estado de loading, mas o `useActionState` faz isso e muito mais de forma integrada com a ação.",
+      "Correto! O `useActionState` é o hook projetado especificamente para interagir com Server Actions, fornecendo o estado retornado pela ação, uma nova função `action` para passar ao formulário e o booleano `isPending`.",
+      "Incorreto. `useServerState` não é um hook padrão do React para essa finalidade."
+    ]
+  },
+  {
+    "question": "O que a diretiva `'use server'` no topo de um arquivo ou função indica?",
+    "options": [
+      "Que o código deve ser executado exclusivamente no navegador do cliente.",
+      "Que as funções naquele escopo são Server Actions e devem rodar apenas no servidor.",
+      "Que o componente React é um Componente de Servidor, mas não necessariamente que suas funções são Server Actions.",
+      "Que o arquivo contém apenas configurações do servidor e não pode exportar funções."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A diretiva para execução no cliente é `'use client'`.",
+      "Correto! A diretiva `'use server'` é o que habilita a \"mágica\" das Server Actions, instruindo o Next.js que aquelas funções são executadas no ambiente do servidor, mesmo que chamadas a partir do cliente.",
+      "Incorreto. Embora Server Actions rodem no servidor, a diretiva tem o propósito específico de marcar as funções como ações que podem ser invocadas remotamente, o que é diferente da definição de um Server Component.",
+      "Incorreto. O arquivo pode e deve exportar as funções marcadas como Server Actions para que possam ser utilizadas nos componentes."
+    ]
+  },
+  {
+    "question": "Como é possível redirecionar o usuário para outra página após a execução bem-sucedida de uma Server Action?",
+    "options": [
+      "Retornando uma string com a URL de destino na função da Server Action.",
+      "Utilizando o hook `useRouter` dentro da Server Action.",
+      "Chamando a função `redirect` importada de 'next/navigation' dentro da Server Action.",
+      "Modificando `window.location.href` diretamente no código da Server Action."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Retornar um valor de uma Server Action serve para atualizar o estado no cliente através do `useActionState`, não para redirecionar.",
+      "Incorreto. Hooks do React, como o `useRouter`, só podem ser usados em Componentes de Cliente e não estão disponíveis no escopo de uma Server Action que roda no servidor.",
+      "Correto! A função `redirect` do Next.js foi projetada para ser usada no lado do servidor, como dentro de Server Actions, para realizar a navegação programática.",
+      "Incorreto. O objeto `window` é uma API do navegador e não existe no ambiente do servidor, onde a Server Action é executada. Tentar acessá-lo causaria um erro."
+    ]
+  },
+  {
+    "question": "Qual dos problemas a seguir, comum em formulários tradicionais com React, é simplificado drasticamente pelo uso de Server Actions?",
+    "options": [
+      "A dificuldade de estilizar os campos de input com CSS.",
+      "A necessidade de escrever código repetitivo (boilerplate) como `useState` para cada campo, `fetch()` e criar rotas de API para cada ação do formulário.",
+      "A incompatibilidade de formulários HTML com a Virtual DOM do React.",
+      "A renderização inicial do formulário no lado do servidor."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A estilização dos formulários permanece sendo uma tarefa do CSS e não é diretamente impactada pelo uso de Server Actions.",
+      "Correto! Server Actions centralizam a lógica no servidor e automatizam a comunicação, reduzindo significativamente a necessidade de gerenciar estados de envio manualmente, fazer chamadas `fetch` e criar endpoints de API específicos.",
+      "Incorreto. Formulários HTML são perfeitamente compatíveis com o React. A complexidade está na forma como os dados e o estado são gerenciados, não na compatibilidade em si.",
+      "Incorreto. A renderização inicial no servidor já é uma característica do Next.js, mas as Server Actions focam em simplificar a *mutação de dados* (envio do formulário) que ocorre após a interação do usuário."
+    ]
+  },
+  {
+    "question": "Um componente que utiliza o hook `useActionState` para exibir mensagens de erro e o estado de `isPending` precisa de uma diretiva específica. Qual é ela?",
+    "options": [
+      "A diretiva `'use server'`, pois está lidando com uma ação do servidor.",
+      "A diretiva `'use client'`, pois hooks do React só podem ser executados no cliente.",
+      "Nenhuma diretiva é necessária, pois o Next.js gerencia isso automaticamente.",
+      "A diretiva `'use form'`, que é específica para formulários com estado."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A diretiva `'use server'` é para a função da ação em si, não para o componente que a consome e gerencia seu estado na interface.",
+      "Correto! Qualquer componente que utilize hooks do React para gerenciar estado, interatividade ou ciclo de vida, como o `useActionState`, precisa ser um Componente de Cliente, marcado com `'use client'`.",
+      "Incorreto. A distinção entre Componentes de Servidor e de Cliente é fundamental no Next.js, e o uso de hooks exige a marcação explícita do componente como cliente.",
+      "Incorreto. Não existe uma diretiva `'use form'` no React ou Next.js."
+    ]
+  },
+  {
+    "question": "Qual o propósito do valor `isPending` retornado pelo hook `useActionState`?",
+    "options": [
+      "Indicar se o formulário foi preenchido corretamente antes do envio.",
+      "Mostrar se a Server Action já foi executada pelo menos uma vez.",
+      "Sinalizar que a Server Action foi iniciada e está aguardando uma resposta do servidor.",
+      "Verificar se a conexão com o servidor está disponível."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. `isPending` não tem relação com a validação dos dados, mas sim com o estado da comunicação com o servidor.",
+      "Incorreto. Ele não rastreia o histórico de execuções, apenas o estado atual da ação.",
+      "Correto! O `isPending` se torna `true` no momento em que o formulário é enviado e volta para `false` quando a Server Action conclui sua execução. É ideal para desabilitar botões e mostrar indicadores de carregamento.",
+      "Incorreto. Ele não funciona como um verificador de status da rede; ele apenas reflete o estado da promessa da Server Action em si."
+    ]
+  },
+  {
+    "question": "De que forma as Server Actions impactaram a necessidade de criar API Routes no Next.js para o processamento de formulários?",
+    "options": [
+      "Tornaram as API Routes obsoletas para qualquer finalidade.",
+      "Não tiveram impacto, ambos são usados para os mesmos fins.",
+      "Aumentaram a necessidade de API Routes para garantir a segurança.",
+      "Reduziram drasticamente a necessidade de criar API Routes especificamente para mutações de dados via formulários."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. As API Routes ainda são muito úteis para outros casos, como criar endpoints para webhooks, ser consumida por apps de terceiros ou quando um endpoint RESTful tradicional é necessário.",
+      "Incorreto. Embora ambos lidem com a comunicação cliente-servidor, as Server Actions são uma abstração de nível mais alto e mais integrada para formulários e mutações, simplificando o processo.",
+      "Incorreto. As Server Actions são seguras por design e, na verdade, diminuem a superfície de ataque ao não expor endpoints de API abertos da mesma maneira.",
+      "Correto! Para o caso de uso comum de enviar um formulário de dentro de uma aplicação Next.js, as Server Actions se tornaram a abordagem preferencial, eliminando a necessidade de criar manualmente um endpoint de API para essa tarefa."
+    ]
+  }
+]
