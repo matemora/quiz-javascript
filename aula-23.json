@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal função de um banco de dados em uma aplicação?",
+    "options": [
+      "Apenas para criar tabelas visuais para o usuário final, como planilhas.",
+      "Para armazenar, gerenciar e recuperar grandes volumes de dados de forma estruturada, segura e eficiente.",
+      "Substituir completamente a necessidade de código no backend, gerenciando toda a lógica da aplicação.",
+      "Conectar diretamente o frontend ao servidor, sem a necessidade de um backend."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Embora os dados possam ser visualizados em tabelas, a principal função de um banco de dados é o gerenciamento de dados nos bastidores, não a exibição visual direta.",
+      "Correto! Bancos de dados são sistemas projetados para organizar e proteger informações, permitindo que as aplicações as acessem e manipulem de forma rápida e segura.",
+      "Incorreto. O banco de dados armazena os dados, mas a lógica de como processar, validar e utilizar esses dados ainda é responsabilidade do backend da aplicação.",
+      "Incorreto. O banco de dados é uma ferramenta do backend. A conexão entre frontend e backend é feita por outros meios, como APIs, e é o backend que se comunica com o banco de dados."
+    ]
+  },
+  {
+    "question": "Em um banco de dados relacional, o que representa uma 'linha' (ou registro) em uma tabela?",
+    "options": [
+      "Uma característica ou atributo específico de um dado, como 'preço' ou 'nome'.",
+      "O nome da coleção de dados, como 'Usuários' ou 'Produtos'.",
+      "Um item de dados individual e completo, contendo todas as suas características. Por exemplo, todas as informações de um único usuário.",
+      "A conexão entre duas tabelas diferentes."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Uma característica específica, como 'preço', é representada por uma 'coluna' (ou campo).",
+      "Incorreto. O nome da coleção de dados se refere à 'tabela' em si.",
+      "Correto! Uma linha representa uma única entrada na tabela, como um usuário específico ou um produto único, com todos os seus respectivos campos preenchidos.",
+      "Incorreto. A conexão entre tabelas é geralmente estabelecida por chaves estrangeiras (Foreign Keys), não por uma linha."
+    ]
+  },
+  {
+    "question": "Ao usar o comando `UPDATE` em SQL, por que a cláusula `WHERE` é considerada crucial?",
+    "options": [
+      "Para especificar quais novas colunas devem ser adicionadas à tabela durante a atualização.",
+      "Porque sem ela, o comando `UPDATE` não funciona e retorna um erro de sintaxe.",
+      "Para indicar qual tabela está sendo modificada.",
+      "Para especificar exatamente quais registros (linhas) devem ser alterados. Sem ela, a alteração seria aplicada a TODOS os registros da tabela."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Para adicionar novas colunas, o comando correto seria `ALTER TABLE`, não `UPDATE`.",
+      "Incorreto. Sintaticamente, um comando `UPDATE` sem `WHERE` é válido, mas seu comportamento é perigoso, pois ele modificará todos os registros.",
+      "Incorreto. O nome da tabela é especificado logo após o `UPDATE`, como em `UPDATE users...`.",
+      "Correto! A cláusula `WHERE` é fundamental para filtrar e garantir que a modificação afete apenas os dados desejados. Omiti-la é um erro grave que pode levar à corrupção de dados em toda a tabela."
+    ]
+  },
+  {
+    "question": "Qual é a principal diferença de uso entre SQLite e MySQL?",
+    "options": [
+      "SQLite é usado para bancos de dados relacionais, enquanto MySQL é para bancos não-relacionais.",
+      "SQLite é ideal para aplicações locais, mobile ou de pequeno porte, pois é embutido e não requer um servidor. MySQL é um servidor de banco de dados robusto, ideal para aplicações web com múltiplos usuários e grandes volumes de dados.",
+      "SQLite utiliza uma sintaxe de comandos completamente diferente de MySQL.",
+      "SQLite é uma tecnologia paga para uso corporativo, enquanto MySQL é totalmente gratuito para qualquer finalidade."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Ambos são sistemas de gerenciamento de bancos de dados relacionais e utilizam a linguagem SQL.",
+      "Correto! Essa é a distinção fundamental. SQLite é como uma 'caixa de ferramentas' portátil para a aplicação, enquanto MySQL é um 'galpão industrial' projetado para alta performance e concorrência.",
+      "Incorreto. Ambos 'falam' SQL. Embora possam existir pequenas variações e recursos específicos em cada um, os comandos fundamentais (SELECT, INSERT, UPDATE, DELETE) são os mesmos.",
+      "Incorreto. SQLite é de domínio público e gratuito. MySQL também é open source e gratuito (versão Community), com versões comerciais pagas que oferecem recursos adicionais e suporte."
+    ]
+  },
+  {
+    "question": "Qual comando SQL é usado para adicionar um ou mais registros novos a uma tabela?",
+    "options": [
+      "CREATE",
+      "UPDATE",
+      "INSERT",
+      "SELECT"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O comando `CREATE` é usado para criar novas estruturas no banco de dados, como uma nova tabela (`CREATE TABLE`).",
+      "Incorreto. O comando `UPDATE` é utilizado para modificar registros que já existem na tabela.",
+      "Correto! O comando `INSERT INTO` é usado para adicionar novas linhas de dados a uma tabela.",
+      "Incorreto. O comando `SELECT` é usado para buscar e ler dados que já foram inseridos no banco."
+    ]
+  },
+  {
+    "question": "O que é um ataque de 'SQL Injection'?",
+    "options": [
+      "Um método para otimizar o banco de dados, injetando queries mais rápidas diretamente no servidor.",
+      "Um tipo de ataque de segurança onde um invasor insere código SQL malicioso em uma entrada de dados (como um formulário) para manipular o banco de dados.",
+      "Um erro que ocorre quando o banco de dados recebe muitos dados ao mesmo tempo, causando uma 'injeção' de sobrecarga.",
+      "O processo de instalar um novo banco de dados em um servidor."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. SQL Injection é uma vulnerabilidade de segurança, não uma técnica de otimização.",
+      "Correto! É uma falha de segurança crítica que acontece quando a aplicação não valida ou higieniza corretamente os dados vindos do usuário, permitindo que comandos SQL sejam executados sem autorização.",
+      "Incorreto. Uma sobrecarga de dados pode causar problemas de performance, mas o termo técnico para isso não é SQL Injection.",
+      "Incorreto. O processo de instalação de um banco de dados é chamado de setup ou deploy, não de injeção."
+    ]
+  },
+  {
+    "question": "Qual é o propósito da cláusula `JOIN` em uma consulta SQL?",
+    "options": [
+      "Unir o resultado de várias consultas `SELECT` em uma única coluna de texto.",
+      "Combinar linhas de duas ou mais tabelas com base em uma coluna relacionada entre elas, permitindo buscar dados de múltiplas tabelas de uma só vez.",
+      "Adicionar um novo usuário a um grupo ou tabela específica.",
+      "Filtrar os resultados de uma consulta para incluir apenas os registros que contenham uma palavra específica."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Para unir textos ou resultados em uma única string, geralmente se usam funções de concatenação, não `JOIN`.",
+      "Correto! `JOIN` é a operação fundamental dos bancos relacionais, usada para buscar informações que estão distribuídas em diferentes tabelas, como buscar o nome do autor de um post, que está na tabela de usuários.",
+      "Incorreto. Para adicionar novos registros, o comando correto é o `INSERT`.",
+      "Incorreto. Para filtrar resultados com base em uma palavra ou padrão, utiliza-se a cláusula `WHERE` com operadores como `=` ou `LIKE`."
+    ]
+  },
+  {
+    "question": "Para que serve uma Chave Primária (Primary Key) em uma tabela de banco de dados?",
+    "options": [
+      "Para criptografar os dados da tabela e garantir a segurança.",
+      "Para identificar de forma única e inequívoca cada registro (linha) dentro daquela tabela.",
+      "Para definir a coluna principal que será exibida primeiro em uma consulta `SELECT *`.",
+      "Para criar uma cópia de segurança de todos os dados da tabela."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A criptografia é um processo de segurança separado e não é a função da chave primária.",
+      "Correto! A Chave Primária (geralmente uma coluna 'id') garante que cada linha seja única e possa ser referenciada sem ambiguidade, funcionando como o 'CPF' de cada registro na tabela.",
+      "Incorreto. A ordem das colunas em um `SELECT *` geralmente segue a ordem de criação da tabela, não a chave primária.",
+      "Incorreto. Cópias de segurança (backups) são operações de administração do banco de dados e não estão relacionadas à função da chave primária."
+    ]
+  },
+  {
+    "question": "Se você precisa buscar todos os produtos de uma tabela 'produtos' que custam mais de R$ 100,00, qual seria a estrutura correta do comando SQL?",
+    "options": [
+      "SELECT * FROM produtos UPDATE preco > 100.00;",
+      "GET * FROM produtos WHERE preco > 100.00;",
+      "SELECT * FROM produtos WHERE preco > 100.00;",
+      "SELECT * FROM produtos INSERT preco > 100.00;"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. `UPDATE` é um comando para modificar dados, não para buscar. A cláusula para filtragem é `WHERE`.",
+      "Incorreto. `GET` não é um comando SQL padrão. O comando correto para buscar dados é `SELECT`.",
+      "Correto! O comando `SELECT` busca os dados, `FROM produtos` especifica a tabela, e `WHERE preco > 100.00` filtra os registros para atender à condição desejada.",
+      "Incorreto. `INSERT` é um comando para adicionar novos dados, não para filtrar ou buscar registros existentes."
+    ]
+  },
+  {
+    "question": "O que acontece se um comando `DELETE FROM usuarios` for executado sem a cláusula `WHERE`?",
+    "options": [
+      "O comando falha e retorna um erro, pois a cláusula `WHERE` é obrigatória para o `DELETE`.",
+      "Apenas o primeiro registro da tabela 'usuarios' é removido.",
+      "A tabela 'usuarios' é completamente excluída do banco de dados, incluindo sua estrutura.",
+      "Todos os registros (linhas) da tabela 'usuarios' são permanentemente removidos, deixando a tabela vazia."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. A cláusula `WHERE` não é sintaticamente obrigatória, o que torna o comando `DELETE` sem ela particularmente perigoso.",
+      "Incorreto. O `DELETE` sem `WHERE` não se limita a um único registro; ele afeta a tabela inteira.",
+      "Incorreto. Para excluir a estrutura da tabela, o comando seria `DROP TABLE usuarios`. O `DELETE` apaga os dados, mas preserva a estrutura da tabela.",
+      "Correto! Este é um dos erros mais perigosos em SQL. Sem a cláusula `WHERE` para especificar quais registros devem ser removidos, o `DELETE` apaga todos os dados contidos na tabela."
+    ]
+  }
+]
