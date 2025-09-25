@@ -1,0 +1,162 @@
+[
+  {
+    "question": "O que é um ORM (Object-Relational Mapping) como o Prisma?",
+    "options": [
+      "Uma linguagem de programação específica para bancos de dados relacionais.",
+      "Uma ferramenta que atua como um 'tradutor', permitindo que o código (ex: TypeScript) interaja com o banco de dados sem escrever SQL diretamente.",
+      "Um tipo de banco de dados NoSQL focado em performance.",
+      "Uma interface visual para gerenciar tabelas, similar ao Prisma Studio."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Um ORM não é uma linguagem de programação, mas sim uma ferramenta que traduz o código que você escreve para a linguagem SQL.",
+      "Correto! O ORM faz a ponte entre o paradigma orientado a objetos do seu código e o paradigma relacional do banco de dados, agindo como um tradutor.",
+      "Incorreto. O Prisma trabalha com bancos de dados relacionais (SQL), como SQLite, PostgreSQL e MySQL, e não é um tipo de banco de dados.",
+      "Incorreto. A interface visual é uma das ferramentas que o Prisma oferece (o Prisma Studio), mas o conceito de ORM é a camada de tradução de código."
+    ]
+  },
+  {
+    "question": "Qual comando é usado para iniciar o Prisma em um projeto e configurar o `datasource` para SQLite?",
+    "options": [
+      "npm install prisma",
+      "npx prisma studio",
+      "npx prisma init --datasource-provider sqlite",
+      "npx prisma generate"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Este comando apenas instala as dependências do Prisma, mas não cria os arquivos de configuração no projeto.",
+      "Incorreto. Este comando abre a interface visual para gerenciar os dados, o que é feito depois que o Prisma já está configurado.",
+      "Correto! Este comando cria a pasta `prisma`, o arquivo `schema.prisma` e o `.env`, já configurados para o provedor SQLite.",
+      "Incorreto. Este comando é usado para atualizar o Prisma Client depois de fazer alterações no schema, não para iniciar um projeto."
+    ]
+  },
+  {
+    "question": "No arquivo `schema.prisma`, o que a diretiva `@id` representa em um campo de um `model`?",
+    "options": [
+      "Define um valor padrão para o campo.",
+      "Indica que o campo deve ter um valor único em toda a tabela.",
+      "Marca o campo como a chave primária da tabela.",
+      "Especifica que o campo é uma chave estrangeira para outro model."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. A diretiva usada para definir valores padrão é a `@default`.",
+      "Incorreto. Embora uma chave primária seja única, a diretiva específica para forçar unicidade em campos que não são a chave primária é a `@unique`.",
+      "Correto! A diretiva `@id` é usada para designar o identificador único (chave primária) de cada registro na tabela.",
+      "Incorreto. Relacionamentos e chaves estrangeiras são definidos usando a diretiva `@relation`."
+    ]
+  },
+  {
+    "question": "Qual é o propósito do comando `npx prisma migrate dev`?",
+    "options": [
+      "Apenas gera o código TypeScript para o Prisma Client sem alterar o banco de dados.",
+      "Analisa as mudanças no `schema.prisma`, gera o SQL necessário e sincroniza o banco de dados, criando um histórico da migração.",
+      "Abre uma interface visual para executar migrações manualmente.",
+      "Deleta todos os dados do banco de dados e o recria do zero."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O comando que apenas gera o cliente, sem alterar o banco, é `npx prisma generate`.",
+      "Correto! Ele compara o `schema.prisma` com o estado atual do banco de dados e aplica as diferenças de forma controlada, mantendo um histórico.",
+      "Incorreto. As migrações são executadas via linha de comando; o Prisma não oferece uma interface visual para essa finalidade.",
+      "Incorreto. A operação destrutiva de resetar o banco de dados é feita com o comando `npx prisma migrate reset`."
+    ]
+  },
+  {
+    "question": "Para buscar todos os registros de uma tabela `Post`, qual método do Prisma Client você usaria?",
+    "options": [
+      "prisma.post.findMany()",
+      "prisma.post.findUnique()",
+      "prisma.post.create()",
+      "prisma.post.update()"
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! O método `findMany` retorna uma lista com todos os registros que correspondem aos critérios de busca (ou todos, se nenhum critério for passado).",
+      "Incorreto. O método `findUnique` é utilizado para buscar um único registro com base em um campo único, como o `id`.",
+      "Incorreto. Este método é usado para criar um novo registro na tabela, não para buscar dados existentes.",
+      "Incorreto. Este método serve para atualizar um registro existente, não para realizar buscas."
+    ]
+  },
+  {
+    "question": "O que é o Prisma Studio e qual comando o inicia?",
+    "options": [
+      "É um editor de código para o `schema.prisma`, iniciado com `npx prisma edit`.",
+      "É uma ferramenta para visualizar o histórico de migrações, iniciada com `npx prisma migrate status`.",
+      "É uma interface visual para ver e editar dados no banco, iniciada com `npx prisma studio`.",
+      "É uma biblioteca para criar interfaces de administração, iniciada com `npm start`."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. O Prisma Studio não é um editor de código, e o comando `npx prisma edit` não existe.",
+      "Incorreto. O comando `npx prisma migrate status` mostra o estado das migrações no terminal, mas não abre uma interface visual.",
+      "Correto! O comando `npx prisma studio` abre no navegador uma interface amigável para interagir diretamente com os dados do banco.",
+      "Incorreto. O Prisma Studio é uma ferramenta embutida, não uma biblioteca separada, e é iniciado com um comando específico do Prisma."
+    ]
+  },
+  {
+    "question": "Qual é a principal vantagem do Prisma em relação ao SQL puro em termos de produtividade no desenvolvimento?",
+    "options": [
+      "Ser mais rápido em todas as operações de banco de dados.",
+      "Oferecer `type-safety`, `autocomplete` e verificação de erros em tempo de desenvolvimento.",
+      "Eliminar a necessidade de entender como um banco de dados relacional funciona.",
+      "Ser a única forma de conectar um banco de dados a um projeto Next.js."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Um ORM pode introduzir uma pequena camada de abstração. A principal vantagem não é a velocidade bruta, mas a experiência e segurança do desenvolvedor.",
+      "Correto! Essas funcionalidades aumentam drasticamente a produtividade e a segurança, evitando erros que com SQL puro só seriam descobertos em tempo de execução.",
+      "Incorreto. O Prisma facilita o trabalho, mas um bom entendimento de bancos de dados ainda é crucial para otimizar consultas e modelar dados complexos.",
+      "Incorreto. É possível usar SQL puro ou outros ORMs em projetos Next.js, mas o Prisma se destaca pela produtividade e segurança de tipos."
+    ]
+  },
+  {
+    "question": "Como você atualizaria o campo `title` de um post específico sabendo seu `id`?",
+    "options": [
+      "await prisma.post.updateMany({ where: { id: 1 }, data: { title: 'Novo Título' } })",
+      "await prisma.post.create({ where: { id: 1 }, data: { title: 'Novo Título' } })",
+      "await prisma.post.edit({ id: 1, title: 'Novo Título' })",
+      "await prisma.post.update({ where: { id: 1 }, data: { title: 'Novo Título' } })"
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. O método `updateMany` é usado para atualizar múltiplos registros de uma vez. Para um único registro, `update` é mais apropriado.",
+      "Incorreto. O método `create` serve para inserir novos registros, não para modificar os existentes.",
+      "Incorreto. Não existe um método `edit` no Prisma Client; a operação correta para atualização é `update`.",
+      "Correto! A cláusula `where` especifica qual registro será modificado, e a `data` contém os campos e valores a serem atualizados."
+    ]
+  },
+  {
+    "question": "No `schema.prisma`, o que significa a linha `createdAt DateTime @default(now())`?",
+    "options": [
+      "Um campo de data e hora que é atualizado toda vez que o registro é modificado.",
+      "Um campo do tipo data e hora cujo valor padrão é o momento da criação do registro.",
+      "Um campo de texto que armazena a data, que deve ser preenchido manualmente.",
+      "Um campo obrigatório do tipo data que precisa ser fornecido ao criar um novo registro."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A diretiva que atualiza automaticamente em cada modificação é a `@updatedAt`.",
+      "Correto! `@default(now())` instrui o banco de dados a preencher este campo com o timestamp atual quando um novo registro é inserido.",
+      "Incorreto. O tipo do campo é `DateTime`, não texto, e ele é preenchido automaticamente pela função `now()`.",
+      "Incorreto. O campo é obrigatório, mas como ele tem um valor padrão (`@default`), você não precisa fornecê-lo explicitamente ao criar o registro."
+    ]
+  },
+  {
+    "question": "Ao usar Server Actions no Next.js, qual função pode ser chamada para atualizar a interface com os novos dados do banco sem um reload completo da página?",
+    "options": [
+      "revalidatePath()",
+      "prisma.post.refresh()",
+      "window.location.reload()",
+      "FormData.update()"
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Esta é uma função do Next.js que invalida o cache de um caminho específico, fazendo com que os dados sejam buscados novamente e a interface seja atualizada de forma inteligente.",
+      "Incorreto. O Prisma não possui um método `refresh()` para a interface; sua responsabilidade é a comunicação com o banco de dados, não com o front-end.",
+      "Incorreto. Esta função JavaScript forçaria um reload completo da página, que é justamente o que as Server Actions com revalidação buscam evitar.",
+      "Incorreto. O `FormData` é um objeto usado para ler os dados do formulário enviado, mas não possui um método para atualizar a interface do usuário."
+    ]
+  }
+]
