@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é a principal diferença entre um ambiente 'localhost' e um ambiente de 'produção'?",
+    "options": [
+      "Localhost é o ambiente de desenvolvimento e testes, restrito à máquina local, enquanto produção é o ambiente ao vivo, acessível a todos na internet.",
+      "Localhost é acessível globalmente, enquanto produção só funciona no computador do desenvolvedor.",
+      "Localhost requer um deploy para cada mudança, enquanto em produção as alterações são instantâneas.",
+      "Não há diferença, os termos são usados de forma intercambiável para descrever onde a aplicação está rodando."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Localhost é sua 'oficina' particular para construir e testar, enquanto produção é a 'vitrine' onde o mundo vê seu projeto finalizado.",
+      "Incorreto. É exatamente o oposto. O ambiente de produção é que fica acessível globalmente, enquanto o localhost é restrito à sua máquina.",
+      "Incorreto. O processo é o contrário. Em localhost, as mudanças são instantâneas, e para que elas apareçam em produção, é necessário fazer o deploy.",
+      "Incorreto. Existe uma diferença fundamental entre os dois ambientes, principalmente em termos de acessibilidade, estabilidade e como as atualizações são aplicadas."
+    ]
+  },
+  {
+    "question": "Qual analogia melhor descreve o tipo de hospedagem tradicional (Shared Hosting)?",
+    "options": [
+      "Ter sua própria casa, com controle total sobre tudo, mas com a responsabilidade de consertar qualquer problema.",
+      "Alugar uma loja em um shopping center gigante, com infraestrutura incrível e capacidade de expandir, mas com alta complexidade.",
+      "Morar em um apartamento, onde você divide os recursos do prédio com outros moradores e tem regras a seguir.",
+      "Usar um serviço de transporte como Uber, pagando apenas pelo uso sem se preocupar com a manutenção do veículo."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Essa analogia se refere à hospedagem VPS (Virtual Private Server), que oferece mais controle e responsabilidade.",
+      "Incorreto. Essa descrição se encaixa melhor em Cloud Services (como AWS e Google Cloud), que são robustos, escaláveis e complexos.",
+      "Correto! A hospedagem tradicional é como um apartamento: barata e fácil para começar, mas com recursos e controle limitados porque o servidor é compartilhado com outros sites.",
+      "Incorreto. A analogia do Uber é usada para descrever plataformas Serverless, que abstraem a infraestrutura e focam na praticidade."
+    ]
+  },
+  {
+    "question": "Se um desenvolvedor precisa de controle total sobre o ambiente para instalar softwares específicos e configurar o servidor de uma maneira particular, qual tipo de hospedagem, baseada na analogia de 'ter sua própria casa', seria mais adequada?",
+    "options": [
+      "Plataformas Serverless",
+      "Hospedagem Tradicional (Shared Hosting)",
+      "VPS (Virtual Private Server)",
+      "Object Storage"
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Serverless oferece menos controle sobre a infraestrutura, focando na simplicidade do deploy em vez da customização do ambiente.",
+      "Incorreto. A hospedagem tradicional é muito limitada e não oferece controle para instalações e configurações personalizadas.",
+      "Correto! O VPS é como ter sua própria casa, oferecendo controle total sobre o ambiente para customizações, o que acarreta também a responsabilidade pela configuração e manutenção.",
+      "Incorreto. Object Storage é um serviço para armazenar arquivos, não para hospedar e executar aplicações com configurações customizadas."
+    ]
+  },
+  {
+    "question": "Qual é a principal vantagem de usar uma plataforma Serverless, comparada à analogia de usar um 'Uber'?",
+    "options": [
+      "Oferece controle total e granular sobre a configuração do hardware do servidor.",
+      "O desenvolvedor não precisa gerenciar a infraestrutura do servidor, e a aplicação escala automaticamente conforme a demanda.",
+      "É a opção mais barata para aplicações que precisam rodar em PHP e WordPress.",
+      "Exige que o desenvolvedor configure manualmente a rede, a segurança e a escalabilidade antes do deploy."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A proposta do Serverless é justamente o contrário: abstrair o desenvolvedor do gerenciamento de hardware.",
+      "Correto! Assim como no Uber você não se preocupa com o carro, no Serverless você foca no código, e a plataforma cuida da infraestrutura e da escalabilidade para você.",
+      "Incorreto. Para PHP e WordPress, a hospedagem tradicional costuma ser a mais indicada e simples para iniciantes.",
+      "Incorreto. Essas configurações são gerenciadas automaticamente pela plataforma Serverless, simplificando o processo para o desenvolvedor."
+    ]
+  },
+  {
+    "question": "Para qual finalidade o Object Storage, como o Amazon S3, é idealmente utilizado?",
+    "options": [
+      "Para executar o código backend da aplicação em tempo real.",
+      "Para hospedar o banco de dados principal de uma aplicação complexa.",
+      "Para gerenciar o processo de deploy contínuo de um projeto.",
+      "Para armazenar e distribuir arquivos estáticos como imagens, vídeos e PDFs de forma eficiente."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. A execução de código backend é feita em servidores de aplicação ou funções serverless, não em um serviço de armazenamento de objetos.",
+      "Incorreto. Bancos de dados possuem serviços específicos e otimizados para eles, não sendo a função primária do Object Storage.",
+      "Incorreto. Ferramentas de CI/CD (Continuous Integration/Continuous Deployment) são responsáveis pelo processo de deploy, não o Object Storage.",
+      "Correto! O Object Storage é como um 'depósito' especializado para guardar arquivos estáticos, permitindo que eles sejam acessados rapidamente através de uma URL única, sem sobrecarregar o servidor principal da aplicação."
+    ]
+  },
+  {
+    "question": "Para um desenvolvedor iniciante que deseja publicar seus primeiros projetos pessoais de forma rápida, prática e com baixo custo, qual tipo de hospedagem é a mais recomendada?",
+    "options": [
+      "Cloud Services (como AWS), pois são os mais utilizados no mercado corporativo.",
+      "VPS (Virtual Private Server), pois oferece mais opções de aprendizado sobre configuração de servidores.",
+      "Plataformas Serverless (como Vercel), pois simplificam o processo de deploy, são escaláveis e frequentemente possuem um plano gratuito.",
+      "Hospedagem Tradicional, pois é a única que permite usar frameworks modernos como Next.js."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Cloud Services são muito poderosos, mas sua complexidade e modelo de custo podem ser intimidadores e caros para um iniciante.",
+      "Incorreto. Embora um VPS ensine muito, a complexidade de configuração pode ser uma barreira desnecessária para um iniciante que quer apenas publicar seu projeto.",
+      "Correto! Plataformas Serverless como a Vercel são ideais para iniciantes por sua facilidade de uso, processo de deploy automatizado e planos gratuitos que atendem bem a projetos pessoais.",
+      "Incorreto. A hospedagem tradicional geralmente é limitada a PHP e sites estáticos, não sendo a ideal para frameworks JavaScript modernos."
+    ]
+  },
+  {
+    "question": "Qual é a principal desvantagem de utilizar uma hospedagem do tipo VPS (Virtual Private Server)?",
+    "options": [
+      "A responsabilidade do usuário em configurar, manter e proteger todo o servidor.",
+      "A falta de controle sobre o ambiente, que é totalmente gerenciado pelo provedor.",
+      "O custo é sempre gratuito, o que pode significar um serviço de baixa qualidade.",
+      "A incapacidade de escalar os recursos, mantendo-se sempre fixo no plano inicial."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! Com o grande poder (controle total) vem a grande responsabilidade. O usuário precisa cuidar de todas as configurações, atualizações e segurança, o que exige conhecimento técnico.",
+      "Incorreto. A principal característica de um VPS é justamente o controle total que ele oferece ao usuário.",
+      "Incorreto. VPSs são serviços pagos, com custos que variam conforme os recursos contratados.",
+      "Incorreto. VPSs geralmente permitem o escalonamento de recursos (upgrade de CPU, RAM, etc.), embora de forma mais manual que outras opções."
+    ]
+  },
+  {
+    "question": "Qual característica principal dos Cloud Services (AWS, Google Cloud, Azure) é representada pela analogia de uma 'loja em um shopping center'?",
+    "options": [
+      "A simplicidade na configuração inicial, ideal para quem não tem conhecimento técnico.",
+      "A capacidade de escalar quase que infinitamente, começando pequeno e crescendo conforme a necessidade.",
+      "O custo fixo e baixo, independentemente da quantidade de acessos.",
+      "A limitação a tecnologias específicas, como PHP e sites estáticos."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. Pelo contrário, a configuração inicial de Cloud Services pode ser bastante complexa.",
+      "Correto! Assim como em um shopping você pode começar com um quiosque e expandir para uma loja de departamento, os Cloud Services oferecem uma infraestrutura massiva que permite escalar sua aplicação para atender a qualquer demanda.",
+      "Incorreto. O custo é variável ('paga pelo uso'), podendo se tornar muito alto conforme o tráfego aumenta se não for bem gerenciado.",
+      "Incorreto. Cloud Services são extremamente flexíveis e suportam praticamente qualquer tipo de tecnologia e aplicação."
+    ]
+  },
+  {
+    "question": "Qual das seguintes afirmações descreve corretamente uma característica essencial do ambiente de produção?",
+    "options": [
+      "É o local ideal para testar novas funcionalidades, pois os erros não afetam os usuários.",
+      "As mudanças de código são aplicadas instantaneamente, sem a necessidade de um processo formal de deploy.",
+      "Ele roda em um endereço como 'http://localhost:3000' para facilitar o acesso do desenvolvedor.",
+      "Deve ser um ambiente estável e confiável, pois está acessível globalmente para os usuários finais."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Testes devem ser feitos no ambiente de desenvolvimento (localhost) ou em ambientes de teste ('staging'), nunca em produção.",
+      "Incorreto. Para que as mudanças cheguem ao ambiente de produção e fiquem disponíveis para os usuários, elas precisam passar por um processo de deploy.",
+      "Incorreto. Endereços com 'localhost' são característicos do ambiente de desenvolvimento local. Produção usa um domínio público (ex: meusite.com).",
+      "Correto! A estabilidade é crucial em produção, pois qualquer erro ou instabilidade impacta diretamente a experiência do usuário final."
+    ]
+  },
+  {
+    "question": "O que o termo 'Serverless' realmente significa no contexto de hospedagem de aplicações?",
+    "options": [
+      "Significa que existem servidores, mas o desenvolvedor não precisa gerenciá-los diretamente.",
+      "A aplicação roda diretamente no computador do usuário, sem a necessidade de um servidor na internet.",
+      "Indica que a aplicação não possui um backend, sendo composta apenas por arquivos estáticos.",
+      "É um tipo de hospedagem que não utiliza servidores físicos, apenas em nuvem."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! O nome pode ser um pouco enganador. Existem servidores, mas toda a complexidade de gerenciamento, manutenção e escalabilidade deles é abstraída pela plataforma.",
+      "Incorreto. A aplicação ainda precisa de um servidor na internet para ser acessada; ela não roda na máquina do cliente.",
+      "Incorreto. Aplicações serverless podem ser tanto estáticas quanto dinâmicas, com backends robustos através de 'Functions-as-a-Service', por exemplo.",
+      "Incorreto. O diferencial do Serverless não é o uso de servidores em nuvem (algo comum a VPS e Cloud Services), mas sim a abstração do gerenciamento desses servidores."
+    ]
+  }
+]
