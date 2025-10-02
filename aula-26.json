@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Qual é o princípio fundamental por trás do funcionamento dos Large Language Models (LLMs) aplicados à programação?",
+    "options": [
+      "Eles são algoritmos complexos que compilam e executam o código em tempo real para encontrar a solução correta.",
+      "São modelos de IA treinados com um volume massivo de textos e códigos para reconhecer padrões e prever as sequências mais prováveis.",
+      "Funcionam como um banco de dados otimizado que armazena e recupera snippets de código exatos escritos por humanos.",
+      "São hardwares especializados, como placas de vídeo, projetados para acelerar a performance de ambientes de desenvolvimento (IDEs)."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. LLMs não executam o código; eles o tratam como texto, analisando e gerando padrões com base em seu treinamento.",
+      "Correto! A base de um LLM é a sua capacidade de prever sequências (neste caso, de código) com base nos bilhões de exemplos com os quais foi treinado.",
+      "Incorreto. Embora o treinamento envolva uma vasta base de dados, a resposta não é uma simples busca, mas sim uma geração de conteúdo novo baseada em probabilidades.",
+      "Incorreto. LLMs são softwares que podem rodar em diversos hardwares, mas não são o hardware em si."
+    ]
+  },
+  {
+    "question": "Por que os LLMs são particularmente eficazes para gerar e entender código de programação?",
+    "options": [
+      "Porque o código possui uma estrutura previsível, sintaxe clara e padrões que se repetem com frequência.",
+      "Porque os LLMs modernos têm a capacidade de sentir a intenção emocional do programador.",
+      "Porque eles foram desenvolvidos exclusivamente pelas mesmas empresas que criam as linguagens de programação.",
+      "Porque eles têm acesso irrestrito e em tempo real a todos os repositórios privados do GitHub."
+    ],
+    "correct": 0,
+    "feedback": [
+      "Correto! A natureza estruturada e lógica do código o torna um material ideal para o treinamento de LLMs, que se destacam na identificação desses padrões.",
+      "Incorreto. LLMs não possuem emoções ou a capacidade de interpretar intenções subjetivas; eles operam com base em dados e padrões lógicos.",
+      "Incorreto. Os LLMs são treinados em uma vasta gama de código open-source e documentação, não sendo limitados aos criadores das linguagens.",
+      "Incorreto. Os LLMs são treinados em dados públicos e não têm acesso a repositórios privados, a menos que sejam especificamente integrados em ferramentas com essa permissão."
+    ]
+  },
+  {
+    "question": "Qual é uma limitação importante dos LLMs que todo desenvolvedor deve conhecer, conhecida como 'alucinação'?",
+    "options": [
+      "A incapacidade de gerar código em linguagens de programação mais antigas, como COBOL ou Fortran.",
+      "A tendência de gerar respostas lentas quando a conexão com a internet está instável.",
+      "A possibilidade de inventar funções, métodos ou fatos que parecem corretos, mas são falsos ou não existem.",
+      "A restrição que impede o modelo de criar código com mais de 100 linhas de uma só vez."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Embora a proficiência possa variar, LLMs são treinados em dados que incluem linguagens mais antigas e podem gerar código para elas.",
+      "Incorreto. A velocidade de resposta está mais relacionada à complexidade da pergunta e à carga do servidor do que à conexão do usuário.",
+      "Correto! Como os LLMs trabalham com probabilidade e não com um 'entendimento' real, eles podem gerar informações convincentes, mas factualmente incorretas, o que exige verificação.",
+      "Incorreto. LLMs podem gerar blocos de código muito extensos, embora a coerência possa diminuir em respostas muito longas."
+    ]
+  },
+  {
+    "question": "De acordo com os benefícios práticos da IA na programação, qual tarefa repetitiva pode ser significativamente acelerada?",
+    "options": [
+      "A definição da arquitetura de software de um novo projeto complexo.",
+      "A realização de entrevistas técnicas para contratar novos desenvolvedores.",
+      "A negociação de prazos e escopo de um projeto com o cliente.",
+      "A criação de código boilerplate, como configurações iniciais, testes unitários e operações CRUD."
+    ],
+    "correct": 3,
+    "feedback": [
+      "Incorreto. Embora a IA possa oferecer sugestões, a definição da arquitetura ainda exige um profundo conhecimento do negócio e tomada de decisão humana.",
+      "Incorreto. A avaliação de candidatos é uma tarefa complexa que envolve habilidades interpessoais e técnicas que a IA ainda não consegue substituir.",
+      "Incorreto. A negociação com clientes é uma habilidade de comunicação e negócios que está fora do escopo das ferramentas de programação com IA.",
+      "Correto! Essas são tarefas com padrões bem definidos e que consomem tempo. A IA é excelente para automatizá-las, liberando o desenvolvedor para focar em problemas mais complexos."
+    ]
+  },
+  {
+    "question": "Qual foi a principal característica da 'Era do Autocomplete' (iniciada por volta de 2021) na evolução das IAs para programação?",
+    "options": [
+      "A capacidade de conversar com a IA através de um chat para resolver problemas complexos.",
+      "A sugestão inteligente de linhas inteiras ou blocos de código diretamente no editor, conforme o desenvolvedor digita.",
+      "A habilidade de agentes autônomos criarem e gerenciarem projetos inteiros a partir de um único comando.",
+      "A tradução automática de código para qualquer linguagem de programação através de uma interface web."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. A capacidade de conversar com a IA marcou a 'Era dos Chats', que veio logo depois.",
+      "Correto! Ferramentas como o GitHub Copilot popularizaram a ideia de um 'copiloto' que completa o código de forma contextual, indo muito além do autocomplete tradicional.",
+      "Incorreto. Agentes autônomos representam uma fase mais recente e avançada na evolução da IA para programação.",
+      "Incorreto. Embora a tradução de código seja uma capacidade dos LLMs, a característica que definiu essa era foi a integração direta no editor para autocompletar."
+    ]
+  },
+  {
+    "question": "O que diferencia a 'Era dos Agentes' das fases anteriores, como a do Autocomplete e a dos Chats?",
+    "options": [
+      "Os agentes são as primeiras IAs capazes de entender a linguagem Python.",
+      "Os agentes são focados exclusivamente em encontrar e corrigir bugs no código.",
+      "Os agentes possuem maior autonomia para entender tarefas complexas, planejar passos e modificar múltiplos arquivos dentro de um projeto.",
+      "Os agentes funcionam apenas através da linha de comando (CLI), abandonando as interfaces gráficas."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. IAs entendem Python e muitas outras linguagens desde as fases mais antigas.",
+      "Incorreto. Embora possam ajudar no debugging, o escopo dos agentes é muito mais amplo, incluindo a criação de funcionalidades completas.",
+      "Correto! A principal evolução dos agentes é sua capacidade de atuar de forma mais integrada e autônoma no ambiente de desenvolvimento, em vez de apenas responder a perguntas pontuais.",
+      "Incorreto. Embora existam agentes de CLI, muitos operam dentro de IDEs com interfaces gráficas, como o Cursor e o Copilot Agents."
+    ]
+  },
+  {
+    "question": "Para obter uma resposta de alta qualidade de uma IA de programação, por que é crucial fornecer um bom 'contexto'?",
+    "options": [
+      "Porque o contexto ativa um 'modo premium' no LLM, que gera código mais rápido.",
+      "Para que a IA possa avaliar o nível de habilidade do programador e ajustar a complexidade da resposta.",
+      "Porque o LLM baseia suas previsões nos padrões fornecidos; quanto mais específico o contexto (código, erro, objetivo), mais precisa será a resposta.",
+      "Porque um contexto detalhado é a única forma de garantir que a IA não irá 'alucinar'."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Não existe um 'modo premium' ativado pelo contexto; a qualidade é inerentemente ligada à qualidade da informação de entrada.",
+      "Incorreto. A IA não avalia o nível do programador, mas sim os dados fornecidos no prompt para gerar a resposta mais provável.",
+      "Correto! Um prompt vago como 'meu código não funciona' é ineficaz. Um prompt com o trecho do código, a mensagem de erro e o que se espera alcançar fornece os padrões necessários para uma solução relevante.",
+      "Incorreto. Embora um bom contexto reduza a chance de alucinações, ele não a elimina completamente. A verificação crítica do desenvolvedor ainda é essencial."
+    ]
+  },
+  {
+    "question": "Qual é um dos principais riscos de se tornar excessivamente dependente de ferramentas de IA para programar?",
+    "options": [
+      "Aumentar o custo da conta de energia elétrica devido ao alto consumo de processamento.",
+      "Deixar de desenvolver uma compreensão profunda dos fundamentos da programação, usando a IA como uma 'muleta' para gerar código sem entendê-lo.",
+      "Forçar atualizações constantes de hardware, já que cada nova versão da IA exige um computador mais potente.",
+      "Receber muitas notificações e alertas da ferramenta de IA, causando distração no ambiente de trabalho."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. O processamento principal é feito nos servidores da IA, não na máquina local, então o impacto no consumo de energia é insignificante.",
+      "Correto! Usar a IA sem o esforço de entender o 'porquê' do código gerado pode impedir o aprendizado e a capacidade de resolver problemas de forma independente.",
+      "Incorreto. As ferramentas de IA geralmente rodam como extensões ou aplicações leves, não exigindo hardware de ponta.",
+      "Incorreto. Embora a gestão de notificações seja um desafio geral, não é o principal risco relacionado ao aprendizado e desenvolvimento de habilidades."
+    ]
+  },
+  {
+    "question": "Qual das seguintes tarefas é um exemplo prático e ideal para ser delegada a uma ferramenta de IA como o GitHub Copilot ou ChatGPT?",
+    "options": [
+      "Definir a estratégia de marketing de um novo aplicativo.",
+      "Realizar a gestão de tarefas da equipe de desenvolvimento em uma sprint.",
+      "Converter uma função escrita em JavaScript para Python ou gerar a documentação (docstring) de um método.",
+      "Decidir qual framework (React ou Angular) é melhor para um novo projeto web."
+    ],
+    "correct": 2,
+    "feedback": [
+      "Incorreto. Estratégia de marketing é uma área de negócios que foge do escopo de uma IA de programação.",
+      "Incorreto. A gestão de tarefas envolve organização e comunicação humana, que são responsabilidades de um gerente de projetos ou scrum master.",
+      "Correto! 'Tradução' entre linguagens e geração de documentação são tarefas baseadas em padrões bem definidos, ideais para serem automatizadas por uma IA, economizando tempo do desenvolvedor.",
+      "Incorreto. A IA pode listar os prós e contras de cada framework, mas a decisão final depende de fatores estratégicos do projeto e da equipe, exigindo julgamento humano."
+    ]
+  },
+  {
+    "question": "O que é um Protocolo de Contexto de Modelo (MCP - Model Context Protocol)?",
+    "options": [
+      "Um tipo de antivírus que protege o código gerado por IA contra malware.",
+      "Um padrão de comunicação que permite aos LLMs se conectarem e utilizarem ferramentas externas, como APIs e bancos de dados.",
+      "Um formato de arquivo para salvar e compartilhar conversas com assistentes de IA.",
+      "Uma linguagem de programação projetada especificamente para construir LLMs do zero."
+    ],
+    "correct": 1,
+    "feedback": [
+      "Incorreto. MCP não está relacionado à segurança do código, mas sim à expansão das capacidades do modelo.",
+      "Correto! O MCP atua como uma ponte, padronizando a forma como um LLM pode acessar informações atualizadas ou executar ações no mundo exterior, tornando-o mais poderoso e útil.",
+      "Incorreto. Embora existam formatos para salvar conversas, essa não é a função de um MCP.",
+      "Incorreto. LLMs são construídos usando linguagens existentes como Python; MCP é um protocolo de comunicação, não uma linguagem de programação."
+    ]
+  }
+]
