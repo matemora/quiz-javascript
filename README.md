@@ -13,3 +13,4 @@ interface Question {
 type Quiz = Question[];
 // quiz deve ser um json e o nome do arquivo deve ser slug-da-aula.json. e.g., aula-01.json
 ```
+
